@@ -6,6 +6,7 @@
     - !<own> f68f0438-2abc-4fe4-afd7-77fb2758a16d
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> 00000000-0000-0065-0000-000000000064
+    - !<own> 0987377d-de8a-4e97-a126-f6a38dae9d90
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -628,6 +629,22 @@
   BodySettingValue: 1.000000
   Damping: 0.000000
   AngularDamping: 0.000000
+- !<SceneObject/0987377d-de8a-4e97-a126-f6a38dae9d90>
+  PrefabRemaps:
+    []
+  Name: Board
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -300.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 8f20944d-519e-43ee-ad93-325b4bf5a7b0
+    - !<own> ce1061f7-8617-448e-a4f5-ebd76b7d66c9
+  Components:
+    []
 - !<ScriptComponent/0adfef45-1393-4563-a4f2-2343f66e1a92>
   PrefabRemaps:
     []
@@ -3969,6 +3986,25 @@
   ScriptTypes:
     "":
       {}
+- !<ColliderComponent/4837f704-4a5a-47c4-b5de-926129334e13>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Cylinder>
+    Axis: Z
+    Length: 34.200000
+    Radius: 38.400000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
 - !<SceneObject/4971d6a8-a5fe-431e-b815-07883d1bd9b4>
   PrefabRemaps:
     []
@@ -5009,6 +5045,21 @@
     - !<own> 1353e5b8-fa96-4236-9812-7fd080b04697
   Components:
     []
+- !<SceneObject/5dccda45-8dce-4bef-9b73-13afd2958542>
+  PrefabRemaps:
+    []
+  Name: board
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 16.500000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 85.000000, y: 85.000000, z: 85.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 6d6f0cf6-61d7-4714-a263-74defd20a47f
 - !<SceneObject/5e5af924-472c-42fc-b74e-6eb873878cd7>
   PrefabRemaps:
     []
@@ -5999,6 +6050,24 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<Image/6d6f0cf6-61d7-4714-a263-74defd20a47f>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 97b1e19a-c6d6-48fa-a26a-178363bc22e9
+  FlipX: false
+  FlipY: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<ScriptComponent/6e614c30-2b6d-4b3c-a625-ebfa1e1bf580>
   PrefabRemaps:
     []
@@ -8088,6 +8157,21 @@
     - !<own> a3ea66da-0ca8-4958-8d69-6f5045fa706c
   Components:
     []
+- !<SceneObject/8f20944d-519e-43ee-ad93-325b4bf5a7b0>
+  PrefabRemaps:
+    []
+  Name: Dartboard
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -16.500000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 5dccda45-8dce-4bef-9b73-13afd2958542
+  Components:
+    - !<own> 4837f704-4a5a-47c4-b5de-926129334e13
 - !<SceneObject/8ff150de-0826-44a7-b007-b7d63b771dec>
   PrefabRemaps:
     []
@@ -11140,6 +11224,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/ce1061f7-8617-448e-a4f5-ebd76b7d66c9>
+  PrefabRemaps:
+    []
+  Name: Left Panel
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
 - !<RenderMeshVisual/ce8466fa-1f06-4ffe-9845-a396fcd77c99>
   PrefabRemaps:
     []
