@@ -1,0 +1,63 @@
+- !<ObjectPrefab/39f2ddba-c400-44bf-84e7-4042c91b6aa7>
+  PackagePath: ""
+  objects:
+    - !<own> cfcfba77-df9e-4339-b5c4-acb98439b8bc
+  LazyLoading: false
+  RetainAssets: true
+- !<ScriptComponent/245974c3-e3a7-4800-b6d3-ac9510186e19>
+  PrefabRemaps:
+    []
+  Name: EZPanel
+  Enabled: true
+  ScriptAsset: !<reference> b5b593d1-bdbd-4d47-898b-a961d1159ba3
+  ScriptInputsDefault:
+    debugName: true
+    debugText: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      panelType: panel
+      debug: true
+      debugName: EZPanel
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
+- !<RenderMeshVisual/a2226d8b-cc00-4028-b227-368d2048808e>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 510fd1bf-33e4-4a3b-8c7a-0bb833848ee8
+  Mesh: !<reference> f1fed6c3-c540-4697-8490-12efa2d59540
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    X: 5.000000
+    Y: 5.000000
+- !<SceneObject/cfcfba77-df9e-4339-b5c4-acb98439b8bc>
+  PrefabRemaps:
+    []
+  Name: EZPanel
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 22.476803}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a2226d8b-cc00-4028-b227-368d2048808e
+    - !<own> 245974c3-e3a7-4800-b6d3-ac9510186e19

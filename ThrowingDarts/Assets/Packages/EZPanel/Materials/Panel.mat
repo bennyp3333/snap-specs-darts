@@ -1,0 +1,54 @@
+- !<Material/510fd1bf-33e4-4a3b-8c7a-0bb833848ee8>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> c3143045-819d-487a-a715-8b2a543e960b
+- !<PassInfo/c3143045-819d-487a-a715-8b2a543e960b>
+  CachedProperties:
+    []
+  DepthWrite: true
+  DepthTest: true
+  DepthFunction: LessEqual
+  TwoSided: true
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 2
+  Defines:
+    - ENABLE_BASE_TEX
+    - ENABLE_LIGHTING
+    - ENABLE_NORMALMAP
+  BlendMode: PremultipliedAlphaAuto
+  Properties:
+    Port_Exponent_N032:
+      typeIdx: 1
+      value: 1.000000
+    Port_Input1_N010:
+      typeIdx: 1
+      value: 3.000000
+    Port_Input1_N024:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Port_Input_N020:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Port_Intensity_N032:
+      typeIdx: 1
+      value: 1.000000
+    Port_Normal_N032:
+      typeIdx: 4
+      value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    centerAlpha:
+      typeIdx: 1
+      value: 0.100000
+    glowColor:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    outlineThinkness:
+      typeIdx: 1
+      value: 0.100000
+  Pass: !<reference> 5e59cf5a-8865-4911-b56b-de9bb734f81b
