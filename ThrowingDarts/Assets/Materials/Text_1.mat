@@ -416,7 +416,6 @@
     - backCapPBR
     - outerEdgePBR
     - innerEdgePBR
-    - frontCapPBR
   BlendMode: PremultipliedAlphaAuto
   Properties:
     InnerEdgeStartingColor:
@@ -464,7 +463,7 @@
     matcapTex:
       typeIdx: 9
       value:
-        id: a9125103-2d05-48ea-bedb-3aea10358e54
+        id: aa5ac2d5-2844-4a73-a2a2-ca671eb71e09
         sampler:
           filteringMode: Trilinear
           wrapModeU: Repeat

@@ -1,8 +1,8 @@
-- !<Material/6ecf2873-6565-4618-ac31-75792e643d94>
+- !<Material/4ed78b9f-ce69-4737-abb3-6098d6875133>
   PackagePath: ""
   PassesInfo:
-    - !<own> 39c1bb67-25c2-4417-aac7-7d31ad018b2a
-- !<PassInfo/39c1bb67-25c2-4417-aac7-7d31ad018b2a>
+    - !<own> f3c4f0fa-264d-4203-a374-7ad7ddb76c19
+- !<PassInfo/f3c4f0fa-264d-4203-a374-7ad7ddb76c19>
   CachedProperties:
     - Port_Depth_N004:
         typeIdx: 1
@@ -46,7 +46,7 @@
     - Port_WorldTangent_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 1.000000}
-  DepthWrite: false
+  DepthWrite: true
   DepthTest: true
   DepthFunction: LessEqual
   TwoSided: false
@@ -92,8 +92,8 @@
       value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     color1:
       typeIdx: 5
-      value: {x: 0.260517, y: 0.260517, z: 0.260517, w: 1.000000}
+      value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
     color2:
       typeIdx: 5
-      value: {x: 0.570459, y: 0.570474, z: 0.570459, w: 1.000000}
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   Pass: !<reference> b61c0455-89a2-450e-a94e-7bff0569f8e6
