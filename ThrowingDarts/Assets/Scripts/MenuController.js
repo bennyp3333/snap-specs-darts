@@ -1,4 +1,5 @@
-
+//@input SceneObject root
+//@input SceneObject
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "MenuController" {"showIf":"debug"}
@@ -7,18 +8,38 @@
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
+var playersCount = 2;
+var gameMode = "highScore"
+
 function init(){
 
     debugPrint("Initilized!");
 }
 
-function onUpdate(){
+script.fade = function(inOut, time = 0.5){
+    
+}
 
-    //debugPrint("Updated!");
+script.pressStartButton = function(){
+    //fire event [menu completed]
+}
+
+script.pressButtonUp = function(){
+    //increment players count
+    //set players count text
+}
+
+script.pressButtonDown = function(){
+    //decrement players count
+    //set players count text
+}
+
+script.setGameMode = function(toggle){
+    //set game mode string
+    //
 }
 
 script.createEvent("OnStartEvent").bind(init);
-script.createEvent("UpdateEvent").bind(onUpdate);
 
 // Debug
 function debugPrint(text){
