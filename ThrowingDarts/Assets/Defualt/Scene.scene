@@ -963,6 +963,7 @@
   Enabled: true
   ScriptAsset: !<reference> 1e266c40-6803-4974-8ba7-3f11a3a3c7d3
   ScriptInputsDefault:
+    enabled: true
     smoothPosition: true
     posSmoothing: true
     rotSmoothing: true
@@ -970,6 +971,7 @@
     {}
   ScriptInputs:
     "":
+      enabled: true
       attachTo: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
       smoothPosition: true
       posSmoothing: !<float> 1.000000
@@ -1094,7 +1096,7 @@
 - !<SceneObject/100c0107-f9e9-4cb2-bec6-4616b0a1f939>
   PrefabRemaps:
     []
-  Name: Button Mesh
+  Name: Button Mesh T
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -1612,7 +1614,7 @@
 - !<SceneObject/18b4506a-cb70-4a6e-981d-3cff5b32dae1>
   PrefabRemaps:
     []
-  Name: Toggle Off Icon
+  Name: Game Mode 1
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -1815,7 +1817,7 @@
 - !<SceneObject/1b183844-171d-4ca5-a608-9c09f9e74903>
   PrefabRemaps:
     []
-  Name: PinchButtonStart Copy
+  Name: PinchButtonStart
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -2783,7 +2785,7 @@
 - !<SceneObject/27fc0f9f-e03e-4e61-9267-38b92e6dfd43>
   PrefabRemaps:
     []
-  Name: Toggle On Icon
+  Name: Game Mode 2
   Enabled: false
   Layers: 1
   LocalTransform:
@@ -4821,14 +4823,16 @@
   Enabled: true
   ScriptAsset: !<reference> cb9f1367-73ac-46e2-8eed-74246c9615cc
   ScriptInputsDefault:
-    root: true
     debugName: true
     debugText: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      root: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      smoothFollow: !<reference.ScriptComponent> 0d958365-94c1-4514-aeff-059fa7709687
+      root: !<reference.SceneObject> 8d775d24-1343-4253-b7ef-1a332e9c4b95
+      panel: !<reference.SceneObject> ef3055ce-419c-4cec-801e-1b706331a83c
+      playersCountText: !<reference.Text3D> 8f83a0d0-5650-4897-9ee7-7a5c189cdc9b
       debug: true
       debugName: MenuController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
@@ -6846,9 +6850,9 @@
     []
   Name: Physics Collider
   Enabled: true
-  Shape: !<Sphere>
-    FitVisual: true
-    Radius: 6.000000
+  Shape: !<Box>
+    FitVisual: false
+    Size: {x: 3.500000, y: 3.000000, z: 1.000000}
   Matter: !<reference> 00000000-0000-0000-0000-000000000000
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
@@ -6858,7 +6862,7 @@
   RotationTension: 30.000000
   ForceCompound: false
   Intangible: false
-  ShowCollider: false
+  ShowCollider: true
 - !<SceneObject/691be975-a6fd-42b9-a51a-bcdeebedb743>
   PrefabRemaps:
     []
@@ -6903,14 +6907,14 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 510fd1bf-33e4-4a3b-8c7a-0bb833848ee8
+    - !<reference> 41125592-698e-4063-931d-9c57bf9e4a60
   Mesh: !<reference> f1fed6c3-c540-4697-8490-12efa2d59540
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
-    X: 6.000000
-    Y: 5.000000
+    X: 2.500000
+    Y: 2.000000
 - !<ColliderComponent/6a604f37-8018-4822-ad71-2c9450314663>
   PrefabRemaps:
     []
@@ -7645,7 +7649,7 @@
 - !<SceneObject/720a24b8-4249-4057-b956-7a6702fb239a>
   PrefabRemaps:
     []
-  Name: ToggleButtonHighScore
+  Name: ToggleButtonGameMode
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -7655,8 +7659,8 @@
     hasSegmentScaleCompensation: false
   Children:
     - !<own> 100c0107-f9e9-4cb2-bec6-4616b0a1f939
-    - !<own> 27fc0f9f-e03e-4e61-9267-38b92e6dfd43
     - !<own> 18b4506a-cb70-4a6e-981d-3cff5b32dae1
+    - !<own> 27fc0f9f-e03e-4e61-9267-38b92e6dfd43
   Components:
     - !<own> 9db08edd-b9b6-45b0-9a19-575675713911
     - !<own> 6d8f182b-8571-4c60-99ed-76d45d69994f
@@ -8155,6 +8159,22 @@
   Components:
     - !<own> f4029e40-76bf-4921-b70b-e4ce76a7bac1
     - !<own> 6b376b45-f8ef-456d-b8cd-673410d85157
+- !<ScriptComponent/7643c9ea-e4bb-4bd3-8b9b-52174028c0e8>
+  PrefabRemaps:
+    []
+  Name: GlobalEvents
+  Enabled: true
+  ScriptAsset: !<reference> b6bff926-d378-46da-b3c2-a249674832a5
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/767704e3-511e-4e8e-9d9e-9f375398bbbc>
   PrefabRemaps:
     []
@@ -8814,13 +8834,12 @@
   Enabled: true
   ScriptAsset: !<reference> 9a2bb06c-58eb-4e26-9ecf-8c311eba98f5
   ScriptInputsDefault:
-    menuController: true
     debugText: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      menuController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      menuController: !<reference.ScriptComponent> 4aa935a3-5b47-4080-ab56-3a0da3dd7489
       debug: true
       debugName: GameController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
@@ -9254,7 +9273,7 @@
 - !<SceneObject/889e13e4-716e-4117-aa4f-2b2d0c97554d>
   PrefabRemaps:
     []
-  Name: Players
+  Name: Players Count
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -10110,6 +10129,7 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
+    - !<own> dcade600-c454-4087-9371-964ee4012088
     - !<own> 22785f55-a9d5-4b64-b79f-6e24e681bb09
     - !<own> bd4f98ec-057f-4263-b5c8-ad0fdf882f05
   Components:
@@ -11277,16 +11297,15 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    customFunctionForOnButtonPinched: true
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       editEventCallbacks: true
-      customFunctionForOnButtonPinched: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      customFunctionForOnButtonPinched: !<reference.ScriptComponent> 4aa935a3-5b47-4080-ab56-3a0da3dd7489
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - pressStartButton
   ScriptTypes:
     "":
       {}
@@ -11866,6 +11885,22 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/b39d6f1d-6e6b-40ab-a9e5-0cb8abda1732>
+  PrefabRemaps:
+    []
+  Name: CallbackTracker
+  Enabled: true
+  ScriptAsset: !<reference> 48d6b311-231d-482f-a471-a08a862a7ef3
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/b3f6fd6f-4d32-4d30-ab3a-893f7e77546f>
   PrefabRemaps:
     []
@@ -12434,6 +12469,26 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ScriptComponent/c2a5ddd4-ef53-4f41-b792-a89b5db8dfdb>
+  PrefabRemaps:
+    []
+  Name: Interactable
+  Enabled: true
+  ScriptAsset: !<reference> c973d211-281b-4016-ae39-e12f3317bcae
+  ScriptInputsDefault:
+    targetingMode: true
+    enableInstantDrag: true
+    allowMultipleInteractors: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetingMode: !<float> 3.000000
+      enableInstantDrag: false
+      allowMultipleInteractors: true
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/c2edfd34-c09a-4e38-b5da-299dd2e2923c>
   PrefabRemaps:
     []
@@ -13666,6 +13721,22 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/dcade600-c454-4087-9371-964ee4012088>
+  PrefabRemaps:
+    []
+  Name: GlobalEvents
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b39d6f1d-6e6b-40ab-a9e5-0cb8abda1732
+    - !<own> 7643c9ea-e4bb-4bd3-8b9b-52174028c0e8
 - !<RenderMeshVisual/dcc3ad96-997c-4e0a-94bc-1ae501eb02af>
   PrefabRemaps:
     []
@@ -14042,7 +14113,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 4ed78b9f-ce69-4737-abb3-6098d6875133
+    - !<reference> 5e83ba17-79a8-470d-b301-0fa7f09cf974
   Mesh: !<reference> 2eb864c8-78b1-4dac-b16d-8c1b045c593c
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
@@ -14750,7 +14821,7 @@
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 10.000000, y: 9.999999, z: 5.000000}
+    scale: {x: 20.000000, y: 20.000000, z: 10.000000}
     hasSegmentScaleCompensation: false
   Children:
     []
@@ -14758,6 +14829,7 @@
     - !<own> 69b9221c-fbc0-40f9-80b4-68db1dc38db7
     - !<own> 6d9f4f89-7013-4700-9796-28356f72d6a8
     - !<own> 68c19f0a-cc0f-48d7-a910-250a72821238
+    - !<own> c2a5ddd4-ef53-4f41-b792-a89b5db8dfdb
 - !<ScriptComponent/efcda464-fbc4-45be-93af-a83450f936fa>
   PrefabRemaps:
     []
@@ -15278,7 +15350,7 @@
 - !<SceneObject/f64e0a71-047f-49fc-a9b7-d08c58869728>
   PrefabRemaps:
     []
-  Name: Button Mesh
+  Name: Button Mesh B
   Enabled: true
   Layers: 1
   LocalTransform:

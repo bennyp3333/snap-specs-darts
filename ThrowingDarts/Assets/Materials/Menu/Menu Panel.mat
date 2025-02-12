@@ -1,8 +1,8 @@
-- !<Material/510fd1bf-33e4-4a3b-8c7a-0bb833848ee8>
+- !<Material/41125592-698e-4063-931d-9c57bf9e4a60>
   PackagePath: ""
   PassesInfo:
-    - !<own> c3143045-819d-487a-a715-8b2a543e960b
-- !<PassInfo/c3143045-819d-487a-a715-8b2a543e960b>
+    - !<own> c8025f7c-901c-4dd5-b5e9-1993d146cf2a
+- !<PassInfo/c8025f7c-901c-4dd5-b5e9-1993d146cf2a>
   CachedProperties:
     - Port_Base_N033:
         typeIdx: 5
@@ -103,7 +103,7 @@
   PolygonOffset: {x: 0.000000, y: 0.000000}
   FrustumCulling: Auto
   FrustumCullPad: 0.000000
-  InstanceCount: 1
+  InstanceCount: 2
   Defines:
     - ENABLE_BASE_TEX
     - ENABLE_LIGHTING
@@ -139,11 +139,11 @@
       value: 0
     baseColor:
       typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      value: {x: 0.000000, y: 0.589807, z: 1.000000, w: 1.000000}
     centerAlpha:
       typeIdx: 1
-      value: 0.100000
+      value: 0.500000
     outlineThinkness:
       typeIdx: 1
-      value: 0.050000
+      value: 0.010000
   Pass: !<reference> 5e59cf5a-8865-4911-b56b-de9bb734f81b

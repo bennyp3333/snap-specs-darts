@@ -151,6 +151,39 @@ function findScriptUpwards(sceneObj, propName, filterFunc, allowSelf) {
     return null;
 }
 
+
+function recursiveAlpha(rootObj, alpha, effectDisabled){
+    applyToDescendants(rootObj, (obj) => {
+        if(!obj.enabled && !effectDisabled){ return; }
+        
+        var meshVisComp = obj.getComponent("Component.RenderMeshVisual");
+        var text3DComp = obj.getComponent("Component.Text3D");
+        var textComp = obj.getComponent("Component.Text");
+        
+        if(meshVisComp){
+            for (var i = 0; i < meshVisComp.getMaterialsCount(); i++) {
+                var currColor = meshVisComp.getMaterial(i).mainPass.baseColor;
+                if(currColor){
+                    currColor.a = alpha;
+                    meshVisComp.getMaterial(i).mainPass.baseColor = currColor;
+                }
+            }
+        }else if(text3DComp){
+            for (var i = 0; i < text3DComp.getMaterialsCount(); i++) {
+                var currColor = text3DComp.getMaterial(i).mainPass.baseColor;
+                if(currColor){
+                    currColor.a = alpha;
+                    text3DComp.getMaterial(i).mainPass.baseColor = currColor;
+                }
+            }
+        }else if(textComp){
+            var currColor = textComp.textFill.color;
+            currColor.a = alpha;
+            textComp.textFill.color = currColor;
+        }
+    });
+}
+
 // Exporting the functions
 var exports = {
     findSceneObjectByName,
@@ -158,7 +191,8 @@ var exports = {
     isDescendantOf,
     applyToDescendants,
     findScript,
-    findScriptUpwards
+    findScriptUpwards,
+    recursiveAlpha
 };
 
 if(script){

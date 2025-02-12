@@ -1,5 +1,7 @@
+//@input Component.ScriptComponent smoothFollow
 //@input SceneObject root
-//@input SceneObject
+//@input SceneObject panel
+//@input Component.Text3D playersCountText
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "MenuController" {"showIf":"debug"}
@@ -9,34 +11,90 @@ var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
 var playersCount = 2;
-var gameMode = "highScore"
+var gameMode = global.GameModes.HighScore;
+
+var maxPlayers = 5;
+var minPlayers = 1;
+
+var playersBeginCopy = "Players: ";
+
+var fadeTime = 0.5;
+
+var tweens = [];
 
 function init(){
-
+    global.utils.recursiveAlpha(script.root, 0, true);
+    script.root.enabled = false;
+    global.events.add("openMenu", openMenu);
     debugPrint("Initilized!");
 }
 
-script.fade = function(inOut, time = 0.5){
-    
+function fade(inOut, callback){
+    stopTweens();
+    var startVal = script.panel.getComponent("Component.RenderMeshVisual").mainPass.baseColor.a;
+    var endVal = inOut ? 1 : 0;
+    tweens.push(global.simpleTween(startVal, endVal, fadeTime, 0, (val) => {
+        global.utils.recursiveAlpha(script.root, val, true);
+    }, () => {
+        if(callback){ callback(); }
+    }));
+}
+
+function openMenu(){
+    debugPrint("Menu Opening");
+    script.smoothFollow.start(true);
+    script.root.enabled = true;
+    fade(true, null);
+}
+
+function closeMenu(callback){
+    debugPrint("Menu Closing");
+    fade(false, () => {
+        script.root.enabled = false;
+        script.smoothFollow.stop();
+        if(callback){ callback(); }
+    });
 }
 
 script.pressStartButton = function(){
-    //fire event [menu completed]
+    debugPrint("Start button pressed");
+    closeMenu(() => {
+        global.events.trigger("menuClosed", {
+            playersCount: playersCount,
+            gameMode: gameMode
+        });
+    });
 }
 
 script.pressButtonUp = function(){
-    //increment players count
-    //set players count text
+    debugPrint("Up button pressed");
+    playersCount = Math.min(maxPlayers, playersCount + 1);
+    script.playersCountText.text = playersBeginCopy + playersCount;
+    debugPrint("Incrementing playerCount to: " + playersCount);
 }
 
 script.pressButtonDown = function(){
-    //decrement players count
-    //set players count text
+    debugPrint("Down button pressed");
+    playersCount = Math.max(minPlayers, playersCount - 1);
+    script.playersCountText.text = playersBeginCopy + playersCount;
+    debugPrint("Decrementing playerCount to: " + playersCount);
 }
 
 script.setGameMode = function(toggle){
-    //set game mode string
-    //
+    debugPrint("Game mode toggle pressed");
+    if(toggle){
+        gameMode = global.GameModes.AroundTheClock;
+    }else{
+        gameMode = global.GameModes.HighScore;
+    }
+    debugPrint("Set game mode to: " + gameMode);
+}
+
+function stopTweens(){
+    debugPrint("Stopping Tweens");
+    while(tweens.length > 0){
+        tweens.pop().enabled = false;
+    }
 }
 
 script.createEvent("OnStartEvent").bind(init);

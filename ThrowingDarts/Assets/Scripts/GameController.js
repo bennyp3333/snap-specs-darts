@@ -7,8 +7,25 @@
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
-function init(){
+const enumValue = (name) => Object.freeze({toString: () => name});
 
+global.GameModes = Object.freeze({
+    HighScore: enumValue("GameModes.HighScore"),
+    AroundTheClock: enumValue("GameModes.AroundTheClock")
+});
+
+global.playersCount = null;
+global.gameMode = null;
+
+function init(){
+    var openMenuDelay = script.createEvent("DelayedCallbackEvent");
+    openMenuDelay.bind(() => {
+        global.events.trigger("openMenu");
+    })
+    openMenuDelay.reset(0.1);
+    
+    global.events.add("menuClosed", startGame);
+    
     debugPrint("Initilized!");
 }
 

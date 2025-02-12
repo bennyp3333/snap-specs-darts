@@ -43,6 +43,7 @@ function mergeWithConflictDetection(fromObj, toObj) {
             print("Conflict detected for function name: " + funcName);
         } else {
             toObj[funcName] = fromObj[funcName];
+            //print("Loaded util: " + funcName);
         }
     }
 }

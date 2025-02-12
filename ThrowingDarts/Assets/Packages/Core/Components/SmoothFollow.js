@@ -1,3 +1,4 @@
+//@input boolean enabled = true
 //@input SceneObject attachTo
 //@input bool smoothPosition = true
 //@input float posSmoothing = 1.0 {"showIf":"smoothPosition"}
@@ -12,6 +13,15 @@ function init() {
     script.objectTransform.setWorldRotation(script.attachToTransform.getWorldRotation());
 }
 
+script.start = function(reset) {
+    updateEvent.enabled = true;
+    if(reset){ script.reset(); }
+}
+
+script.stop = function() {
+    updateEvent.enabled = false;
+}
+
 script.reset = function() {
     init();
 }
@@ -23,6 +33,7 @@ script.updateAttachment = function(object) {
 }
 
 var updateEvent = script.createEvent("UpdateEvent");
+updateEvent.enabled = script.enabled;
 updateEvent.bind(function(eventData) {
     // Handle position updates
     if (script.smoothPosition) {

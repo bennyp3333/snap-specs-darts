@@ -29,7 +29,10 @@
     debug: false
     debugName: false
     debugText: false
+    panel: false
+    playersCountText: false
     root: false
+    smoothFollow: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -37,6 +40,9 @@
       debugName: MenuController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       root: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      panel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      playersCountText: !<reference.Text3D> 00000000-0000-0000-0000-000000000000
+      smoothFollow: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
