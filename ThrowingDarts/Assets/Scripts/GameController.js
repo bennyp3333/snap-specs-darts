@@ -1,4 +1,7 @@
 //@input Component.ScriptComponent menuController
+//@input Component.ScriptComponent wallDetector
+//@input Component.ScriptComponent boardController
+//@input SceneObject board
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "GameController" {"showIf":"debug"}
@@ -6,6 +9,8 @@
 
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
+
+var boardTransform = script.board.getTransform();
 
 const enumValue = (name) => Object.freeze({toString: () => name});
 
@@ -29,9 +34,21 @@ function init(){
     debugPrint("Initilized!");
 }
 
-function startGame(){
-    //use main prompt to tell user to face wall
-    //start placement flow
+function startGame(gameParams){
+    global.playersCount = gameParams.playersCount;
+    global.gameMode = gameParams.gameMode;
+    runPlacement();
+}
+
+function runPlacement(){
+    debugPrint("Starting placement");
+    script.wallDetector.startWallCalibration(onPlaced);
+}
+
+function onPlaced(position, rotation) {
+    boardTransform.setWorldPosition(position);
+    boardTransform.setWorldRotation(rotation);
+    debugPrint("Board placed");
 }
 
 function onUpdate(){

@@ -8,6 +8,8 @@
 script.objectTransform = script.getSceneObject().getTransform();
 script.attachToTransform = script.attachTo.getTransform();
 
+//TODO: add option to not affect position or rotation
+
 function init() {
     script.objectTransform.setWorldPosition(script.attachToTransform.getWorldPosition());
     script.objectTransform.setWorldRotation(script.attachToTransform.getWorldRotation());
@@ -52,7 +54,7 @@ updateEvent.bind(function(eventData) {
         var lerpedRotation = quat.slerp(currentRotation, targetRotation, script.rotSmoothing * getDeltaTime());
         script.objectTransform.setWorldRotation(lerpedRotation);
     } else {
-        script.objectTransform.setWorldRotation(script.attachToTransform.getWorldRotation());
+        //script.objectTransform.setWorldRotation(script.attachToTransform.getWorldRotation());
     }
 });
 

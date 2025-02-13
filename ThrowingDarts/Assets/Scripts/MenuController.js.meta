@@ -26,6 +26,7 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    billboard: false
     debug: false
     debugName: false
     debugText: false
@@ -43,6 +44,7 @@
       panel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       playersCountText: !<reference.Text3D> 00000000-0000-0000-0000-000000000000
       smoothFollow: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      billboard: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

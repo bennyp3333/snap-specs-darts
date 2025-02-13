@@ -50,7 +50,7 @@ export class WallDetection extends BaseScriptComponent {
     private history = [];
     private calibrationFrames = 0;
 
-    private onGroundFoundCallback = null;
+    private onWallFoundCallback = null;
 
     onAwake() {
 
@@ -75,13 +75,13 @@ export class WallDetection extends BaseScriptComponent {
         });
     }
 
-    startGroundCalibration(callback: (pos: vec3, rot: quat) => void) {
+    startWallCalibration(callback: (pos: vec3, rot: quat) => void) {
         this.setDefaultPosition();
         this.hitTestSession?.start();
         this.visualObj.enabled = true;
         this.history = [];
         this.calibrationFrames = 0;
-        this.onGroundFoundCallback = callback;
+        this.onWallFoundCallback = callback;
         this.updateEvent = this.createEvent("UpdateEvent");
         this.updateEvent.bind(() => {
             this.update();
@@ -133,11 +133,6 @@ export class WallDetection extends BaseScriptComponent {
         if (Math.abs(foundNormal.dot(vec3.up())) < 0.1) {
             //make calibration face camera
             this.desiredPosition = foundPosition;
-            /*
-            const worldCameraForward = this.camTrans.right.cross(vec3.up()).normalize();
-            this.desiredRotation = quat.lookAt(worldCameraForward, foundNormal);
-            this.desiredRotation = this.desiredRotation.multiply(quat.fromEulerVec(new vec3(-Math.PI / 2, 0, 0)));
-            */
             
             const worldCameraForward = this.camTrans.forward; // Use the camera's forward vector
             const wallRight = foundNormal.cross(vec3.up()).normalize(); // Find the right direction of the wall
@@ -166,8 +161,9 @@ export class WallDetection extends BaseScriptComponent {
 
         if (calibrationAmount == 1) {
             this.calibrationPosition = this.desiredPosition;
-            const rotOffset = quat.fromEulerVec(new vec3(Math.PI / 2, 0, 0));
-            this.calibrationRotation = this.desiredRotation.multiply(rotOffset);
+            //const rotOffset = quat.fromEulerVec(new vec3(Math.PI / 2, 0, 0));
+            //this.calibrationRotation = this.desiredRotation.multiply(rotOffset);
+            this.calibrationRotation = this.desiredRotation;
             this.removeEvent(this.updateEvent);
         }
 
@@ -178,6 +174,6 @@ export class WallDetection extends BaseScriptComponent {
 
     private onCalibrationComplete() {
         this.hitTestSession?.stop();
-        this.onGroundFoundCallback?.(this.calibrationPosition, this.calibrationRotation);
+        this.onWallFoundCallback?.(this.calibrationPosition, this.calibrationRotation);
     }
 }

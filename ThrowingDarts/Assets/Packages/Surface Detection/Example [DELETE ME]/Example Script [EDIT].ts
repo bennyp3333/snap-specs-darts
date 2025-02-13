@@ -23,7 +23,7 @@ export class Test extends BaseScriptComponent {
 
     startSurfaceDetection() {
         this.objectVisuals.enabled = false;
-        this.wallDetection.startGroundCalibration((pos, rot) => {
+        this.wallDetection.startWallCalibration((pos, rot) => {
             this.onSurfaceDetected(pos, rot);
         });
     }

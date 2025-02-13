@@ -31,6 +31,14 @@ function init(){
     debugPrint("Initilized!");
 }
 
+script.start = function() {
+    updateEvent.enabled = true;
+}
+
+script.stop = function() {
+    updateEvent.enabled = false;
+}
+
 script.billboard = function(){
     cameraPos = cameraTransform.getWorldPosition();
     selfPos = selfTransform.getWorldPosition();

@@ -1,4 +1,5 @@
 //@input Component.ScriptComponent smoothFollow
+//@input Component.ScriptComponent billboard
 //@input SceneObject root
 //@input SceneObject panel
 //@input Component.Text3D playersCountText
@@ -29,6 +30,8 @@ function init(){
     debugPrint("Initilized!");
 }
 
+//TODO: switch to fading in panel sperate so no need for same root
+//or put panel under root
 function fade(inOut, callback){
     stopTweens();
     var startVal = script.panel.getComponent("Component.RenderMeshVisual").mainPass.baseColor.a;
@@ -43,6 +46,7 @@ function fade(inOut, callback){
 function openMenu(){
     debugPrint("Menu Opening");
     script.smoothFollow.start(true);
+    script.billboard.start();
     script.root.enabled = true;
     fade(true, null);
 }
@@ -52,6 +56,7 @@ function closeMenu(callback){
     fade(false, () => {
         script.root.enabled = false;
         script.smoothFollow.stop();
+        script.billboard.stop();
         if(callback){ callback(); }
     });
 }
