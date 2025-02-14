@@ -31,6 +31,7 @@
     debug: false
     debugName: false
     debugText: false
+    holsterController: false
     menuController: false
     wallDetector: false
   ScriptTypesHidden:
@@ -43,6 +44,7 @@
       wallDetector: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       boardController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       board: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      holsterController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

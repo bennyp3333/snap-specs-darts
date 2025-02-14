@@ -1,33 +1,36 @@
-//@input string panelType = "panel" {"widget":"combobox", "values":[{"label":"panel", "value":"panel"}, {"label":"pill", "value":"pill"}, {"label":"sphere", "value":"sphere"}]}
+//@input SceneObject root
+//@input SceneObject[] dartSpawnPoints
+//@input Asset.ObjectPrefab dartPrefab
 //@ui {"widget":"separator"}
 //@input bool debug
-//@input string debugName = "EZPanel" {"showIf":"debug"}
+//@input string debugName = "HolsterController" {"showIf":"debug"}
 //@input Component.Text debugText {"showIf":"debug"}
 
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
-var panelRenderMesh;
-
 function init(){
-    panelRenderMesh = self.getComponent("Component.RenderMeshVisual");
-    //TODO: make material unique?
+    script.root.enabled = false;
     debugPrint("Initilized!");
 }
 
-script.setSize = function(size, time){
-    //TODO
+script.show = function(bool){
+    script.root.enabled = bool;
 }
 
-script.setColor = function(color, time){
-    //TODO
+script.spawnDarts = function(){
+    for(var i = 0; i < script.dartSpawnPoints.length; i++){
+        var dartSpawnPoint = script.dartSpawnPoints[i];
+    }
 }
 
-script.fade = function(inOut, time, recursive){
-    //TODO
+function onUpdate(){
+
+    //debugPrint("Updated!");
 }
 
 script.createEvent("OnStartEvent").bind(init);
+script.createEvent("UpdateEvent").bind(onUpdate);
 
 // Debug
 function debugPrint(text){

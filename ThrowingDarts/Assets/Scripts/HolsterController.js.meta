@@ -1,20 +1,20 @@
-- !<AssetImportMetadata/610b342c-5e63-4030-bd11-cc196f9de403>
+- !<AssetImportMetadata/bf58744d-dfa7-4778-a530-ebc4af6fb1d2>
   ImportedAssetIds:
-    JavaScriptAsset: !<reference> cb9f1367-73ac-46e2-8eed-74246c9615cc
+    JavaScriptAsset: !<reference> 88cb83f4-ac95-438a-9227-3f052e47ebc4
   ImporterName: JavaScriptAssetImporter
-  PrimaryAsset: !<reference> cb9f1367-73ac-46e2-8eed-74246c9615cc
+  PrimaryAsset: !<reference> 88cb83f4-ac95-438a-9227-3f052e47ebc4
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
   ExtraData:
     {}
   AssetDataMap:
-    JavaScriptAsset: !<own> 2f3eaab5-ed45-4fb0-8607-0f4ec561da91
+    JavaScriptAsset: !<own> e955e485-1db5-42fb-be13-67b5a0149048
   DependentFiles:
     []
-  ImporterSettings: !<AssetImporterSettings/0c22229b-534c-4163-9915-b9f2b66aed54>
+  ImporterSettings: !<AssetImporterSettings/82666ccf-28de-4b01-a6c8-e72346ecaed8>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ScriptAssetData/2f3eaab5-ed45-4fb0-8607-0f4ec561da91>
+- !<ScriptAssetData/e955e485-1db5-42fb-be13-67b5a0149048>
   SvgIcon: ""
   Description: ""
   InternalVersion: 0
@@ -26,24 +26,21 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    dartPrefab: false
+    dartSpawnPoints: false
     debug: false
     debugName: false
     debugText: false
-    panel: false
-    playersCountText: false
     root: false
-    smoothFollow: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
     - debug: false
-      debugName: MenuController
+      debugName: HolsterController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       root: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      panel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      playersCountText: !<reference.Text3D> 00000000-0000-0000-0000-000000000000
-      smoothFollow: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
-      billboard: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      dartSpawnPoints: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      dartPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

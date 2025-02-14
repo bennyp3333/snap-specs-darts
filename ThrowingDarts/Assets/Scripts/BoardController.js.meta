@@ -29,12 +29,14 @@
     debug: false
     debugName: false
     debugText: false
+    root: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
     - debug: false
       debugName: MenuController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      root: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

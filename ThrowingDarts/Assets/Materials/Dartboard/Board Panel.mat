@@ -1,8 +1,8 @@
-- !<Material/9ececd2f-e360-4900-82f8-312c2928b9bf>
+- !<Material/74534c3d-95aa-4787-8a8b-6b2df3a95a49>
   PackagePath: ""
   PassesInfo:
-    - !<own> 140a434a-8c52-4b78-8b79-3f40a5d672ea
-- !<PassInfo/140a434a-8c52-4b78-8b79-3f40a5d672ea>
+    - !<own> b3563d56-5a2d-479b-af74-ea7ee1b8b1cc
+- !<PassInfo/b3563d56-5a2d-479b-af74-ea7ee1b8b1cc>
   CachedProperties:
     - Port_Base_N033:
         typeIdx: 5
@@ -139,13 +139,13 @@
       value: 0
     baseColor:
       typeIdx: 5
-      value: {x: 0.000000, y: 0.589807, z: 1.000000, w: 1.000000}
+      value: {x: 0.260517, y: 0.260517, z: 0.260517, w: 1.000000}
     centerAlpha:
       typeIdx: 1
       value: 0.500000
     glowColor:
       typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      value: {x: 0.000000, y: 0.589807, z: 1.000000, w: 1.000000}
     outlineThinkness:
       typeIdx: 1
       value: 0.010000

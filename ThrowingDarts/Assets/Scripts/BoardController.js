@@ -1,4 +1,4 @@
-
+//@input SceneObject root
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "BoardController" {"showIf":"debug"}
@@ -8,8 +8,12 @@ var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
 function init(){
-
+    script.root.enabled = false;
     debugPrint("Initilized!");
+}
+
+script.show = function(bool){
+    script.root.enabled = bool;
 }
 
 function onUpdate(){

@@ -1,6 +1,7 @@
 //@input Component.ScriptComponent menuController
 //@input Component.ScriptComponent wallDetector
 //@input Component.ScriptComponent boardController
+//@input Component.ScriptComponent holsterController
 //@input SceneObject board
 //@ui {"widget":"separator"}
 //@input bool debug
@@ -22,6 +23,8 @@ global.GameModes = Object.freeze({
 global.playersCount = null;
 global.gameMode = null;
 
+var boardPlaced = false;
+
 function init(){
     var openMenuDelay = script.createEvent("DelayedCallbackEvent");
     openMenuDelay.bind(() => {
@@ -29,15 +32,19 @@ function init(){
     })
     openMenuDelay.reset(0.1);
     
-    global.events.add("menuClosed", startGame);
+    global.events.add("menuClosed", onMenuClosed);
     
     debugPrint("Initilized!");
 }
 
-function startGame(gameParams){
+function onMenuClosed(gameParams){
     global.playersCount = gameParams.playersCount;
     global.gameMode = gameParams.gameMode;
-    runPlacement();
+    if(!boardPlaced){
+        runPlacement();
+    }else{
+        startGame();
+    }
 }
 
 function runPlacement(){
@@ -48,7 +55,18 @@ function runPlacement(){
 function onPlaced(position, rotation) {
     boardTransform.setWorldPosition(position);
     boardTransform.setWorldRotation(rotation);
+    boardPlaced = true;
+    script.boardController.show(true);
     debugPrint("Board placed");
+    //TODO: move this?
+    startGame();
+}
+
+function startGame(){
+    //show holster
+    script.holsterController.show(true);
+    //queue darts
+    script.holsterController.spawnDarts();
 }
 
 function onUpdate(){
