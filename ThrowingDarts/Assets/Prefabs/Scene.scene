@@ -35,6 +35,7 @@
     hasSegmentScaleCompensation: false
   Children:
     - !<own> 7f1e4192-9cb9-4159-ab37-c29e5f6c57e0
+    - !<own> ea1d4e02-dae4-4269-aaab-abf9e69bde98
   Components:
     - !<own> 00000000-0000-0065-0000-000000000065
     - !<own> e5553c8a-0b7e-4ef4-92d9-3e1318fb82c1
@@ -1835,6 +1836,31 @@
     - !<own> a3ef195a-5bdc-4d96-a4ad-9d149a2f4d5e
     - !<own> 62f3a8e2-ac5a-4ba7-83b3-cac1610a7330
     - !<own> 7a2899c3-b02c-4f81-9a90-ed8511366a54
+- !<ScriptComponent/177de880-6a18-484e-8f63-eafe4dd082bc>
+  PrefabRemaps:
+    []
+  Name: BillboardY
+  Enabled: true
+  ScriptAsset: !<reference> 95bc0edc-99e2-409d-93b8-0605449e1b5d
+  ScriptInputsDefault:
+    onStart: true
+    debug: true
+    debugName: true
+    debugText: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      camera: !<reference.SceneObject> 8f20944d-519e-43ee-ad93-325b4bf5a7b0
+      flipFacingDir: true
+      onUpdate: true
+      onStart: false
+      debug: false
+      debugName: Billboard
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/186e583d-79bb-4534-9a3f-44a5d05c63a1>
   PrefabRemaps:
     []
@@ -3427,7 +3453,7 @@
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: -35.000000, z: -45.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
@@ -9945,7 +9971,6 @@
     hasSegmentScaleCompensation: false
   Children:
     - !<own> a55011e8-bedd-4653-8c08-84ca4e360b8b
-    - !<own> 29600c66-00a3-4e6b-83c0-25920792af37
   Components:
     - !<own> c368d073-6936-49da-a86f-31ff5609d46f
 - !<SceneObject/7f36a885-824c-4329-8b11-919324b5c881>
@@ -13530,6 +13555,7 @@
   Enabled: true
   ScriptAsset: !<reference> 95bc0edc-99e2-409d-93b8-0605449e1b5d
   ScriptInputsDefault:
+    flipFacingDir: true
     onUpdate: true
     onStart: true
     debug: true
@@ -13540,6 +13566,7 @@
   ScriptInputs:
     "":
       camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      flipFacingDir: false
       onUpdate: false
       onStart: false
       debug: false
@@ -16655,6 +16682,21 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/ea1d4e02-dae4-4269-aaab-abf9e69bde98>
+  PrefabRemaps:
+    []
+  Name: Billboard
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 29600c66-00a3-4e6b-83c0-25920792af37
+  Components:
+    - !<own> 177de880-6a18-484e-8f63-eafe4dd082bc
 - !<ScreenTransform/ea3916e5-1ca2-40ba-9dcf-b879223def2e>
   PrefabRemaps:
     []
