@@ -1,0 +1,288 @@
+- !<ObjectPrefab/4d050d97-a7f9-4edf-8c90-554accd37bd6>
+  PackagePath: ""
+  objects:
+    - !<own> ef78ef94-fe5d-4dff-aae2-6fb7d61c5963
+  LazyLoading: false
+  RetainAssets: true
+- !<LookAtComponent/211ec7c0-312d-48aa-8c7c-98f9d0e3a29d>
+  PrefabRemaps:
+    []
+  Name: Look At
+  Enabled: true
+  LookAtMode: LookAtPoint
+  AimVectors: ZAimYUp
+  WorldUpVector: SceneY
+  Target: !<reference> 00000000-0000-0065-0000-000000000064
+  OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+- !<SceneObject/2b192f0c-3750-4929-b63a-82c17636d5d5>
+  PrefabRemaps:
+    []
+  Name: dart1
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -0.000000}
+    rotation: {x: -169.224060, y: -89.980217, z: 169.224060}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 31d45e29-e7a6-4573-9915-31be436e1166
+- !<RenderMeshVisual/31d45e29-e7a6-4573-9915-31be436e1166>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 3
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> af925d21-3307-41dc-8d63-b62c50979401
+  Mesh: !<reference> 5747dabd-4a6b-4288-b553-62b06fa775e9
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<AudioComponent/4db9f6d8-f08a-4c15-89b9-620af96452f2>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 77dba33b-2d73-47dc-a400-47e8d0a74713
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: true
+  EnablePositionEffect: true
+- !<Image/86f5172d-3688-4ea8-b6c0-335d951e2ea1>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 2
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 95c194a1-e640-44a9-8725-c5936beead1d
+  FlipX: false
+  FlipY: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<BodyComponent/881f1e37-9a28-4935-a3a9-0d63d05da279>
+  PrefabRemaps:
+    []
+  Name: Physics Body
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: false
+    Size: {x: 2.250000, y: 2.250000, z: 10.000000}
+  Matter: !<reference> a26cc039-5298-4fcd-9486-322a254fa180
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+  Dynamic: false
+  BodySetting: Density
+  BodySettingValue: 1.000000
+  Damping: 0.000000
+  AngularDamping: 0.000000
+- !<ScriptComponent/89cac31d-0076-4048-b27d-9397b5a136fc>
+  PrefabRemaps:
+    []
+  Name: Interactable
+  Enabled: true
+  ScriptAsset: !<reference> c973d211-281b-4016-ae39-e12f3317bcae
+  ScriptInputsDefault:
+    enableInstantDrag: true
+    allowMultipleInteractors: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetingMode: !<float> 1.000000
+      enableInstantDrag: false
+      allowMultipleInteractors: true
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/8e81a2f9-ed6f-4f6c-82f0-e16a4bd99a53>
+  PrefabRemaps:
+    []
+  Name: HitSound
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b84b93d3-9b29-46ea-8627-19250ed01ae8
+- !<ScriptComponent/a4d94dd7-dace-4d80-afae-d7eb188065a0>
+  PrefabRemaps:
+    []
+  Name: Dart
+  Enabled: true
+  ScriptAsset: !<reference> 76bc02fe-f74b-43f5-8248-e30415ea9f9b
+  ScriptInputsDefault:
+    debugName: true
+    debugText: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      hitAudioComp: !<reference.AudioComponent> b84b93d3-9b29-46ea-8627-19250ed01ae8
+      bounceAudioComp: !<reference.AudioComponent> 4db9f6d8-f08a-4c15-89b9-620af96452f2
+      light: !<reference.SceneObject> e257ecbd-20b3-472e-bba9-fc2f28b065b2
+      debug: true
+      debugName: Dart
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
+- !<AudioComponent/b84b93d3-9b29-46ea-8627-19250ed01ae8>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> ca6b4a78-4a58-4784-9883-4aab156525c5
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: true
+  EnablePositionEffect: true
+- !<ScriptComponent/c0a24261-4608-4d52-a252-3652e188f430>
+  PrefabRemaps:
+    []
+  Name: InteractableManipulation
+  Enabled: true
+  ScriptAsset: !<reference> 701e5d18-6a44-49ba-9cf8-a20c366c1439
+  ScriptInputsDefault:
+    manipulateRootSceneObject: true
+    minimumScaleFactor: true
+    maximumScaleFactor: true
+    enableTranslation: true
+    enableRotation: true
+    showStretchZProperties: true
+    zStretchFactorMin: true
+    zStretchFactorMax: true
+    useFilter: true
+    showFilterProperties: true
+    minCutoff: true
+    beta: true
+    dcutoff: true
+    showTranslationProperties: true
+    _enableXTranslation: true
+    _enableYTranslation: true
+    _enableZTranslation: true
+    showRotationProperties: true
+    _rotationAxis: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      manipulateRootSceneObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      minimumScaleFactor: 0.250000
+      maximumScaleFactor: !<float> 20.000000
+      enableTranslation: true
+      enableRotation: true
+      enableScale: false
+      enableStretchZ: false
+      showStretchZProperties: false
+      zStretchFactorMin: !<float> 1.000000
+      zStretchFactorMax: !<float> 12.000000
+      useFilter: true
+      showFilterProperties: false
+      minCutoff: !<float> 2.000000
+      beta: 0.015000
+      dcutoff: !<float> 1.000000
+      showTranslationProperties: false
+      _enableXTranslation: true
+      _enableYTranslation: true
+      _enableZTranslation: true
+      showRotationProperties: false
+      _rotationAxis: All
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/e257ecbd-20b3-472e-bba9-fc2f28b065b2>
+  PrefabRemaps:
+    []
+  Name: Light
+  Enabled: false
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -5.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 86f5172d-3688-4ea8-b6c0-335d951e2ea1
+    - !<own> 211ec7c0-312d-48aa-8c7c-98f9d0e3a29d
+- !<SceneObject/ef78ef94-fe5d-4dff-aae2-6fb7d61c5963>
+  PrefabRemaps:
+    []
+  Name: Dart2
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -30.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2b192f0c-3750-4929-b63a-82c17636d5d5
+    - !<own> 8e81a2f9-ed6f-4f6c-82f0-e16a4bd99a53
+    - !<own> f8faf500-7992-4292-9988-efdd94c98782
+    - !<own> e257ecbd-20b3-472e-bba9-fc2f28b065b2
+  Components:
+    - !<own> 881f1e37-9a28-4935-a3a9-0d63d05da279
+    - !<own> 89cac31d-0076-4048-b27d-9397b5a136fc
+    - !<own> c0a24261-4608-4d52-a252-3652e188f430
+    - !<own> a4d94dd7-dace-4d80-afae-d7eb188065a0
+- !<SceneObject/f8faf500-7992-4292-9988-efdd94c98782>
+  PrefabRemaps:
+    []
+  Name: BounceSound
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4db9f6d8-f08a-4c15-89b9-620af96452f2

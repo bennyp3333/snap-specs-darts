@@ -1,4 +1,5 @@
 //@input SceneObject root
+//@input SceneObject boardPlane
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "BoardController" {"showIf":"debug"}
@@ -6,6 +7,8 @@
 
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
+
+global.dartboardCenterTransform = script.boardPlane.getTransform();
 
 function init(){
     script.root.enabled = false;

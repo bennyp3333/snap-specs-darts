@@ -40,8 +40,7 @@ export class DartBehavior extends BaseScriptComponent {
 
     private dartBoardT:Transform
 
-    @input
-    public dartboardController:DartBoardController
+    //public dartboardController:DartBoardController
 
     private frameNmr = 0
 
@@ -91,8 +90,13 @@ export class DartBehavior extends BaseScriptComponent {
             return
         }
 
-        this.t.setWorldPosition(endPoint)
-        this.t.setWorldRotation(quat.lookAt(direction, vec3.up()))
+        if (global.deviceInfoSystem.isEditor()) {
+            this.t.setWorldPosition(WorldCameraFinderProvider.getInstance().getWorldPosition())
+            this.t.setWorldRotation(quat.lookAt(WorldCameraFinderProvider.getInstance().forward(), vec3.up()))
+        }else{
+            this.t.setWorldPosition(endPoint)
+            this.t.setWorldRotation(quat.lookAt(direction, vec3.up()))
+        }
 
     }
 
@@ -115,7 +119,7 @@ export class DartBehavior extends BaseScriptComponent {
     }
 
     onCollisionEnter(e) {
-
+        print("collission")
         var collision = e.collision;
         let isDartBoardHit = false
 
@@ -177,11 +181,11 @@ export class DartBehavior extends BaseScriptComponent {
                 this.t.setWorldRotation(touchRotation)
                 this.t.setWorldScale(cScale)
 
-                this.dartboardController.playDartHitSound()
+                //this.dartboardController.playDartHitSound()
             }
             else {
                 // not a straight hit
-                this.dartboardController.playDartBouncedSound()
+                //this.dartboardController.playDartBouncedSound()
             }
         }
     }
@@ -275,7 +279,7 @@ export class DartBehavior extends BaseScriptComponent {
     getHandVelocity(): vec3 {
         // If in the Lens Studio Editor, return a fixed simulated velocity
         if (global.deviceInfoSystem.isEditor()) {
-            return WorldCameraFinderProvider.getInstance().forward().uniformScale(-1050);
+            return WorldCameraFinderProvider.getInstance().forward().uniformScale(-500);
         }
     
         // Retrieve the hand's object-specific velocity data if available

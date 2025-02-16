@@ -1,20 +1,20 @@
-- !<AssetImportMetadata/a720638a-6719-4ca6-8071-2e05b7451040>
+- !<AssetImportMetadata/394f58b8-bbfc-40af-b04d-f81afce064a1>
   ImportedAssetIds:
-    JavaScriptAsset: !<reference> c2f0c6a6-72e1-4b63-97be-d47a64ec8198
+    JavaScriptAsset: !<reference> b7c39fba-4a11-40bf-9172-11bfdd774c27
   ImporterName: JavaScriptAssetImporter
-  PrimaryAsset: !<reference> c2f0c6a6-72e1-4b63-97be-d47a64ec8198
+  PrimaryAsset: !<reference> b7c39fba-4a11-40bf-9172-11bfdd774c27
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
   ExtraData:
     {}
   AssetDataMap:
-    JavaScriptAsset: !<own> e6818fef-dd13-4306-8c12-113a1706c2e4
+    JavaScriptAsset: !<own> 9537e16f-ed83-4314-9491-b6d923dcf7a1
   DependentFiles:
     []
-  ImporterSettings: !<AssetImporterSettings/4cc1aba3-c553-46bf-b8f9-7a6fa01d1392>
+  ImporterSettings: !<AssetImporterSettings/d99c31d2-9452-43c0-bac8-83c77fba3422>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ScriptAssetData/e6818fef-dd13-4306-8c12-113a1706c2e4>
+- !<ScriptAssetData/9537e16f-ed83-4314-9491-b6d923dcf7a1>
   SvgIcon: ""
   Description: ""
   InternalVersion: 0
@@ -26,19 +26,19 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
-    boardPlane: false
+    board: false
+    dart: false
     debug: false
     debugName: false
     debugText: false
-    root: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
-    - debug: false
-      debugName: MenuController
+    - board: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      dart: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      debug: false
+      debugName: PromptController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      root: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      boardPlane: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

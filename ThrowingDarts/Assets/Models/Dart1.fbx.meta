@@ -1,0 +1,114 @@
+- !<AssetImportMetadata/473da57c-0ebb-4adc-92c5-b93f1e4aa786>
+  ImportedAssetIds:
+    .hidden/d2: !<reference> 347725aa-b088-4371-8cd2-9fed865e988e
+    .hidden/white: !<reference> a2156d38-a3f1-4dd1-8ce6-0c9f8c7efa72
+    137d015a8dc68add: !<reference> 48a54b23-d1a6-4808-92be-d42afbef577c
+    28ddefbb995a3d0e: !<reference> 6ce7c5fa-d1ab-44c8-8257-4b6fc430f7b3
+    66780cf3a4dcb2b8: !<reference> 57c18f51-22f4-46f8-958d-388bbebcefe2
+    Materials/d2: !<reference> 6a9b98d4-98a3-48a2-b11e-e46fba6266fc
+    Materials/d2|d2|GraphPassInfo: !<reference> 507f0443-e888-442c-a5aa-ca4e076a7433
+    Meshes/dart1: !<reference> 5747dabd-4a6b-4288-b553-62b06fa775e9
+    Scene: !<reference> cc1169f3-2b26-4c1f-90f4-5e6f9bb45117
+  ImporterName: FbxImporter
+  PrimaryAsset: !<reference> cc1169f3-2b26-4c1f-90f4-5e6f9bb45117
+  PackageType: LegacyPackage
+  PackagePolicy: CanBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 290b2e68-c815-4c8a-9b39-3cb0be6c742d
+  DependentFiles:
+    []
+  ImporterSettings: !<FbxImporterSettings/6ece32d5-47e7-4b26-b637-3f8a8a22b367>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitize
+    PersistentIdGenerationAlgorithm: DescriptorBased
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangentsAndBinormals: true
+    RegenerateTangentsAndBinormals: false
+    RegenerateNormalsForSkinnedMeshes: true
+    ImportBlendShapeAnimation: true
+    ImportVertexAnimation: true
+    GeneratePivots: true
+    TriangulateNURBS: true
+    UseLegacyFbxLoader: false
+  CompressionSettings: !<ComplexCompressionSettings/6076c562-4c3e-4169-87d5-0254e2e9494f>
+    Presets:
+      None Compression: !<SingleCompressionSettings/30d66e96-da7d-4232-a5a7-fbf1ee21af0d>
+        CompressorName: None
+        CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+      Performance Compression: !<SingleCompressionSettings/f9855ea0-1fcc-43f2-807d-2a9e8f0a2d22>
+        CompressorName: Performance
+        CompressionSettings: !<TextureCompressionSettings/c92d98be-6a95-47d9-87ce-c99033040d7d>
+          Level: Medium
+    ExtensionMappings:
+      mesh: None Compression
+      jpg: Performance Compression
+    Overrides:
+      {}
+- !<ObjectPrefabAssetData/290b2e68-c815-4c8a-9b39-3cb0be6c742d>
+  SourceRemaps:
+    - 48a54b23-d1a6-4808-92be-d42afbef577c: 721a9b9c-3a8a-4ca7-8c3d-f299d92ea2e2
+    - 57c18f51-22f4-46f8-958d-388bbebcefe2: 3e454af2-f868-4d4e-bcb1-5be5edc31891
+    - 6ce7c5fa-d1ab-44c8-8257-4b6fc430f7b3: 955ee3ee-0a59-4d24-a495-c9a7d69967f7
+    - cc1169f3-2b26-4c1f-90f4-5e6f9bb45117: 3e7f4191-7fb5-4e67-a757-cf3d198a0e54
+  SourceState: !<own> 3e7f4191-7fb5-4e67-a757-cf3d198a0e54
+- !<SceneObject/3e454af2-f868-4d4e-bcb1-5be5edc31891>
+  PrefabRemaps:
+    []
+  Name: Dart1
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 955ee3ee-0a59-4d24-a495-c9a7d69967f7
+  Components:
+    []
+- !<ObjectPrefab/3e7f4191-7fb5-4e67-a757-cf3d198a0e54>
+  PackagePath: ""
+  objects:
+    - !<own> 3e454af2-f868-4d4e-bcb1-5be5edc31891
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/721a9b9c-3a8a-4ca7-8c3d-f299d92ea2e2>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 6a9b98d4-98a3-48a2-b11e-e46fba6266fc
+  Mesh: !<reference> 5747dabd-4a6b-4288-b553-62b06fa775e9
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/955ee3ee-0a59-4d24-a495-c9a7d69967f7>
+  PrefabRemaps:
+    []
+  Name: dart1
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: -90.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 721a9b9c-3a8a-4ca7-8c3d-f299d92ea2e2

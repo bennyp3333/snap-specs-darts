@@ -26,12 +26,14 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    dartContainer: false
     dartPrefab: false
     dartSpawnPoints: false
     debug: false
     debugName: false
     debugText: false
     root: false
+    smoothFollow: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -41,6 +43,8 @@
       root: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       dartSpawnPoints: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       dartPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      dartContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      smoothFollow: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

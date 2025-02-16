@@ -1,0 +1,49 @@
+- !<AssetImportMetadata/a0f70df5-dccc-4d88-814b-8f76f154f9c4>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 76bc02fe-f74b-43f5-8248-e30415ea9f9b
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 76bc02fe-f74b-43f5-8248-e30415ea9f9b
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> fde7d533-494b-4b5c-81ac-989dea34e81c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings/02fcff2d-fb1c-44e8-9170-ea08b0ae0347>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/fde7d533-494b-4b5c-81ac-989dea34e81c>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    bounceAudioComp: false
+    debug: false
+    debugName: false
+    debugText: false
+    hitAudioComp: false
+    light: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - debug: false
+      debugName: Dart
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      wooshAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      wooshTracks: !<reference.AudioTrackAsset[]>
+        []
+      hitAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      bounceAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      light: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

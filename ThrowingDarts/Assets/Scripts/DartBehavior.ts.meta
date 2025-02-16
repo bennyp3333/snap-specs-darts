@@ -27,15 +27,12 @@
   MaxVisibility: Editable
   ScriptInputsHidden:
     audio: false
-    dartboardController: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
     - audio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
-      dartboardController: !<MappingBased.DartBoardController> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Component.AudioComponent audio
-    - // @input DartBoardController dartboardController

@@ -78,7 +78,6 @@
   ScriptInputs:
     "":
       audio: !<reference.AudioComponent> e7f71dd8-1900-4fdf-a489-204e0fbf4e3b
-      dartboardController: !<MappingBased.DartBoardController> f4c97344-e310-496e-a9ab-d19e6819d6fd
   ScriptTypes:
     "":
       {}
