@@ -50,6 +50,8 @@ const HAND_ACCELERATION_MULTIPLIER = 0.12;
 const HAND_BASE_VELOCITY_MULTIPLIER = 0.3;
 const BOARD_THICKNESS = 34.2;
 
+const GROUND_Y_OFFSET = -300;
+
 // Aim assist
 const CENTER_ADJUST_WEIGHT = 0.3;
 const USER_FACING_WEIGHT = 0.5;
@@ -82,7 +84,7 @@ function onGrab(event){
     var nudgeLeftDir = hand.middleKnuckle.position.sub(hand.pinkyKnuckle.position);
     startPoint = startPoint.add(nudgeLeftDir.normalize().uniformScale(5));
     var nudgeUpDir = hand.indexKnuckle.position.sub(hand.wrist.position);
-    startPoint = startPoint.add(nudgeUpDir.normalize().uniformScale(3));
+    startPoint = startPoint.add(nudgeUpDir.normalize().uniformScale(5));
 
     var endPoint = hand.indexTip.position.add(hand.thumbTip.position).uniformScale(0.5);
     var direction = startPoint.sub(endPoint).normalize();
@@ -92,6 +94,7 @@ function onGrab(event){
     accumulatedForce = vec3.zero();
     
     self.setParent(null);
+    script.light.enabled = false;
     
     if(global.deviceInfoSystem.isEditor()){
         selfTransform.setWorldPosition(WorldCameraFinderProvider.getInstance().getWorldPosition());
@@ -277,6 +280,16 @@ function onUpdate(){
     
     if(isFlying){
         physicsBody.angularVelocity = vec3.zero();
+    }
+    
+    if(startedFlyingAt > 0 && getTime() - startedFlyingAt > 60){
+        self.destroy();
+        return;
+    }
+
+    if(selfTransform.getWorldPosition().y < GROUND_Y_OFFSET){
+        self.destroy();
+        return;
     }
 }
 

@@ -145,7 +145,7 @@
       value: 0.500000
     glowColor:
       typeIdx: 5
-      value: {x: 0.000000, y: 0.589807, z: 1.000000, w: 1.000000}
+      value: {x: 0.333333, y: 0.627451, z: 0.831373, w: 1.000000}
     outlineThinkness:
       typeIdx: 1
       value: 0.010000

@@ -6,7 +6,6 @@
     - !<own> f68f0438-2abc-4fe4-afd7-77fb2758a16d
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> 00000000-0000-0065-0000-000000000064
-    - !<own> 318b330d-3a77-4346-8015-7fe2240ebb2b
     - !<own> 99c31f0b-090e-4fc2-a88f-feae21344e52
     - !<own> f245f369-3ce0-4fcd-b05a-8ffea015a2a7
     - !<own> 57b32161-25fe-4030-985f-63114ef488ad
@@ -258,7 +257,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 9
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -2236,6 +2235,41 @@
   ScriptTypes:
     "":
       {}
+- !<Text3D/1cd3c1d3-53f1-4bc4-aa01-879860de8193>
+  PrefabRemaps:
+    []
+  Name: Text3D
+  Enabled: true
+  RenderOrder: 3
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
+  Text: "Hit: "
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 20
+  ExtrusionDepth: 0.300000
+  ExtrudeDirection: Both
+  Font: !<reference> 154031bf-5edc-4c0e-8799-12f7cf570b5d
+  LayoutRect:
+    left: -3.000000
+    bottom: -2.250000
+    right: 3.000000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Truncate
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
 - !<ScreenTransform/1d3f7007-2f5f-4ade-ad02-d67145f678eb>
   PrefabRemaps:
     []
@@ -2291,7 +2325,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 9
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -2476,7 +2510,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 6
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -2553,7 +2587,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 8
+  RenderOrder: 3
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -2795,7 +2829,7 @@
   Matter: !<reference> 00000000-0000-0000-0000-000000000000
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
   EnableSmoothing: false
   PositionTension: 30.000000
   RotationTension: 30.000000
@@ -2844,7 +2878,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 5
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -2999,6 +3033,7 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
+    - !<own> 54d81092-1957-41dd-9d76-86613f59ca3d
     - !<own> 9ccae6ed-430d-43a2-a021-4324811c373b
     - !<own> c5176fa0-9495-4089-a2ad-46706ab422f2
     - !<own> c824366d-ffe2-4560-a782-c79599627f74
@@ -3329,7 +3364,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: -45.000000, z: -35.000000}
+    position: {x: 0.000000, y: -40.000000, z: -45.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -3590,6 +3625,21 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<SceneObject/2b65f388-b112-44bc-8bd2-318c16a4a57e>
+  PrefabRemaps:
+    []
+  Name: Board Back
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 12.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 85.000000, y: 85.000000, z: 85.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 49cfd2dc-49a5-44d2-a91c-98269c80d4f1
 - !<SceneObject/2b9a5b20-6a89-4fd1-906b-e97f4259712f>
   PrefabRemaps:
     []
@@ -4128,22 +4178,6 @@
   ScriptTypes:
     "":
       {}
-- !<SceneObject/318b330d-3a77-4346-8015-7fe2240ebb2b>
-  PrefabRemaps:
-    []
-  Name: World Mesh
-  Enabled: false
-  Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 48386cb4-9e8a-4cf4-ba3f-70c208f5477f
-    - !<own> 72f385a1-ebc6-45d6-888c-8dcbab6f4523
 - !<SceneObject/31df5cf9-9877-4359-9161-92964449a557>
   PrefabRemaps:
     []
@@ -4794,7 +4828,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 9
+  RenderOrder: 4
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -5420,7 +5454,7 @@
   Shape: !<Cylinder>
     Axis: Z
     Length: 34.200000
-    Radius: 38.400000
+    Radius: 42.000000
   Matter: !<reference> 00000000-0000-0000-0000-000000000000
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
@@ -5431,26 +5465,6 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
-- !<RenderMeshVisual/48386cb4-9e8a-4cf4-ba3f-70c208f5477f>
-  PrefabRemaps:
-    []
-  Name: Render Mesh Visual
-  Enabled: false
-  RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> 861c1907-b890-485d-8da3-8b7ad5339403
-  Mesh: !<reference> e4d1f113-3bb0-4891-b4e8-6964e488128e
-  Skin: !<reference> 00000000-0000-0000-0000-000000000000
-  BlendShapesEnabled: true
-  BlendNormals: false
-  BlendShapes:
-    {}
 - !<SceneObject/494ac1ed-8ee1-450b-9c1a-0bec2f4184c0>
   PrefabRemaps:
     []
@@ -5504,6 +5518,24 @@
   BodySettingValue: 1.000000
   Damping: 0.000000
   AngularDamping: 0.000000
+- !<Image/49cfd2dc-49a5-44d2-a91c-98269c80d4f1>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> f624c62c-0e3e-4fe9-bc4f-cb1b8d40904e
+  FlipX: false
+  FlipY: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<ScriptComponent/4aa8664b-5e5a-4e3d-af91-6ac09bf1cea8>
   PrefabRemaps:
     []
@@ -6088,7 +6120,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -5.000000}
+    position: {x: 0.000000, y: 0.000000, z: -3.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -6131,6 +6163,21 @@
     - !<own> 632cca84-19fe-4886-8627-21a46a150dd2
   Components:
     - !<own> 8de4606b-d030-4494-93d0-78dcf4e89ee7
+- !<SceneObject/54d81092-1957-41dd-9d76-86613f59ca3d>
+  PrefabRemaps:
+    []
+  Name: Hit
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 8.015412, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1cd3c1d3-53f1-4bc4-aa01-879860de8193
 - !<SceneObject/55313075-8410-4c83-b5fc-0b24ef2aa1dc>
   PrefabRemaps:
     []
@@ -6714,7 +6761,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 12.000000}
+    position: {x: 0.000000, y: 0.000000, z: 9.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 85.000000, y: 85.000000, z: 85.000000}
     hasSegmentScaleCompensation: false
@@ -7140,7 +7187,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 6
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -7300,7 +7347,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 7
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -7933,7 +7980,7 @@
     []
   Name: Image
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 1
   StretchMode: Fit
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -7941,7 +7988,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 21fc2beb-eb4e-4e35-8615-93cb6fa581bb
+    - !<reference> 16ec5364-01d0-4c2c-b479-d7673a01a595
   FlipX: false
   FlipY: false
   Pivot: {x: 0.000000, y: 0.000000}
@@ -8583,31 +8630,12 @@
   Components:
     - !<own> ea4f3347-9719-415f-a3de-b0d5707909ed
     - !<own> 1e2ce68d-b24a-45bb-8072-485a4fd9c454
-- !<ColliderComponent/72f385a1-ebc6-45d6-888c-8dcbab6f4523>
-  PrefabRemaps:
-    []
-  Name: Physics Collider
-  Enabled: true
-  Shape: !<Mesh>
-    Mesh: !<reference> e4d1f113-3bb0-4891-b4e8-6964e488128e
-    Convex: false
-    Skin: !<reference> 00000000-0000-0000-0000-000000000000
-  Matter: !<reference> 00000000-0000-0000-0000-000000000000
-  Filter: !<reference> 00000000-0000-0000-0000-000000000000
-  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
-  EnableSmoothing: false
-  PositionTension: 30.000000
-  RotationTension: 30.000000
-  ForceCompound: false
-  Intangible: false
-  ShowCollider: true
 - !<RenderMeshVisual/72f75796-b052-4bd7-acda-dec4a74278f8>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 6
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -8926,7 +8954,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 8
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -9125,7 +9153,7 @@
     []
   Name: Text3D
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 3
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -9260,7 +9288,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 9
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -9392,7 +9420,7 @@
     []
   Name: Text3D
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Right
@@ -9675,7 +9703,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 8
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -9965,7 +9993,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 9
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -10005,7 +10033,6 @@
     enabled: true
     smoothPosition: true
     posSmoothing: true
-    smoothRotation: true
     rotSmoothing: true
   ScriptTypesDefault:
     {}
@@ -10015,7 +10042,7 @@
       attachTo: !<reference.SceneObject> a55011e8-bedd-4653-8c08-84ca4e360b8b
       smoothPosition: true
       posSmoothing: !<float> 1.000000
-      smoothRotation: false
+      smoothRotation: true
       rotSmoothing: !<float> 1.000000
   ScriptTypes:
     "":
@@ -10375,7 +10402,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 9
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -10460,6 +10487,7 @@
   ScriptInputs:
     "":
       scoreText: !<reference.Text3D> 769b07c6-e4b3-4935-8d79-aaca3f12769e
+      hitText: !<reference.Text3D> 1cd3c1d3-53f1-4bc4-aa01-879860de8193
       debug: true
       debugName: ScoreController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
@@ -10963,6 +10991,7 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
+    - !<own> 2b65f388-b112-44bc-8bd2-318c16a4a57e
     - !<own> 5dccda45-8dce-4bef-9b73-13afd2958542
   Components:
     - !<own> 4837f704-4a5a-47c4-b5de-926129334e13
@@ -10995,7 +11024,7 @@
     []
   Name: Text3D
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Right
@@ -11352,7 +11381,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 8
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -11505,7 +11534,7 @@
     []
   Name: Image
   Enabled: true
-  RenderOrder: 2
+  RenderOrder: 7
   StretchMode: Fit
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -13051,7 +13080,7 @@
     []
   Name: Text3D
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -13380,33 +13409,6 @@
     CapitilizationOverride: None
   DepthTest: false
   TwoSided: false
-- !<ScriptComponent/b318e233-ffcb-4085-9d2f-1bd4086e8f43>
-  PrefabRemaps:
-    []
-  Name: BillboardY
-  Enabled: true
-  ScriptAsset: !<reference> 95bc0edc-99e2-409d-93b8-0605449e1b5d
-  ScriptInputsDefault:
-    flipFacingDir: true
-    onUpdate: true
-    onStart: true
-    debug: true
-    debugName: true
-    debugText: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
-      flipFacingDir: false
-      onUpdate: false
-      onStart: false
-      debug: false
-      debugName: Billboard
-      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-  ScriptTypes:
-    "":
-      {}
 - !<ScriptComponent/b341840b-5fd1-4f31-8d01-e00181428d23>
   PrefabRemaps:
     []
@@ -13606,7 +13608,7 @@
   ScriptInputs:
     "":
       root: !<reference.SceneObject> d0b7949f-00eb-496b-ba1a-4ccce6a4bfa8
-      boardPlane: !<reference.SceneObject> 5dccda45-8dce-4bef-9b73-13afd2958542
+      boardPlane: !<reference.SceneObject> 2b65f388-b112-44bc-8bd2-318c16a4a57e
       debug: true
       debugName: BoardController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
@@ -13848,7 +13850,7 @@
   PrefabRemaps:
     []
   Name: TextLogger
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -14077,7 +14079,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 5
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -14763,7 +14765,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 9
+  RenderOrder: 4
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -14789,7 +14791,7 @@
   Matter: !<reference> 00000000-0000-0000-0000-000000000000
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
   EnableSmoothing: false
   PositionTension: 30.000000
   RotationTension: 30.000000
@@ -15211,7 +15213,6 @@
     - !<own> 6ed0038e-76e3-44cc-8ad2-a420eab338a5
   Components:
     - !<own> 83f103c4-2185-4a75-8b43-876a81b89b1c
-    - !<own> b318e233-ffcb-4085-9d2f-1bd4086e8f43
 - !<ScreenTransform/d02de6b8-12a1-4901-b4fa-9d19c4742118>
   PrefabRemaps:
     []
@@ -15418,7 +15419,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 9
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -15662,7 +15663,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 8
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -15938,7 +15939,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 8
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -16101,7 +16102,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 9
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -16465,7 +16466,7 @@
     []
   Name: component_0
   Enabled: true
-  RenderOrder: 3
+  RenderOrder: 8
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -17345,7 +17346,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 8
+  RenderOrder: 3
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -18275,7 +18276,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 2
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -18431,7 +18432,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 6
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center

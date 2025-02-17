@@ -29,6 +29,7 @@
     debug: false
     debugName: false
     debugText: false
+    hitText: false
     scoreText: false
   ScriptTypesHidden:
     {}
@@ -39,6 +40,7 @@
       debugName: PromptController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       scoreText: !<reference.Text3D> 00000000-0000-0000-0000-000000000000
+      hitText: !<reference.Text3D> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

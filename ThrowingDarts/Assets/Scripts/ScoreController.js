@@ -1,4 +1,5 @@
 //@input Component.Text3D scoreText
+//@input Component.Text3D hitText
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "ScoreController" {"showIf":"debug"}
@@ -10,6 +11,7 @@ var selfTransform = self.getTransform();
 var score = 0;
 
 var scoreBeginCopy = "Score: ";
+var hitBeginCopy = "Hit: ";
 
 var boardTransform = global.dartboardTransform;
 
@@ -49,14 +51,9 @@ function getDartScore(pos){
 
 function getDartboard2DPosition(dartPos){
     var boardPos = boardTransform.getWorldPosition();
-    // Compute dart position relative to board
-    var dartToBoard = dartPos.sub(boardPos);
-
-    // Project dart onto the dartboard plane
-    var depth = dartToBoard.dot(boardTransform.forward);
-    var projectedPos = dartPos.sub(boardTransform.forward.uniformScale(depth));
-
-    // Convert projected position to local 2D coordinates
+    
+    var projectedPos = dartPos.projectOnPlane(boardTransform.forward);
+    
     var local2D_x = projectedPos.sub(boardPos).dot(boardTransform.right);
     var local2D_y = projectedPos.sub(boardPos).dot(boardTransform.up);
 
@@ -70,6 +67,7 @@ function onDartHit(dartScript){
     debugPrint("Score: " + dartScore + " - 2D Position: " + dart2DPosition);
     score += dartScore;
     script.scoreText.text = scoreBeginCopy + score;
+    script.hitText.text = hitBeginCopy + dartScore;
 }
 
 function onUpdate(){
