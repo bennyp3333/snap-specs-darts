@@ -48,7 +48,7 @@ function spawnAtIndex(idx){
     newDart.getTransform().setWorldPosition(spawnPosition);
     var newDartScript = newDart.getComponents("Component.ScriptComponent")[2];
     newDartScript.dartIdx = dartCounter++;
-    var randomColor = global.utils.randomColorHue(1, 1);
+    var randomColor = global.utils.randomColorHue(1, 0.5);
     newDartScript.setColor(randomColor);
     dartsInHolster[idx] = newDart;
     global.darts.push(newDart);

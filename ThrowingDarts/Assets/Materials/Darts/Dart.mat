@@ -19,6 +19,12 @@
     - Port_GSplatPointSize_N004:
         typeIdx: 1
         value: 0.000000
+    - Port_Input0_N026:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Input1_N026:
+        typeIdx: 1
+        value: 1.000000
     - Port_LODValue_N009:
         typeIdx: 1
         value: 0.000000
