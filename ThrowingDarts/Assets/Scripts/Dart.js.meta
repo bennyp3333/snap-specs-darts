@@ -33,6 +33,7 @@
     debugText: false
     hitAudioComp: false
     light: false
+    tip: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -46,6 +47,7 @@
       bounceAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       light: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       dartMesh: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      tip: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

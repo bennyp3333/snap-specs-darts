@@ -1,4 +1,5 @@
 //@input Component.RenderMeshVisual dartMesh
+//@input SceneObject tip
 //@input Component.AudioComponent hitAudioComp
 //@input Component.AudioComponent bounceAudioComp
 //@input SceneObject light
@@ -16,6 +17,7 @@ var SIK = require("Packages/SpectaclesInteractionKit/SIK").SIK;
 
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
+script.tipTransform = script.tip.getTransform();
 
 script.dartIdx = null;
 
@@ -24,6 +26,7 @@ var hand = handInputData.getHand('right');
 var objectHit = null;
 var objectHitTransform = null;
 var isDartBoardHit = false;
+var reportedHit = false;
 
 var isHolding = false;
 var isFlying = false;
@@ -114,12 +117,12 @@ function onRelease(){
         //physicsBody.velocity = finalVelocity;
         
         var dartPos = selfTransform.getWorldPosition();
-        var dartboardCenter = global.dartboardCenterTransform.getWorldPosition();
+        var dartboardCenter = global.dartboardTransform.getWorldPosition();
         var userFacing = WorldCameraFinderProvider.getInstance().forward().uniformScale(-1);
-        userFacing = userFacing.add(global.dartboardCenterTransform.up.uniformScale(WEIGHTS_LIFT_ASSIST)).normalize();
+        userFacing = userFacing.add(global.dartboardTransform.up.uniformScale(WEIGHTS_LIFT_ASSIST)).normalize();
         
         var toDartboard = dartboardCenter.sub(dartPos).normalize();
-        toDartboard = toDartboard.add(global.dartboardCenterTransform.up.uniformScale(WEIGHTS_LIFT_ASSIST)).normalize();
+        toDartboard = toDartboard.add(global.dartboardTransform.up.uniformScale(WEIGHTS_LIFT_ASSIST)).normalize();
         var velocityDir = finalVelocity.normalize();
         
         var adjustedDir = vec3.lerp(velocityDir, toDartboard, CENTER_ADJUST_WEIGHT).normalize();// Aim assist
@@ -159,12 +162,12 @@ function getHandVelocity(){
 }
 
 function onCollisionEnter(event){
-    print("Collission!");
+    //debugPrint("Collission!");
     
     var collision = event.collision;
 
     if(collision.collider.getSceneObject().name == self.name){
-        print("Collided with another dart");
+        //debugPrint("Collided with another dart");
         return;
     }
     
@@ -182,6 +185,7 @@ function onCollisionEnter(event){
     var endScale = selfTransform.getWorldScale();
     
     if(isStraightHit(endRotation, objectHitTransform.forward)){
+        //physicsBody.intangible = true;
         physicsBody.dynamic = false;
         physicsBody.velocity = vec3.zero();
         
@@ -194,6 +198,11 @@ function onCollisionEnter(event){
         script.light.enabled = true;
         
         script.hitAudioComp.play(1);
+        
+        if(!reportedHit){
+            global.events.trigger("dartHit", script);
+            reportedHit = true;
+        }
     }else{
         script.bounceAudioComp.play(1);
     }

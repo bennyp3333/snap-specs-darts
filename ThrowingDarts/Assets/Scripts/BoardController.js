@@ -8,7 +8,7 @@
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
-global.dartboardCenterTransform = script.boardPlane.getTransform();
+global.dartboardTransform = script.boardPlane.getTransform();
 
 function init(){
     script.root.enabled = false;

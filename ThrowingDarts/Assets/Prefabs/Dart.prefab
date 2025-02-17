@@ -1,31 +1,128 @@
-- !<ObjectPrefab/f05eac59-f681-47d8-bc46-f3a054061058>
+- !<ObjectPrefab/4d050d97-a7f9-4edf-8c90-554accd37bd6>
   PackagePath: ""
   objects:
-    - !<own> 00a384ab-72e3-4284-b345-eca3c4ec4257
+    - !<own> ef78ef94-fe5d-4dff-aae2-6fb7d61c5963
   LazyLoading: false
   RetainAssets: true
-- !<SceneObject/00a384ab-72e3-4284-b345-eca3c4ec4257>
+- !<LookAtComponent/211ec7c0-312d-48aa-8c7c-98f9d0e3a29d>
   PrefabRemaps:
     []
-  Name: Dart
+  Name: Look At
+  Enabled: true
+  LookAtMode: LookAtPoint
+  AimVectors: ZAimYUp
+  WorldUpVector: SceneY
+  Target: !<reference> 00000000-0000-0065-0000-000000000064
+  OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+- !<SceneObject/2b192f0c-3750-4929-b63a-82c17636d5d5>
+  PrefabRemaps:
+    []
+  Name: dart1
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -30.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 10.000000}
+    position: {x: 0.000000, y: 0.000000, z: -0.000000}
+    rotation: {x: -169.224060, y: -89.980217, z: 169.224060}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
-    - !<own> 99a2feb2-80cd-4cae-93d8-f31bdbe8ea34
+    []
   Components:
-    - !<own> e5cab6ab-2d2a-4bcd-b517-c6c0aebc854d
-    - !<own> ea88b774-f5a0-4879-b901-5aa377147226
-    - !<own> 14d851b5-9ff0-403d-906a-1352069f2615
-    - !<own> d2c2a8cb-9202-4997-a6e6-18ce85b6c916
-    - !<own> dd6c3a35-a76b-4304-9616-9b387380a631
-    - !<own> d3a97ef1-e75e-47ab-8668-6dbe02fc8379
-    - !<own> 5fcfb0f2-b84b-4e72-bde9-374d7a622b9b
-- !<ScriptComponent/14d851b5-9ff0-403d-906a-1352069f2615>
+    - !<own> 31d45e29-e7a6-4573-9915-31be436e1166
+- !<RenderMeshVisual/31d45e29-e7a6-4573-9915-31be436e1166>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 3
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> af925d21-3307-41dc-8d63-b62c50979401
+  Mesh: !<reference> 5747dabd-4a6b-4288-b553-62b06fa775e9
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/33ae9d42-ed0e-467d-ba15-99a7aadc7310>
+  PrefabRemaps:
+    []
+  Name: Tip
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -5.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
+- !<AudioComponent/4db9f6d8-f08a-4c15-89b9-620af96452f2>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 77dba33b-2d73-47dc-a400-47e8d0a74713
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: true
+  EnablePositionEffect: true
+- !<Image/86f5172d-3688-4ea8-b6c0-335d951e2ea1>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 2
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 95c194a1-e640-44a9-8725-c5936beead1d
+  FlipX: false
+  FlipY: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<BodyComponent/881f1e37-9a28-4935-a3a9-0d63d05da279>
+  PrefabRemaps:
+    []
+  Name: Physics Body
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: false
+    Size: {x: 2.250000, y: 2.250000, z: 10.000000}
+  Matter: !<reference> a26cc039-5298-4fcd-9486-322a254fa180
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+  Dynamic: false
+  BodySetting: Density
+  BodySettingValue: 1.000000
+  Damping: 0.000000
+  AngularDamping: 0.000000
+- !<ScriptComponent/89cac31d-0076-4048-b27d-9397b5a136fc>
   PrefabRemaps:
     []
   Name: Interactable
@@ -44,58 +141,63 @@
   ScriptTypes:
     "":
       {}
-- !<RenderMeshVisual/334e5fff-e32f-4727-98d6-ee537aa87d25>
+- !<SceneObject/8e81a2f9-ed6f-4f6c-82f0-e16a4bd99a53>
   PrefabRemaps:
     []
-  Name: component_0
-  Enabled: true
-  RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> af925d21-3307-41dc-8d63-b62c50979401
-  Mesh: !<reference> 7652093e-49a5-4d4e-b32f-70880291489d
-  Skin: !<reference> 00000000-0000-0000-0000-000000000000
-  BlendShapesEnabled: true
-  BlendNormals: false
-  BlendShapes:
-    {}
-- !<ScriptComponent/5fcfb0f2-b84b-4e72-bde9-374d7a622b9b>
-  PrefabRemaps:
-    []
-  Name: DartBehavior
-  Enabled: true
-  ScriptAsset: !<reference> 3f46f770-3bb8-4572-8c2d-8d7b8ca2b963
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      audio: !<reference.AudioComponent> d3a97ef1-e75e-47ab-8668-6dbe02fc8379
-  ScriptTypes:
-    "":
-      {}
-- !<SceneObject/99a2feb2-80cd-4cae-93d8-f31bdbe8ea34>
-  PrefabRemaps:
-    []
-  Name: d2_0
+  Name: HitSound
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -0.101947}
-    rotation: {x: 0.000000, y: -90.000000, z: 0.000000}
-    scale: {x: 0.070000, y: 0.700000, z: 0.699996}
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
     []
   Components:
-    - !<own> 334e5fff-e32f-4727-98d6-ee537aa87d25
-- !<ScriptComponent/d2c2a8cb-9202-4997-a6e6-18ce85b6c916>
+    - !<own> b84b93d3-9b29-46ea-8627-19250ed01ae8
+- !<ScriptComponent/a4d94dd7-dace-4d80-afae-d7eb188065a0>
+  PrefabRemaps:
+    []
+  Name: Dart
+  Enabled: true
+  ScriptAsset: !<reference> 76bc02fe-f74b-43f5-8248-e30415ea9f9b
+  ScriptInputsDefault:
+    debugName: true
+    debugText: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      dartMesh: !<reference.RenderMeshVisual> 31d45e29-e7a6-4573-9915-31be436e1166
+      tip: !<reference.SceneObject> 33ae9d42-ed0e-467d-ba15-99a7aadc7310
+      hitAudioComp: !<reference.AudioComponent> b84b93d3-9b29-46ea-8627-19250ed01ae8
+      bounceAudioComp: !<reference.AudioComponent> 4db9f6d8-f08a-4c15-89b9-620af96452f2
+      light: !<reference.SceneObject> e257ecbd-20b3-472e-bba9-fc2f28b065b2
+      debug: true
+      debugName: Dart
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
+- !<AudioComponent/b84b93d3-9b29-46ea-8627-19250ed01ae8>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> ca6b4a78-4a58-4784-9883-4aab156525c5
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: true
+  EnablePositionEffect: true
+- !<ScriptComponent/c0a24261-4608-4d52-a252-3652e188f430>
   PrefabRemaps:
     []
   Name: InteractableManipulation
@@ -149,88 +251,56 @@
   ScriptTypes:
     "":
       {}
-- !<AudioComponent/d3a97ef1-e75e-47ab-8668-6dbe02fc8379>
+- !<SceneObject/e257ecbd-20b3-472e-bba9-fc2f28b065b2>
   PrefabRemaps:
     []
-  Name: Audio
-  Enabled: true
-  AudioTrack: !<reference> 18c968e5-fbb5-46d1-bf14-87a993d5c80d
-  EnableAutoplayLoop: false
-  Volume: 1.000000
-  EnableMixToSnap: false
-  RecordVolume: 1.000000
-  EnableSpatialAudio: false
-  EnableDistanceEffect: false
-  CurveType: Logarithm
-  MinDistance: 0.000000
-  MaxDistance: 100.000000
-  EnableDirectivityEffect: true
-  EnablePositionEffect: false
-- !<ScriptComponent/dd6c3a35-a76b-4304-9616-9b387380a631>
-  PrefabRemaps:
-    []
-  Name: InteractableOutlineFeedback
-  Enabled: true
-  ScriptAsset: !<reference> c2e90e99-2305-4b10-a778-d72bf9b9adbd
-  ScriptInputsDefault:
-    targetOutlineMaterial: true
-    hoveringColor: true
-    activatingColor: true
-    outlineWeight: true
-    meshVisuals: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      targetOutlineMaterial: !<reference.Material> ae367e71-ee3a-45a1-8095-d0d2321b902e
-      hoveringColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 0.040000, w: 1.000000}
-      activatingColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-      outlineWeight: -0.250000
-      meshVisuals: !<reference.RenderMeshVisual[]>
-        []
-  ScriptTypes:
-    "":
-      {}
-- !<RenderMeshVisual/e5cab6ab-2d2a-4bcd-b517-c6c0aebc854d>
-  PrefabRemaps:
-    []
-  Name: Render Mesh Visual
+  Name: Light
   Enabled: false
-  RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> 00000000-0000-0000-0000-000000000000
-  Mesh: !<reference> b6e0f29f-f6a2-4cab-97c7-b0b7475b0cdc
-  Skin: !<reference> 00000000-0000-0000-0000-000000000000
-  BlendShapesEnabled: true
-  BlendNormals: false
-  BlendShapes:
-    {}
-- !<BodyComponent/ea88b774-f5a0-4879-b901-5aa377147226>
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -5.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 86f5172d-3688-4ea8-b6c0-335d951e2ea1
+    - !<own> 211ec7c0-312d-48aa-8c7c-98f9d0e3a29d
+- !<SceneObject/ef78ef94-fe5d-4dff-aae2-6fb7d61c5963>
   PrefabRemaps:
     []
-  Name: Physics Body
+  Name: Dart2
   Enabled: true
-  Shape: !<Box>
-    FitVisual: false
-    Size: {x: 2.250000, y: 2.250000, z: 1.000000}
-  Matter: !<reference> a26cc039-5298-4fcd-9486-322a254fa180
-  Filter: !<reference> 00000000-0000-0000-0000-000000000000
-  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
-  EnableSmoothing: false
-  PositionTension: 30.000000
-  RotationTension: 30.000000
-  ForceCompound: false
-  Intangible: false
-  ShowCollider: true
-  Dynamic: false
-  BodySetting: Density
-  BodySettingValue: 0.100000
-  Damping: 0.000000
-  AngularDamping: 0.000000
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -30.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2b192f0c-3750-4929-b63a-82c17636d5d5
+    - !<own> 33ae9d42-ed0e-467d-ba15-99a7aadc7310
+    - !<own> 8e81a2f9-ed6f-4f6c-82f0-e16a4bd99a53
+    - !<own> f8faf500-7992-4292-9988-efdd94c98782
+    - !<own> e257ecbd-20b3-472e-bba9-fc2f28b065b2
+  Components:
+    - !<own> 881f1e37-9a28-4935-a3a9-0d63d05da279
+    - !<own> 89cac31d-0076-4048-b27d-9397b5a136fc
+    - !<own> c0a24261-4608-4d52-a252-3652e188f430
+    - !<own> a4d94dd7-dace-4d80-afae-d7eb188065a0
+- !<SceneObject/f8faf500-7992-4292-9988-efdd94c98782>
+  PrefabRemaps:
+    []
+  Name: BounceSound
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4db9f6d8-f08a-4c15-89b9-620af96452f2

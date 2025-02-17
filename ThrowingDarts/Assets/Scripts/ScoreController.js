@@ -1,15 +1,17 @@
-//@input SceneObject board
-//@input SceneObject dart
+//@input Component.Text3D scoreText
 //@ui {"widget":"separator"}
 //@input bool debug
-//@input string debugName = "PromptController" {"showIf":"debug"}
+//@input string debugName = "ScoreController" {"showIf":"debug"}
 //@input Component.Text debugText {"showIf":"debug"}
 
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
-var boardTransform = script.board.getTransform();
-var dartTransform = script.dart.getTransform();
+var score = 0;
+
+var scoreBeginCopy = "Score: ";
+
+var boardTransform = global.dartboardTransform;
 
 var segmentScores = [6, 13, 4, 18, 1, 20, 5, 12, 9, 14, 11, 8, 16, 7, 19, 3, 17, 2, 15, 10];
 
@@ -21,7 +23,8 @@ var doubleRingInner = 28.64;
 var doubleRingOuter = 30.63;
 
 function init(){
-
+    global.events.add("dartHit", onDartHit);
+    
     debugPrint("Initilized!");
 }
 
@@ -60,10 +63,18 @@ function getDartboard2DPosition(dartPos){
     return new vec2(local2D_x, local2D_y);
 }
 
-function onUpdate(){
-    var dart2DPosition = getDartboard2DPosition(dartTransform.getWorldPosition());
+function onDartHit(dartScript){
+    var dartTipPosition = dartScript.tipTransform.getWorldPosition();
+    var dart2DPosition = getDartboard2DPosition(dartTipPosition);
     var dartScore = getDartScore(dart2DPosition);
     debugPrint("Score: " + dartScore + " - 2D Position: " + dart2DPosition);
+    score += dartScore;
+    script.scoreText.text = scoreBeginCopy + score;
+}
+
+function onUpdate(){
+
+    //debugPrint("Updated!");
 }
 
 script.createEvent("OnStartEvent").bind(init);
