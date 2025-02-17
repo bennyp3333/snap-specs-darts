@@ -8,6 +8,7 @@ function tryRequire(file){
 
 var utilModules = [
     tryRequire("../Utilities/ArrayUtils.js"),
+    tryRequire("../Utilities/ColorUtils.js"),
     tryRequire("../Utilities/ComponentUtils.js"),
     tryRequire("../Utilities/MathUtils.js"),
     tryRequire("../Utilities/ObjectUtils.js"),

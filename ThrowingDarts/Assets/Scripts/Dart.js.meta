@@ -27,6 +27,7 @@
   MaxVisibility: Editable
   ScriptInputsHidden:
     bounceAudioComp: false
+    dartMesh: false
     debug: false
     debugName: false
     debugText: false
@@ -44,6 +45,7 @@
       hitAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       bounceAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       light: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      dartMesh: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

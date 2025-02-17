@@ -1517,7 +1517,7 @@
   PrefabRemaps:
     []
   Name: Right Panel
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform:
     position: {x: 75.000000, y: 0.000000, z: 0.000000}
@@ -2606,7 +2606,7 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: Around The Clock
+  Text: High Score
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -7482,7 +7482,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: |
-    High Score
+    Free Play
 
   Editable: false
   ShowEditingPreview: true
@@ -11149,6 +11149,7 @@
     {}
   ScriptInputs:
     "":
+      dartMesh: !<reference.RenderMeshVisual> e9ec8a92-8e56-426e-aaf5-a46d37d0eb0c
       hitAudioComp: !<reference.AudioComponent> 0b43c818-f9f3-4c3b-8d70-fbcb8fe3f086
       bounceAudioComp: !<reference.AudioComponent> ee47fb41-b767-4e52-ae78-79d29db2ea31
       light: !<reference.SceneObject> a3996e85-844d-4ed8-88e3-5c0a5e720be7

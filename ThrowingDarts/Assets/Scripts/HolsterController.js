@@ -12,7 +12,13 @@
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
-var spawnOffset = new vec3(0, 7, 0);
+const SPAWN_OFFSET = new vec3(0, 7, 0);
+const DISTANCE_OFFSET = 15;
+
+var dartsInHolster = [];
+var dartCounter = 0;
+
+global.darts = [];
 
 function init(){
     script.root.enabled = false;
@@ -31,16 +37,35 @@ script.show = function(bool){
 
 script.spawnDarts = function(){
     for(var i = 0; i < script.dartSpawnPoints.length; i++){
-        var dartSpawnPoint = script.dartSpawnPoints[i];
-        var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition().add(spawnOffset);
-        var newDart = script.dartPrefab.instantiate(script.dartContainer);
-        newDart.getTransform().setWorldPosition(spawnPosition);
-        //newDart.setParentPreserveWorldTransform(null);
+        spawnAtIndex(i);
     }
 }
 
-function onUpdate(){
+function spawnAtIndex(idx){
+    var dartSpawnPoint = script.dartSpawnPoints[idx];
+    var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition().add(SPAWN_OFFSET);
+    var newDart = script.dartPrefab.instantiate(script.dartContainer);
+    newDart.getTransform().setWorldPosition(spawnPosition);
+    var newDartScript = newDart.getComponents("Component.ScriptComponent")[2];
+    newDartScript.dartIdx = dartCounter++;
+    var randomColor = global.utils.randomColorHue(1, 1);
+    newDartScript.setColor(randomColor);
+    dartsInHolster[idx] = newDart;
+    global.darts.push(newDart);
+}
 
+function onUpdate(){
+    for(var i = 0; i < dartsInHolster.length; i++){
+        var dartSpawnPoint = script.dartSpawnPoints[i];
+        var dart = dartsInHolster[i];
+        
+        var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition();
+        var dartPosition = dart.getTransform().getWorldPosition();
+        
+        if(dartPosition.distance(spawnPosition) > DISTANCE_OFFSET){
+            spawnAtIndex(i);
+        }
+    }
     //debugPrint("Updated!");
 }
 

@@ -154,6 +154,7 @@
     {}
   ScriptInputs:
     "":
+      dartMesh: !<reference.RenderMeshVisual> 31d45e29-e7a6-4573-9915-31be436e1166
       hitAudioComp: !<reference.AudioComponent> b84b93d3-9b29-46ea-8627-19250ed01ae8
       bounceAudioComp: !<reference.AudioComponent> 4db9f6d8-f08a-4c15-89b9-620af96452f2
       light: !<reference.SceneObject> e257ecbd-20b3-472e-bba9-fc2f28b065b2

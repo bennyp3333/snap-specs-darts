@@ -1,3 +1,4 @@
+//@input Component.RenderMeshVisual dartMesh
 //@input Component.AudioComponent hitAudioComp
 //@input Component.AudioComponent bounceAudioComp
 //@input SceneObject light
@@ -15,6 +16,8 @@ var SIK = require("Packages/SpectaclesInteractionKit/SIK").SIK;
 
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
+
+script.dartIdx = null;
 
 var handInputData = SIK.HandInputData;
 var hand = handInputData.getHand('right');
@@ -49,6 +52,7 @@ const CENTER_ADJUST_WEIGHT = 0.3;
 const USER_FACING_WEIGHT = 0.5;
 const WEIGHTS_LIFT_ASSIST = 0.125;
 
+var dartMaterial = null;
 
 function init(){
     script.hitAudioComp.playbackMode = Audio.PlaybackMode.LowLatency;
@@ -159,7 +163,10 @@ function onCollisionEnter(event){
     
     var collision = event.collision;
 
-    if(collision.collider.getSceneObject().name == self.name){ return; }
+    if(collision.collider.getSceneObject().name == self.name){
+        print("Collided with another dart");
+        return;
+    }
     
     objectHit = collision.collider.getSceneObject();
     objectHitTransform = objectHit.getTransform();
@@ -272,6 +279,14 @@ function onLateUpdate(){
     }
 }
 
+script.setColor = function(color){
+    debugPrint("Setting color: " + color);
+    if(!dartMaterial){
+        dartMaterial = global.utils.makeMatUnique(script.dartMesh)[0];
+    }
+    dartMaterial.mainPass.baseColor = color;
+}
+
 script.createEvent("OnStartEvent").bind(init);
 script.createEvent("UpdateEvent").bind(onUpdate);
 script.createEvent("LateUpdateEvent").bind(onLateUpdate);
@@ -279,7 +294,7 @@ script.createEvent("LateUpdateEvent").bind(onLateUpdate);
 // Debug
 function debugPrint(text){
     if(script.debug){
-        var newLog = script.debugName + ": " + text;
+        var newLog = script.debugName + " " + script.dartIdx + ": " + text;
         if(global.textLogger){ global.logToScreen(newLog); }
         if(script.debugText){ script.debugText.text = newLog; }
         print(newLog);
@@ -287,7 +302,7 @@ function debugPrint(text){
 }
 
 function errorPrint(text){
-    var errorLog = "!!ERROR!! " + script.debugName + ": " + text;
+    var errorLog = "!!ERROR!! " + script.debugName + " " + script.dartIdx + ": " + text;
     if(global.textLogger){ global.logError(errorLog); }
     if(script.debugText){ script.debugText.text = errorLog; }
     print(errorLog);
