@@ -16,7 +16,9 @@ function init(){
 }
 
 script.setSize = function(size, time){
-    //TODO
+    panelRenderMesh.setBlendShapeWeight("X", size.x);
+    panelRenderMesh.setBlendShapeWeight("Y", size.y);
+    //TODO: add tweening using time
 }
 
 script.setColor = function(color, time){

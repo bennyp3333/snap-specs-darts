@@ -25,6 +25,8 @@ var handInputData = SIK.HandInputData;
 var hand = handInputData.getHand('right');
 var objectHit = null;
 var objectHitTransform = null;
+
+var collissionCount = 0;
 var isDartBoardHit = false;
 var reportedHit = false;
 
@@ -43,6 +45,8 @@ var accBuffer = new Buffer(4);
 
 var physicsBody = null;
 var interactable = null;
+
+const MAX_COLLIDES = 20;
 
 const OBJECT_MASS = 0.04;
 
@@ -165,7 +169,12 @@ function getHandVelocity(){
 }
 
 function onCollisionEnter(event){
-    //debugPrint("Collission!");
+    debugPrint("Collission!");
+    
+    collissionCount += 1;
+    if(collissionCount > MAX_COLLIDES){
+        reportHit();
+    }
     
     var collision = event.collision;
 
@@ -202,12 +211,16 @@ function onCollisionEnter(event){
         
         script.hitAudioComp.play(1);
         
-        if(!reportedHit){
-            global.events.trigger("dartHit", script);
-            reportedHit = true;
-        }
+        reportHit();
     }else{
         script.bounceAudioComp.play(1);
+    }
+}
+
+function reportHit(){
+    if(!reportedHit){
+        global.events.trigger("dartHit", script);
+        reportedHit = true;
     }
 }
 
@@ -281,14 +294,15 @@ function onUpdate(){
     if(isFlying){
         physicsBody.angularVelocity = vec3.zero();
     }
-    
+    /*
     if(startedFlyingAt > 0 && getTime() - startedFlyingAt > 60){
         self.destroy();
         return;
     }
-
+    */
     if(selfTransform.getWorldPosition().y < GROUND_Y_OFFSET){
-        self.destroy();
+        //self.destroy();
+        reportHit();
         return;
     }
 }

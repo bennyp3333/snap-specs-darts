@@ -16,12 +16,18 @@ var boardTransform = script.board.getTransform();
 const enumValue = (name) => Object.freeze({toString: () => name});
 
 global.GameModes = Object.freeze({
+    Practice: enumValue("GameModes.Practice"),
     HighScore: enumValue("GameModes.HighScore"),
     AroundTheClock: enumValue("GameModes.AroundTheClock")
 });
 
+global.roundsCount = 4;
 global.playersCount = null;
 global.gameMode = null;
+
+currentRound = 0;
+currentPlayer = 0;
+currentDart = 0;
 
 var boardPlaced = false;
 
@@ -33,6 +39,7 @@ function init(){
     openMenuDelay.reset(0.1);
     
     global.events.add("menuClosed", onMenuClosed);
+    global.events.add("dartHit", onDartHit);
     
     debugPrint("Initilized!");
 }
@@ -56,17 +63,39 @@ function onPlaced(position, rotation) {
     boardTransform.setWorldPosition(position);
     boardTransform.setWorldRotation(rotation);
     boardPlaced = true;
+    //TODO: implement
+    script.boardController.setPanel(global.gameMode, global.playersCount);
     script.boardController.show(true);
+    //TODO: set panel to game mode scoring
     debugPrint("Board placed");
-    //TODO: move this?
+    
     startGame();
 }
 
-function startGame(){
-    //show holster
+function startGame(reset){
+    if(reset){
+        currentRound = 0;
+        currentPlayer = 0;
+        currentDart = 0;
+    }
     script.holsterController.show(true);
-    //queue darts
-    script.holsterController.spawnDarts();
+    script.holsterController.spawnDarts(currentPlayer);
+}
+
+function onDartHit(){
+    //switch game mode
+}
+
+function nextPlayer(){
+    currentPlayer += 1;
+    if(currentPlayer >= global.playersCount){
+        currentPlayer = 0;
+        currentRound += 1;
+        if(currentRound >= roundsCount){
+            //stop?
+        }
+    }
+    script.holsterController.spawnDarts(currentPlayer);
 }
 
 function onUpdate(){

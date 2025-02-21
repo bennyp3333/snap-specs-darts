@@ -20,6 +20,13 @@ var dartCounter = 0;
 
 global.darts = [];
 
+var playerColors = [
+    new vec4(0.502, 0.710, 1.000, 1.000),
+    new vec4(1.000, 0.792, 0.502, 1.000),
+    new vec4(1.000, 0.502, 0.957, 1.000),
+    new vec4(0.502, 1.000, 0.541, 1.000),
+]
+
 function init(){
     script.root.enabled = false;
     if(global.deviceInfoSystem.isEditor()){
@@ -35,26 +42,27 @@ script.show = function(bool){
     script.root.enabled = bool;
 }
 
-script.spawnDarts = function(){
+script.spawnDarts = function(playerIdx){
     for(var i = 0; i < script.dartSpawnPoints.length; i++){
-        spawnAtIndex(i);
+        spawnAtIndex(i, playerIdx);
     }
 }
 
-function spawnAtIndex(idx){
+function spawnAtIndex(idx, playerColor){
     var dartSpawnPoint = script.dartSpawnPoints[idx];
     var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition().add(SPAWN_OFFSET);
     var newDart = script.dartPrefab.instantiate(script.dartContainer);
     newDart.getTransform().setWorldPosition(spawnPosition);
     var newDartScript = newDart.getComponents("Component.ScriptComponent")[3];
     newDartScript.dartIdx = dartCounter++;
-    var randomColor = global.utils.randomColorHue(1, 0.5);
-    newDartScript.setColor(randomColor);
+    //var randomColor = global.utils.randomColorHue(1, 0.5);
+    newDartScript.setColor(playerColors[playerColor]);
     dartsInHolster[idx] = newDart;
     global.darts.push(newDart);
 }
 
 function onUpdate(){
+    /*
     for(var i = 0; i < dartsInHolster.length; i++){
         var dartSpawnPoint = script.dartSpawnPoints[i];
         var dart = dartsInHolster[i];
@@ -66,6 +74,7 @@ function onUpdate(){
             spawnAtIndex(i);
         }
     }
+    */
     //debugPrint("Updated!");
 }
 

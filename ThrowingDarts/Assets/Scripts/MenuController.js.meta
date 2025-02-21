@@ -26,13 +26,19 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    continueButton: false
     debug: false
     debugName: false
     debugText: false
+    downButton: false
     panel: false
+    players3DText: false
     playersCountText: false
+    restartButton: false
     root: false
     smoothFollow: false
+    startButton: false
+    upButton: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -44,6 +50,12 @@
       playersCountText: !<reference.Text3D> 00000000-0000-0000-0000-000000000000
       smoothFollow: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       billboard: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      upButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      downButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      startButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      restartButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      continueButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      players3DText: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

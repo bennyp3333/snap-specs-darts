@@ -1,7 +1,16 @@
 //@input Component.ScriptComponent smoothFollow
 //@input SceneObject root
 //@input SceneObject panel
+//@ui {"widget":"separator"}
 //@input Component.Text3D playersCountText
+//@ui {"widget":"separator"}
+//@input SceneObject players3DText
+//@input SceneObject upButton
+//@input SceneObject downButton
+//@ui {"widget":"separator"}
+//@input SceneObject startButton
+//@input SceneObject restartButton
+//@input SceneObject continueButton
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "MenuController" {"showIf":"debug"}
@@ -13,7 +22,7 @@ var selfTransform = self.getTransform();
 var playersCount = 2;
 var gameMode = global.GameModes.HighScore;
 
-var maxPlayers = 5;
+var maxPlayers = 4;
 var minPlayers = 1;
 
 var playersBeginCopy = "Players: ";
@@ -81,14 +90,55 @@ script.pressButtonDown = function(){
     debugPrint("Decrementing playerCount to: " + playersCount);
 }
 
-script.setGameMode = function(toggle){
-    debugPrint("Game mode toggle pressed");
-    if(toggle){
-        gameMode = global.GameModes.AroundTheClock;
-    }else{
-        gameMode = global.GameModes.HighScore;
+script.setGameMode = function(mode){
+    debugPrint("Game mode button pressed");
+    switch(mode){
+        case 0:
+            gameMode = global.GameModes.HighScore;
+            break;
+        case 1:
+            gameMode = global.GameModes.AroundTheClock;
+            break;
+        case 2:
+            gameMode = global.GameModes.Practice;
+            break;
     }
     debugPrint("Set game mode to: " + gameMode);
+    setMenuUI(gameMode);
+}
+
+function setMenuUI(mode){
+    if(mode == global.GameModes.Practice){
+        script.players3DText.enabled = false;
+        script.upButton.enabled = false;
+        script.downButton.enabled = false;
+        script.panel.getComponent("Component.ScriptComponent").setSize(new vec2(4, 2.2), 0);
+        script.panel.getTransform().setLocalPosition(new vec3(0, 0, 0));
+        script.startButton.getTransform().setLocalPosition(new vec3(0, -14, 0));
+        script.restartButton.getTransform().setLocalPosition(new vec3(-15, -14, 0));
+        script.continueButton.getTransform().setLocalPosition(new vec3(15, -14, 0));
+    }else{
+        script.players3DText.enabled = true;
+        script.upButton.enabled = true;
+        script.downButton.enabled = true;
+        script.panel.getComponent("Component.ScriptComponent").setSize(new vec2(4, 3), 0);
+        script.panel.getTransform().setLocalPosition(new vec3(0, -6, 0));
+        script.startButton.getTransform().setLocalPosition(new vec3(0, -26, 0));
+        script.restartButton.getTransform().setLocalPosition(new vec3(-15, -26, 0));
+        script.continueButton.getTransform().setLocalPosition(new vec3(15, -26, 0));
+    }
+}
+
+function setStartUI(mode){
+    if(mode){
+        script.startButton.enabled = true;
+        script.restartButton.enabled = false;
+        script.continueButton.enabled = false;
+    }else{
+        script.startButton.enabled = false;
+        script.restartButton.enabled = true;
+        script.continueButton.enabled = true; 
+    }
 }
 
 function stopTweens(){
