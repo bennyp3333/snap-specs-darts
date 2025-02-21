@@ -7203,6 +7203,30 @@
     bottom: -20.000000
     right: 15.000000
     top: 20.000000
+- !<ScriptComponent/6418d131-402c-40da-9263-4023fddd6e4f>
+  PrefabRemaps:
+    []
+  Name: Dart
+  Enabled: true
+  ScriptAsset: !<reference> 76bc02fe-f74b-43f5-8248-e30415ea9f9b
+  ScriptInputsDefault:
+    debugName: true
+    debugText: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      dartMesh: !<reference.RenderMeshVisual> e9ec8a92-8e56-426e-aaf5-a46d37d0eb0c
+      tip: !<reference.SceneObject> 5420a37e-abf4-448b-9506-aed99c243bfd
+      hitAudioComp: !<reference.AudioComponent> 0b43c818-f9f3-4c3b-8d70-fbcb8fe3f086
+      bounceAudioComp: !<reference.AudioComponent> ee47fb41-b767-4e52-ae78-79d29db2ea31
+      light: !<reference.SceneObject> a3996e85-844d-4ed8-88e3-5c0a5e720be7
+      debug: true
+      debugName: Dart
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/646f82aa-86e2-4ec9-9b02-c4e23d5a0352>
   PrefabRemaps:
     []
@@ -8810,13 +8834,17 @@
     - 49b71eb2-212d-4ffb-8e00-528905e99f64: 881f1e37-9a28-4935-a3a9-0d63d05da279
     - 52111461-5673-4ba5-949e-22a9ff728c8d: b0459e83-745b-4716-8dd3-9a6c4e591a0d
     - 5420a37e-abf4-448b-9506-aed99c243bfd: 33ae9d42-ed0e-467d-ba15-99a7aadc7310
+    - 6418d131-402c-40da-9263-4023fddd6e4f: c378ed12-6fe6-404d-8c0a-ef171eb9b795
     - 7462e6df-1b4b-4de5-81af-51ba58a56cd8: ef78ef94-fe5d-4dff-aae2-6fb7d61c5963
     - 768b5f7a-9cc9-4f9c-8766-072398120ff4: 8e81a2f9-ed6f-4f6c-82f0-e16a4bd99a53
     - 7c6f43be-cf8e-49a4-9e0e-b40db04b83cb: 2b192f0c-3750-4929-b63a-82c17636d5d5
+    - 8024ed58-6c43-4040-bd87-784d159620b3: 8b88e141-cb2f-48c3-9938-adfa5e85edad
     - 8b9a08e8-ffe1-4c28-89f1-bb1d0e1d9b6c: c0a24261-4608-4d52-a252-3652e188f430
     - 8f5b8a59-38a1-41c5-b516-d9ebb1c78ca1: a4d94dd7-dace-4d80-afae-d7eb188065a0
+    - 8f73f847-e009-42cf-a572-f2d360cfa703: 30c19dba-70a7-418f-adf4-619d02a7ebb0
     - 970b64ea-4fc1-41cc-9e71-e234c272b5c4: 86f5172d-3688-4ea8-b6c0-335d951e2ea1
     - 9f121ce3-2027-4e06-b61d-83f61434e58c: 69a4f27d-8c27-40d7-96fa-f3468f2334cb
+    - a1d55524-06ed-40d6-8132-92cf489bcce7: 08ef9b6a-03c8-4e72-ab08-cb4a62c7eb4b
     - a3996e85-844d-4ed8-88e3-5c0a5e720be7: e257ecbd-20b3-472e-bba9-fc2f28b065b2
     - aa50a910-ba30-43db-b7f3-3ea10dae85e0: 89cac31d-0076-4048-b27d-9397b5a136fc
     - b187f5af-10ef-4708-8d9a-55a013a70323: cf3f5b29-2b3b-44b2-88ad-920d7bba1901
@@ -8843,7 +8871,8 @@
     - !<own> 49b71eb2-212d-4ffb-8e00-528905e99f64
     - !<own> aa50a910-ba30-43db-b7f3-3ea10dae85e0
     - !<own> 8b9a08e8-ffe1-4c28-89f1-bb1d0e1d9b6c
-    - !<own> 8f5b8a59-38a1-41c5-b516-d9ebb1c78ca1
+    - !<own> 8024ed58-6c43-4040-bd87-784d159620b3
+    - !<own> 6418d131-402c-40da-9263-4023fddd6e4f
 - !<Text/746d0107-53fb-4141-9ac3-f8d4a4de25f6>
   PrefabRemaps:
     []
@@ -9883,6 +9912,28 @@
     - !<own> 2b9a5b20-6a89-4fd1-906b-e97f4259712f
   Components:
     []
+- !<ScriptComponent/8024ed58-6c43-4040-bd87-784d159620b3>
+  PrefabRemaps:
+    []
+  Name: InteractableHoverOutlineFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 0c3ba454-e592-4d94-9a9a-0f911a5425a4
+  ScriptInputsDefault:
+    targetOutlineMaterial: true
+    activatingColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetOutlineMaterial: !<reference.Material> ae367e71-ee3a-45a1-8095-d0d2321b902e
+      hoveringColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      activatingColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      outlineWeight: 0.250000
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        - !<reference> e9ec8a92-8e56-426e-aaf5-a46d37d0eb0c
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/80b63097-b1ef-4467-bdaa-a0a482172316>
   PrefabRemaps:
     []
@@ -11034,30 +11085,6 @@
     - !<own> 5dccda45-8dce-4bef-9b73-13afd2958542
   Components:
     - !<own> 4837f704-4a5a-47c4-b5de-926129334e13
-- !<ScriptComponent/8f5b8a59-38a1-41c5-b516-d9ebb1c78ca1>
-  PrefabRemaps:
-    []
-  Name: Dart
-  Enabled: true
-  ScriptAsset: !<reference> 76bc02fe-f74b-43f5-8248-e30415ea9f9b
-  ScriptInputsDefault:
-    debugName: true
-    debugText: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      dartMesh: !<reference.RenderMeshVisual> e9ec8a92-8e56-426e-aaf5-a46d37d0eb0c
-      tip: !<reference.SceneObject> 5420a37e-abf4-448b-9506-aed99c243bfd
-      hitAudioComp: !<reference.AudioComponent> 0b43c818-f9f3-4c3b-8d70-fbcb8fe3f086
-      bounceAudioComp: !<reference.AudioComponent> ee47fb41-b767-4e52-ae78-79d29db2ea31
-      light: !<reference.SceneObject> a3996e85-844d-4ed8-88e3-5c0a5e720be7
-      debug: true
-      debugName: Dart
-      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-  ScriptTypes:
-    "":
-      {}
 - !<Text3D/8f83a0d0-5650-4897-9ee7-7a5c189cdc9b>
   PrefabRemaps:
     []
@@ -16514,7 +16541,7 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> af925d21-3307-41dc-8d63-b62c50979401
-  Mesh: !<reference> 5747dabd-4a6b-4288-b553-62b06fa775e9
+  Mesh: !<reference> acb3e857-9c5b-44ed-8f3b-1a0d71f6d3bf
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false

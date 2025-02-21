@@ -43,7 +43,7 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> af925d21-3307-41dc-8d63-b62c50979401
-  Mesh: !<reference> 5747dabd-4a6b-4288-b553-62b06fa775e9
+  Mesh: !<reference> acb3e857-9c5b-44ed-8f3b-1a0d71f6d3bf
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false
@@ -141,6 +141,28 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/8b88e141-cb2f-48c3-9938-adfa5e85edad>
+  PrefabRemaps:
+    []
+  Name: InteractableHoverOutlineFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 0c3ba454-e592-4d94-9a9a-0f911a5425a4
+  ScriptInputsDefault:
+    targetOutlineMaterial: true
+    activatingColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetOutlineMaterial: !<reference.Material> ae367e71-ee3a-45a1-8095-d0d2321b902e
+      hoveringColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      activatingColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      outlineWeight: 0.250000
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        - !<reference> 31d45e29-e7a6-4573-9915-31be436e1166
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/8e81a2f9-ed6f-4f6c-82f0-e16a4bd99a53>
   PrefabRemaps:
     []
@@ -156,30 +178,6 @@
     []
   Components:
     - !<own> b84b93d3-9b29-46ea-8627-19250ed01ae8
-- !<ScriptComponent/a4d94dd7-dace-4d80-afae-d7eb188065a0>
-  PrefabRemaps:
-    []
-  Name: Dart
-  Enabled: true
-  ScriptAsset: !<reference> 76bc02fe-f74b-43f5-8248-e30415ea9f9b
-  ScriptInputsDefault:
-    debugName: true
-    debugText: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      dartMesh: !<reference.RenderMeshVisual> 31d45e29-e7a6-4573-9915-31be436e1166
-      tip: !<reference.SceneObject> 33ae9d42-ed0e-467d-ba15-99a7aadc7310
-      hitAudioComp: !<reference.AudioComponent> b84b93d3-9b29-46ea-8627-19250ed01ae8
-      bounceAudioComp: !<reference.AudioComponent> 4db9f6d8-f08a-4c15-89b9-620af96452f2
-      light: !<reference.SceneObject> e257ecbd-20b3-472e-bba9-fc2f28b065b2
-      debug: true
-      debugName: Dart
-      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-  ScriptTypes:
-    "":
-      {}
 - !<AudioComponent/b84b93d3-9b29-46ea-8627-19250ed01ae8>
   PrefabRemaps:
     []
@@ -251,6 +249,30 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/c378ed12-6fe6-404d-8c0a-ef171eb9b795>
+  PrefabRemaps:
+    []
+  Name: Dart
+  Enabled: true
+  ScriptAsset: !<reference> 76bc02fe-f74b-43f5-8248-e30415ea9f9b
+  ScriptInputsDefault:
+    debugName: true
+    debugText: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      dartMesh: !<reference.RenderMeshVisual> 31d45e29-e7a6-4573-9915-31be436e1166
+      tip: !<reference.SceneObject> 33ae9d42-ed0e-467d-ba15-99a7aadc7310
+      hitAudioComp: !<reference.AudioComponent> b84b93d3-9b29-46ea-8627-19250ed01ae8
+      bounceAudioComp: !<reference.AudioComponent> 4db9f6d8-f08a-4c15-89b9-620af96452f2
+      light: !<reference.SceneObject> e257ecbd-20b3-472e-bba9-fc2f28b065b2
+      debug: true
+      debugName: Dart
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/e257ecbd-20b3-472e-bba9-fc2f28b065b2>
   PrefabRemaps:
     []
@@ -288,7 +310,8 @@
     - !<own> 881f1e37-9a28-4935-a3a9-0d63d05da279
     - !<own> 89cac31d-0076-4048-b27d-9397b5a136fc
     - !<own> c0a24261-4608-4d52-a252-3652e188f430
-    - !<own> a4d94dd7-dace-4d80-afae-d7eb188065a0
+    - !<own> 8b88e141-cb2f-48c3-9938-adfa5e85edad
+    - !<own> c378ed12-6fe6-404d-8c0a-ef171eb9b795
 - !<SceneObject/f8faf500-7992-4292-9988-efdd94c98782>
   PrefabRemaps:
     []

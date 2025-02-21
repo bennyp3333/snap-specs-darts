@@ -1,0 +1,114 @@
+- !<AssetImportMetadata/b16b9dc4-fea4-4ce1-bd43-2d9f252963a2>
+  ImportedAssetIds:
+    .hidden/d2: !<reference> 73a7baf5-934c-445f-bfbe-eb06fee9cf45
+    .hidden/white: !<reference> e478c914-a135-4445-9b90-33570f565ff2
+    137d015a8dc68add: !<reference> a9d4ff74-730c-4cd6-9867-bec70511680e
+    28ddefbb995a3d0e: !<reference> 04667f0b-9935-4c87-91ed-4db396b4ce20
+    66780cf3a4dcb2b8: !<reference> 29f62f46-7751-42d6-adb8-ec3a21451cba
+    Materials/d2: !<reference> 95d40c6c-a945-47ba-9896-27e082335eb8
+    Materials/d2|d2|GraphPassInfo: !<reference> f2d8ee78-1dd4-477a-9fe4-b090d2425a46
+    Meshes/dart1: !<reference> acb3e857-9c5b-44ed-8f3b-1a0d71f6d3bf
+    Scene: !<reference> 6f227da0-7f66-4274-9129-fec2d7e6e3bc
+  ImporterName: FbxImporter
+  PrimaryAsset: !<reference> 6f227da0-7f66-4274-9129-fec2d7e6e3bc
+  PackageType: LegacyPackage
+  PackagePolicy: CanBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 9114bf20-981e-4cb4-8369-5ef7f32bebf9
+  DependentFiles:
+    []
+  ImporterSettings: !<FbxImporterSettings/1318f81b-bf72-4169-be63-99471285fec8>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitize
+    PersistentIdGenerationAlgorithm: DescriptorBased
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangentsAndBinormals: true
+    RegenerateTangentsAndBinormals: false
+    RegenerateNormalsForSkinnedMeshes: true
+    ImportBlendShapeAnimation: true
+    ImportVertexAnimation: true
+    GeneratePivots: true
+    TriangulateNURBS: true
+    UseLegacyFbxLoader: false
+  CompressionSettings: !<ComplexCompressionSettings/20f83ea4-546e-4c63-bf39-ca165a43fa7d>
+    Presets:
+      None Compression: !<SingleCompressionSettings/7105a42b-21b5-4580-a951-5c5d29b575d3>
+        CompressorName: None
+        CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+      Performance Compression: !<SingleCompressionSettings/699b7f27-25c2-4301-adfa-aaf398ae9aad>
+        CompressorName: Performance
+        CompressionSettings: !<TextureCompressionSettings/f21366cf-b044-4335-a3c8-fa5a668c16a3>
+          Level: Medium
+    ExtensionMappings:
+      mesh: None Compression
+      jpg: Performance Compression
+    Overrides:
+      {}
+- !<ObjectPrefab/0a6168fc-42d1-4968-b21a-ba421a369000>
+  PackagePath: ""
+  objects:
+    - !<own> 886fd096-80b8-48b9-820a-775d72909254
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/353cb399-3249-4160-9b02-4675ba9a1369>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 95d40c6c-a945-47ba-9896-27e082335eb8
+  Mesh: !<reference> acb3e857-9c5b-44ed-8f3b-1a0d71f6d3bf
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/3b116cff-21b9-4474-b1e8-d082b1380581>
+  PrefabRemaps:
+    []
+  Name: dart1
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: -90.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 353cb399-3249-4160-9b02-4675ba9a1369
+- !<SceneObject/886fd096-80b8-48b9-820a-775d72909254>
+  PrefabRemaps:
+    []
+  Name: Dart1n
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 3b116cff-21b9-4474-b1e8-d082b1380581
+  Components:
+    []
+- !<ObjectPrefabAssetData/9114bf20-981e-4cb4-8369-5ef7f32bebf9>
+  SourceRemaps:
+    - 04667f0b-9935-4c87-91ed-4db396b4ce20: 3b116cff-21b9-4474-b1e8-d082b1380581
+    - 29f62f46-7751-42d6-adb8-ec3a21451cba: 886fd096-80b8-48b9-820a-775d72909254
+    - 6f227da0-7f66-4274-9129-fec2d7e6e3bc: 0a6168fc-42d1-4968-b21a-ba421a369000
+    - a9d4ff74-730c-4cd6-9867-bec70511680e: 353cb399-3249-4160-9b02-4675ba9a1369
+  SourceState: !<own> 0a6168fc-42d1-4968-b21a-ba421a369000

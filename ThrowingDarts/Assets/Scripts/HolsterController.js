@@ -46,7 +46,7 @@ function spawnAtIndex(idx){
     var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition().add(SPAWN_OFFSET);
     var newDart = script.dartPrefab.instantiate(script.dartContainer);
     newDart.getTransform().setWorldPosition(spawnPosition);
-    var newDartScript = newDart.getComponents("Component.ScriptComponent")[2];
+    var newDartScript = newDart.getComponents("Component.ScriptComponent")[3];
     newDartScript.dartIdx = dartCounter++;
     var randomColor = global.utils.randomColorHue(1, 0.5);
     newDartScript.setColor(randomColor);
