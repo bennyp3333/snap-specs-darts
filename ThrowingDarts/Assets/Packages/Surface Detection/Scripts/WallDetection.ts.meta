@@ -30,6 +30,7 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    altVisuals: false
     animation: false
     camObj: false
     ignorePitch: false
@@ -41,6 +42,8 @@
       visualObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       animation: !<MappingBased.CircleAnimation> 00000000-0000-0000-0000-000000000000
       ignorePitch: false
+      altVisuals: !<reference.SceneObject[]>
+        []
   ScriptTypes:
     -
       {}
@@ -49,3 +52,4 @@
     - // @input SceneObject camObj
     - // @input SceneObject visualObj
     - // @input CircleAnimation animation
+    - "// @input SceneObject[] altVisuals"

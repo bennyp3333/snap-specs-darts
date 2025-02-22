@@ -64,7 +64,7 @@ function onPlaced(position, rotation) {
     boardTransform.setWorldRotation(rotation);
     boardPlaced = true;
     //TODO: implement
-    script.boardController.setPanel(global.gameMode, global.playersCount);
+    //script.boardController.setPanel(global.gameMode, global.playersCount);
     script.boardController.show(true);
     //TODO: set panel to game mode scoring
     debugPrint("Board placed");

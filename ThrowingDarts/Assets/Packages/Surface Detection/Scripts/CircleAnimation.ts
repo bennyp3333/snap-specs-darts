@@ -40,7 +40,7 @@ export class CircleAnimation extends BaseScriptComponent {
                 this.audio.play(1);
             }
             
-            this.calRenderer.mainPass.CurrSize = this.PingPong(0.095, 0, (getTime() - this.startCompleteAnimTime) * 1);
+            this.calRenderer.mainPass.CurrSize = this.PingPong(0.2, 0, (getTime() - this.startCompleteAnimTime) * 1.0);         
             if (this.calRenderer.mainPass.CurrSize < .001){
                 this.calRenderer.mainPass.CurrSize = 0;
                 this.onCompleteCallback?.();

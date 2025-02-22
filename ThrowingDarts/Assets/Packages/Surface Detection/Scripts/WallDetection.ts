@@ -17,6 +17,10 @@ export class WallDetection extends BaseScriptComponent {
     @input
     @allowUndefined
     animation: CircleAnimation
+    
+    @input
+    @allowUndefined
+    altVisuals: SceneObject[]
 
     private worldQueryModule = require("LensStudio:WorldQueryModule") as WorldQueryModule;
 
@@ -25,7 +29,7 @@ export class WallDetection extends BaseScriptComponent {
     private readonly MIN_HIT_DISTANCE = 50;
 
     // Number of frames before wall detection completes
-    private readonly CALIBRATION_FRAMES = 30;
+    private readonly CALIBRATION_FRAMES = 45;
 
     // Distance in cm the wall visual can move before canceling
     private readonly MOVE_DISTANCE_THRESHOLD = 5;
@@ -69,6 +73,10 @@ export class WallDetection extends BaseScriptComponent {
         } catch (e) {
             print(e);
         }
+        
+        for(var i = 0; i < this.altVisuals.length; i++){
+            this.altVisuals[i].enabled = false;
+        }
 
         this.createEvent("OnStartEvent").bind(() => {
             this.setDefaultPosition();
@@ -86,6 +94,9 @@ export class WallDetection extends BaseScriptComponent {
         this.updateEvent.bind(() => {
             this.update();
         });
+        for(var i = 0; i < this.altVisuals.length; i++){
+            this.altVisuals[i].enabled = true;
+        }
         this.animation.startCalibration(() => {
             this.onCalibrationComplete()
         });
@@ -173,6 +184,9 @@ export class WallDetection extends BaseScriptComponent {
     }
 
     private onCalibrationComplete() {
+        for(var i = 0; i < this.altVisuals.length; i++){
+            this.altVisuals[i].enabled = false;
+        }
         this.hitTestSession?.stop();
         this.onWallFoundCallback?.(this.calibrationPosition, this.calibrationRotation);
     }

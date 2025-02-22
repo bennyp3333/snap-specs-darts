@@ -4371,6 +4371,84 @@
   ScriptTypes:
     "":
       {}
+- !<Text/37bc514a-04c2-4f76-a021-984c2d1b6fd9>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 999
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: |-
+    Place Target 
+    On A Wall
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 48
+  Font: !<reference> 154031bf-5edc-4c0e-8799-12f7cf570b5d
+  LayoutRect:
+    left: -7.500000
+    bottom: -2.250000
+    right: 7.500000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Overflow
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  Outline: !<OutlineSettings>
+    Enabled: true
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.500000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
 - !<SceneObject/37ed3092-73e5-420b-aedb-656b1c84ac79>
   PrefabRemaps:
     []
@@ -5249,6 +5327,21 @@
     - !<own> ab8ba6a3-368b-439b-bc27-0f396e4ce6eb
     - !<own> 297edb80-1ef8-4527-91d2-2f1a19657582
     - !<own> 117e13c7-61de-47a8-893f-951f91b0534a
+- !<SceneObject/470e45d5-8fbd-4115-8f53-600d4f95e005>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 5.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 8.000000, y: 8.000000, z: 8.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 37bc514a-04c2-4f76-a021-984c2d1b6fd9
 - !<ScriptComponent/47539171-a347-48fe-ae7a-cc4b06f94f5f>
   PrefabRemaps:
     []
@@ -7180,7 +7273,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 999
+  RenderOrder: 998
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -14649,6 +14742,8 @@
       camObj: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
       visualObj: !<reference.SceneObject> ce75bc45-5af2-4266-9a60-5b4ad85951f8
       animation: !<MappingBased.CircleAnimation> b012c79e-dcd2-46af-9a9d-90034151d29d
+      altVisuals: !<reference.SceneObject[]>
+        - !<reference> 470e45d5-8fbd-4115-8f53-600d4f95e005
   ScriptTypes:
     "":
       {}
@@ -15061,6 +15156,7 @@
     hasSegmentScaleCompensation: false
   Children:
     - !<own> fb1f09ee-e967-47ae-a5e3-e9f4646b11b3
+    - !<own> 470e45d5-8fbd-4115-8f53-600d4f95e005
   Components:
     - !<own> 00db6bc9-9933-407c-a307-ebe707fa78ea
     - !<own> b012c79e-dcd2-46af-9a9d-90034151d29d
@@ -18283,7 +18379,7 @@
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 45.000000, y: 45.000000, z: 1.000000}
+    scale: {x: 103.000000, y: 103.000023, z: 0.804688}
     hasSegmentScaleCompensation: false
   Children:
     []
