@@ -25,6 +25,7 @@ var playerColors = [
     new vec4(1.000, 0.792, 0.502, 1.000),
     new vec4(1.000, 0.502, 0.957, 1.000),
     new vec4(0.502, 1.000, 0.541, 1.000),
+    new vec4(1.000, 0.502, 0.502, 1.000),
 ]
 
 function init(){
@@ -55,13 +56,17 @@ function spawnAtIndex(idx, playerColor){
     newDart.getTransform().setWorldPosition(spawnPosition);
     var newDartScript = newDart.getComponents("Component.ScriptComponent")[3];
     newDartScript.dartIdx = dartCounter++;
-    //var randomColor = global.utils.randomColorHue(1, 0.5);
-    newDartScript.setColor(playerColors[playerColor]);
+    var color = playerColors[playerColor];
+    if(global.gameMode == global.GameModes.Practice){
+        color = global.utils.randomColorHue(1, 0.5);
+    }
+    newDartScript.setColor(color);
     dartsInHolster[idx] = newDart;
     global.darts.push(newDart);
 }
 
 function onUpdate(){
+    //if practice game mode?
     /*
     for(var i = 0; i < dartsInHolster.length; i++){
         var dartSpawnPoint = script.dartSpawnPoints[i];
@@ -75,7 +80,6 @@ function onUpdate(){
         }
     }
     */
-    //debugPrint("Updated!");
 }
 
 script.createEvent("OnStartEvent").bind(init);

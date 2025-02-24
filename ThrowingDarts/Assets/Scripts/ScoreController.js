@@ -30,7 +30,7 @@ function init(){
     debugPrint("Initilized!");
 }
 
-function getDartScore(pos){
+function getDartScore(pos, onlyBaseScore){
     var r = Math.sqrt(pos.x * pos.x + pos.y * pos.y);
     var theta = Math.atan2(pos.y, pos.x);
     var thetaDeg = (theta * 180 / Math.PI + 360) % 360;
@@ -40,12 +40,14 @@ function getDartScore(pos){
     var segmentIndex = Math.floor(adjustedThetaDeg / 18);
     var baseScore = segmentScores[segmentIndex];
 
-    if (r <= bullseyeInnerRadius) return 50; // Inner bullseye
-    if (r <= bullseyeOuterRadius) return 25; // Outer bullseye
-    if (r >= tripleRingInner && r <= tripleRingOuter) return baseScore * 3; // Triple ring
-    if (r >= doubleRingInner && r <= doubleRingOuter) return baseScore * 2; // Double ring
-    if (r <= doubleRingOuter) return baseScore; // Single
-
+    if(!onlyBaseScore){
+        if (r <= bullseyeInnerRadius) return 50; // Inner bullseye
+        if (r <= bullseyeOuterRadius) return 25; // Outer bullseye
+        if (r >= tripleRingInner && r <= tripleRingOuter) return baseScore * 3; // Triple ring
+        if (r >= doubleRingInner && r <= doubleRingOuter) return baseScore * 2; // Double ring
+        if (r <= doubleRingOuter) return baseScore; // Single
+    }
+    
     return 0; // Out of bounds
 }
 

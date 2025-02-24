@@ -16,9 +16,9 @@ var boardTransform = script.board.getTransform();
 const enumValue = (name) => Object.freeze({toString: () => name});
 
 global.GameModes = Object.freeze({
-    Practice: enumValue("GameModes.Practice"),
     HighScore: enumValue("GameModes.HighScore"),
-    AroundTheClock: enumValue("GameModes.AroundTheClock")
+    AroundTheClock: enumValue("GameModes.AroundTheClock"),
+    Practice: enumValue("GameModes.Practice"),
 });
 
 global.roundsCount = 4;
@@ -63,13 +63,14 @@ function onPlaced(position, rotation) {
     boardTransform.setWorldPosition(position);
     boardTransform.setWorldRotation(rotation);
     boardPlaced = true;
-    //TODO: implement
-    //script.boardController.setPanel(global.gameMode, global.playersCount);
+    
+    script.boardController.setPanel(global.gameMode, global.playersCount);
     script.boardController.show(true);
-    //TODO: set panel to game mode scoring
+    
     debugPrint("Board placed");
     
-    startGame();
+    //TODO: move this to control resetting on start
+    startGame(true);
 }
 
 function startGame(reset){
@@ -77,13 +78,20 @@ function startGame(reset){
         currentRound = 0;
         currentPlayer = 0;
         currentDart = 0;
+        
+        script.boardController.resetScore();
+        script.boardController.resetRound();
+        script.boardController.setPlayer(currentPlayer);
     }
     script.holsterController.show(true);
     script.holsterController.spawnDarts(currentPlayer);
 }
 
-function onDartHit(){
-    //switch game mode
+function onDartHit(dartScript){
+    //switch game mode on 3 darts hit
+    currentDart += 1;
+    //add to score
+    script.boardController.addScore(dartScript, currentPlayer);
 }
 
 function nextPlayer(){

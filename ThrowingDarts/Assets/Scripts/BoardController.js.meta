@@ -26,10 +26,13 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    aroundTheClockContent: false
     boardPlane: false
     debug: false
     debugName: false
     debugText: false
+    highScoreContent: false
+    practiceContent: false
     root: false
   ScriptTypesHidden:
     {}
@@ -39,6 +42,9 @@
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       root: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       boardPlane: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      highScoreContent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      aroundTheClockContent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      practiceContent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

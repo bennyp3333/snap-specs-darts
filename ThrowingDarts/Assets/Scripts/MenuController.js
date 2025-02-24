@@ -22,8 +22,8 @@ var selfTransform = self.getTransform();
 var playersCount = 2;
 var gameMode = global.GameModes.HighScore;
 
-var maxPlayers = 4;
-var minPlayers = 1;
+global.maxPlayers = 4;
+global.minPlayers = 1;
 
 var playersBeginCopy = "Players: ";
 
@@ -78,14 +78,14 @@ script.pressStartButton = function(){
 
 script.pressButtonUp = function(){
     debugPrint("Up button pressed");
-    playersCount = Math.min(maxPlayers, playersCount + 1);
+    playersCount = Math.min(global.maxPlayers, playersCount + 1);
     script.playersCountText.text = playersBeginCopy + playersCount;
     debugPrint("Incrementing playerCount to: " + playersCount);
 }
 
 script.pressButtonDown = function(){
     debugPrint("Down button pressed");
-    playersCount = Math.max(minPlayers, playersCount - 1);
+    playersCount = Math.max(global.minPlayers, playersCount - 1);
     script.playersCountText.text = playersBeginCopy + playersCount;
     debugPrint("Decrementing playerCount to: " + playersCount);
 }
@@ -101,6 +101,7 @@ script.setGameMode = function(mode){
             break;
         case 2:
             gameMode = global.GameModes.Practice;
+            playersCount = 1;
             break;
     }
     debugPrint("Set game mode to: " + gameMode);
