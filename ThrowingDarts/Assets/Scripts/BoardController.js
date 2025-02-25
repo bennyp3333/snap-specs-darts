@@ -93,7 +93,7 @@ script.setPanel = function(mode, players){
             yOffset = -1.0;
             break;
         case global.GameModes.Practice:
-            yOffset = 3.0;
+            yOffset = 4.0;
             playerCountOverride = 4;
             break;
     }
@@ -226,7 +226,9 @@ function getDartScore(pos, onlyBaseScore){
     var segmentIndex = Math.floor(adjustedThetaDeg / 18);
     var baseScore = segmentScores[segmentIndex];
 
-    if(!onlyBaseScore){
+    if(onlyBaseScore){
+        if (r <= doubleRingOuter) return baseScore; 
+    }else{
         if (r <= bullseyeInnerRadius) return 50; // Inner bullseye
         if (r <= bullseyeOuterRadius) return 25; // Outer bullseye
         if (r >= tripleRingInner && r <= tripleRingOuter) return baseScore * 3; // Triple ring

@@ -92,9 +92,14 @@ function onDartHit(dartScript){
     currentDart += 1;
     //add to score
     script.boardController.addScore(dartScript, currentPlayer);
+    
+    if(currentDart > 2){
+        nextPlayer();
+    }
 }
 
 function nextPlayer(){
+    //show prompt
     currentPlayer += 1;
     if(currentPlayer >= global.playersCount){
         currentPlayer = 0;
@@ -104,6 +109,18 @@ function nextPlayer(){
         }
     }
     script.holsterController.spawnDarts(currentPlayer);
+    currentDart = 0;
+}
+
+function checkForWin(){
+    //if high score
+    //chacek after all rounds
+    //get player with most points
+    //show prompt
+    //if aroundtheclock
+    //check after each throw
+    //check if any players are at 21
+    //show prompt
 }
 
 function onUpdate(){

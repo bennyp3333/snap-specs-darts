@@ -7,9 +7,28 @@
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
-var promptCopy = {
-base: {title: "Test", body: "Let me know if this works?", size: new vec2()}
+var promptTypes = {
+    hisc1: 0,
+    hisc2: 1,
+    atcl: 2,
+    pract: 4,
+    next1: 5,
+    next2: 6,
+    win1: 7,
+    win2: 8,
 }
+
+var panelSizes = [
+new vec2(4.25, 3),
+new vec2(4.25, 3),
+new vec2(4.25, 3),
+new vec2(4, 1.75),
+new vec2(3, 1),
+new vec2(3, 1.25),
+new vec2(),
+new vec2(),
+new vec2(),
+]
 
 function init(){
 
