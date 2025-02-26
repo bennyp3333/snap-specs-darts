@@ -157,6 +157,7 @@ function recursiveAlpha(rootObj, alpha, effectDisabled){
         if(!obj.enabled && !effectDisabled){ return; }
         
         var meshVisComp = obj.getComponent("Component.RenderMeshVisual");
+        var imageComp = obj.getComponent("Component.Image");
         var text3DComp = obj.getComponent("Component.Text3D");
         var textComp = obj.getComponent("Component.Text");
         
@@ -166,6 +167,14 @@ function recursiveAlpha(rootObj, alpha, effectDisabled){
                 if(currColor){
                     currColor.a = alpha;
                     meshVisComp.getMaterial(i).mainPass.baseColor = currColor;
+                }
+            }
+        }else if(imageComp){
+            for (var i = 0; i < imageComp.getMaterialsCount(); i++) {
+                var currColor = imageComp.getMaterial(i).mainPass.baseColor;
+                if(currColor){
+                    currColor.a = alpha;
+                    imageComp.getMaterial(i).mainPass.baseColor = currColor;
                 }
             }
         }else if(text3DComp){

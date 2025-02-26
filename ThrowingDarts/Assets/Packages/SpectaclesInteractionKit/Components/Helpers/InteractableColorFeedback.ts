@@ -50,14 +50,14 @@ export class InteractableColorFeedback extends BaseScriptComponent {
       this.interactable,
       "InteractableColorFeedback requires Interactable.",
     )
-    this.setupMaterials()
+    //this.setupMaterials()
     this.setupInteractableCallbacks(this.interactable)
   }
 
-  changeColor(color: vec4): void {
-    this.meshMaterials.forEach(function (material) {
-      material.mainPass.baseColor = color
-    })
+  changeColor(color: vec4){
+    for (var i = 0; i < this.meshVisuals.length; i++) {
+      this.meshVisuals[i].mainPass.baseColor = color
+    }
   }
 
   setupInteractableCallbacks(interactable: Interactable): void {

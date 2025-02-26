@@ -29,12 +29,23 @@
     debug: false
     debugName: false
     debugText: false
+    panel: false
+    promptButtons: false
+    promptRoots: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
     - debug: false
       debugName: PromptController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      prompts: !<reference.SceneObject[]>
+        []
+      root: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      panel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      promptButtons: !<reference.SceneObject[]>
+        []
+      promptRoots: !<reference.SceneObject[]>
+        []
   ScriptTypes:
     -
       {}

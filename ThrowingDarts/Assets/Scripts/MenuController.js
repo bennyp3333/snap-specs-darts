@@ -40,7 +40,7 @@ function init(){
 
 function fade(inOut, callback){
     stopTweens();
-    var startVal = script.panel.getComponent("Component.RenderMeshVisual").mainPass.baseColor.a;
+    var startVal = global.utils.getAlphaObject(script.root.getChild(0));
     var endVal = inOut ? 1 : 0;
     tweens.push(global.simpleTween(startVal, endVal, fadeTime, 0, (val) => {
         global.utils.recursiveAlpha(script.root, val, true);

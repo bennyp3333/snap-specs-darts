@@ -1,3 +1,43 @@
+function getAlphaObject(obj){
+    var meshVisComp = obj.getComponent("Component.RenderMeshVisual");
+    var imageComp = obj.getComponent("Component.Image");
+    var text3DComp = obj.getComponent("Component.Text3D");
+    var textComp = obj.getComponent("Component.Text");
+    
+    if(meshVisComp){
+        return getAlpha(meshVisComp)
+    }else if(imageComp){
+        return getAlpha(imageComp);
+    }else if(text3DComp){
+        return getAlpha(text3DComp);
+    }else if(textComp){
+        return textComp.textFill.color.a
+    }
+}
+
+function getAlpha(meshVis){
+    return meshVis.mainPass.baseColor.a;
+}
+
+function setAlphaObject(obj, alpha){
+    var meshVisComp = obj.getComponent("Component.RenderMeshVisual");
+    var imageComp = obj.getComponent("Component.Image");
+    var text3DComp = obj.getComponent("Component.Text3D");
+    var textComp = obj.getComponent("Component.Text");
+    
+    if(meshVisComp){
+        return setAlpha(meshVisComp, alpha)
+    }else if(imageComp){
+        return setAlpha(imageComp, alpha);
+    }else if(text3DComp){
+        return setAlpha(text3DComp, alpha);
+    }else if(textComp){
+        var currColor = textComp.textFill.color;
+        currColor.a = alpha;
+        textComp.textFill.color = currColor;
+    }
+}
+
 /**
  * Sets the alpha value for all materials in a MaterialMeshVisual object.
  * @param {MaterialMeshVisual} meshVis - The mesh visual object containing materials.
@@ -13,6 +53,20 @@ function setAlpha(meshVis, alpha) {
         colors.push(currColor);
     }
     return colors;
+}
+
+function makeMatUniqueObject(obj) {
+    var meshVisComp = obj.getComponent("Component.RenderMeshVisual");
+    var imageComp = obj.getComponent("Component.Image");
+    var text3DComp = obj.getComponent("Component.Text3D");
+    
+    if(meshVisComp){
+        return makeMatUnique(meshVisComp);
+    }else if(imageComp){
+        return makeMatUnique(imageComp);
+    }else if(text3DComp){
+        return makeMatUnique(text3DComp);
+    }
 }
 
 /**
@@ -67,7 +121,11 @@ function createAudioComp(thatScript, audioTrack) {
 
 // Exporting the functions
 var exports = {
+    getAlphaObject,
+    getAlpha,
+    setAlphaObject,
     setAlpha,
+    makeMatUniqueObject,
     makeMatUnique,
     makeMatArrayUnique,
     createAudioComp

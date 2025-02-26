@@ -7,18 +7,28 @@
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
 
-var panelRenderMesh;
+var panelRenderMesh = self.getComponent("Component.RenderMeshVisual");
+
+var sizeTweens = [];
 
 function init(){
-    panelRenderMesh = self.getComponent("Component.RenderMeshVisual");
     //TODO: make material unique?
     debugPrint("Initilized!");
 }
 
 script.setSize = function(size, time){
-    panelRenderMesh.setBlendShapeWeight("X", size.x);
-    panelRenderMesh.setBlendShapeWeight("Y", size.y);
-    //TODO: add tweening using time
+    if(time > 0){
+        var startX = panelRenderMesh.getBlendShapeWeight("X");
+        var startY = panelRenderMesh.getBlendShapeWeight("Y");
+        sizeTweens.push(global.simpleTween(0, 1, time, 0, (val) => {
+            var lerpedSize = vec2.lerp(new vec2(startX, startX), size, val);
+            panelRenderMesh.setBlendShapeWeight("X", lerpedSize.x);
+            panelRenderMesh.setBlendShapeWeight("Y", lerpedSize.y);
+        }, null));
+    }else{
+        panelRenderMesh.setBlendShapeWeight("X", size.x);
+        panelRenderMesh.setBlendShapeWeight("Y", size.y); 
+    }
 }
 
 script.setColor = function(color, time){
