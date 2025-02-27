@@ -1193,7 +1193,7 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -1201,7 +1201,7 @@
       editEventCallbacks: true
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - onPinchButton
   ScriptTypes:
     "":
       {}
@@ -1807,7 +1807,7 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -1815,7 +1815,7 @@
       editEventCallbacks: true
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - onPinchButton
   ScriptTypes:
     "":
       {}
@@ -2796,7 +2796,7 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2804,7 +2804,7 @@
       editEventCallbacks: true
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - onPinchButton
   ScriptTypes:
     "":
       {}
@@ -4114,7 +4114,7 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -4122,7 +4122,7 @@
       editEventCallbacks: true
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - onPinchButton
   ScriptTypes:
     "":
       {}
@@ -5433,7 +5433,7 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -5441,7 +5441,7 @@
       editEventCallbacks: true
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - onPinchButton
   ScriptTypes:
     "":
       {}
@@ -6494,7 +6494,7 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -6502,7 +6502,7 @@
       editEventCallbacks: true
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - onPinchButton
   ScriptTypes:
     "":
       {}
@@ -23119,7 +23119,7 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -23127,7 +23127,7 @@
       editEventCallbacks: true
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - onPinchButton
   ScriptTypes:
     "":
       {}

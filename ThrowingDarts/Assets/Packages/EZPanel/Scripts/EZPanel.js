@@ -21,7 +21,7 @@ script.setSize = function(size, time){
         var startX = panelRenderMesh.getBlendShapeWeight("X");
         var startY = panelRenderMesh.getBlendShapeWeight("Y");
         sizeTweens.push(global.simpleTween(0, 1, time, 0, (val) => {
-            var lerpedSize = vec2.lerp(new vec2(startX, startX), size, val);
+            var lerpedSize = vec2.lerp(new vec2(startX, startY), size, val);
             panelRenderMesh.setBlendShapeWeight("X", lerpedSize.x);
             panelRenderMesh.setBlendShapeWeight("Y", lerpedSize.y);
         }, null));

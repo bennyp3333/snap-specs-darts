@@ -17,35 +17,90 @@ var currentPrompt = null;
 var panelScript = script.panel.getComponent("Component.ScriptComponent");
 var panelTweens = [];
 
-function prompt(promptName){
+var counter = 0;
+
+function prompt(promptName, object){
     this.name = promptName;
     this.object = null;
     this.button = null;
     this.panelSize = new vec2(1, 1);
     this.callback = null;
     this.timeOut = 0;
+    this.hasNext = false;
     this.override = false;
     this.canBeOverridden = true;
     
     this.started = false;
     this.stopped = false;
-    this.canceled = false;
     this.completed = false;
     
     this.tweens = [];
     
-    this.show = function(bool, withPanel, callback){
+    this.show = function(withPanel, callback){
+        this.fade(true, withPanel, callback);
+    }
+    
+    this.hide = function(withPanel, callback){
+        this.fade(false, withPanel, callback);
+    }
+    
+    this.fade = function(inOut, withPanel, callback){
+        debugPrint("" + (inOut ? "Showing" : "Hiding") + " prompt " + this.name);
+        while(this.tweens.length > 0){
+            this.tweens.pop().enabled = false;
+        }
+        
         if(withPanel){
             panelScript.setSize(this.panelSize, 0);
-            fadePanel(bool);
+            fadePanel(inOut);
         }else{
             panelScript.setSize(this.panelSize, FADE_TIME);
         }
-        if(bool){ this.object.enabled = true; }
-        this.tweens.push(fade(this.object, bool, () => {
-            if(!bool){ this.object.enabled = false; }
+        
+        if(inOut){
+            this.started = true;
+            this.object.enabled = true;
+        }else{
+            this.timer.enabled = false;
+            this.timer.reset(0); 
+            this.stopped = true;
+        }
+        
+        this.tweens.push(fade(this.object, inOut, () => {
             if(callback){ callback(); }
+            
+            if(inOut){
+                this.timer.enabled = true;
+                this.timer.reset(this.timeout);  
+            }else{
+                this.completed = true;
+                this.object.enabled = false;
+            }
         }));
+    }
+    
+    this.timer = script.createEvent("DelayedCallbackEvent");
+    this.timer.enabled = false;
+    this.timer.bind((eventData) => {
+        debugPrint("Prompt " + this.name + " Timer done");
+        this.stop();
+    });
+    
+    this.onButtonPinched = function(){
+        debugPrint("Prompt " + this.name + " received pinch");
+        this.stop();
+    }
+    
+    this.stop = function(){
+        if(this.started && !this.stopped){
+            if(promptQueue.length > 0){
+                this.hide(false, () => {
+                    checkQueue();
+                });
+            }else{
+                this.hide(true, this.callback);
+            }
+        }
     }
 }
 
@@ -53,11 +108,11 @@ var promptTypes = {
     hisc1: 0,
     hisc2: 1,
     atcl: 2,
-    pract: 4,
-    next1: 5,
-    next2: 6,
-    win1: 7,
-    win2: 8,
+    pract: 3,
+    next1: 4,
+    next2: 5,
+    win1: 6,
+    win2: 7,
 }
 
 var panelSizes = [
@@ -86,9 +141,23 @@ function init(){
     debugPrint("Initilized!");
     
     script.showPrompt("hisc1", () => {
-        print("weiner!");
-    }, 5);
+        print("callback 1");
+    }, 5, false, true);
+    
+    script.showPrompt("win1", () => {
+        print("callback 2");
+    }, 5, false, true);
+    
+    
+    testDelay1.reset(3);
 }
+
+var testDelay1 = script.createEvent("DelayedCallbackEvent");
+testDelay1.bind(function(eventData){
+    script.showPrompt("win2", () => {
+        print("callback 3");
+    }, 5, true, true);
+});
 
 script.showPrompt = function(promptName, callback, timeout, override, canBeOverridden){
     debugPrint("Queuing prompt: " + promptName);
@@ -105,15 +174,39 @@ script.showPrompt = function(promptName, callback, timeout, override, canBeOverr
     checkQueue();
 }
 
+script.onPinchButton = function(interactorEvent){
+    var button = interactorEvent.interactable.getSceneObject();
+    debugPrint("Button for prompt " + button.getParent().name + " was pinched");
+    if(button.getParent().isSame(currentPrompt.object)){
+        currentPrompt.onButtonPinched();
+    }
+}
+
 function checkQueue(){
+    //debugPrint("Checking prompt queue");
     if(currentPrompt){
-        if(promptQueue[0].override){
-            currentPrompt.hide(false, false, null);
-            
+        if(currentPrompt.stopped){
+            if(currentPrompt.completed){
+                debugPrint("Current prompt completed, Showing next prompt in queue");
+                currentPrompt = promptQueue.shift();
+                currentPrompt.show(true, null);
+            }else{
+                debugPrint("Current prompt stopped, Showing next prompt in queue");
+                currentPrompt = promptQueue.shift();
+                currentPrompt.show(false, null);
+            }
+        }else{
+            if(promptQueue[0].override && currentPrompt.canBeOverridden){
+                debugPrint("Overriding current prompt");
+                currentPrompt.hide(false, null);
+                currentPrompt = promptQueue.shift();
+                currentPrompt.show(false, null);
+            }
         }
     }else{
+        debugPrint("Showing next prompt in queue");
         currentPrompt = promptQueue.shift();
-        currentPrompt.show(true, true, null);
+        currentPrompt.show(true, null);
     }
 }
 
@@ -126,7 +219,7 @@ function fadePanel(inOut){
 }
 
 function stopPanelTweens(){
-    debugPrint("Stopping Panel Tweens")
+    //debugPrint("Stopping Panel Tweens")
     while(panelTweens.length > 0){
         panelTweens.pop().enabled = false;
     }
