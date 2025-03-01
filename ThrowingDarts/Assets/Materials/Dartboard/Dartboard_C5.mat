@@ -76,6 +76,9 @@
     - Port_Input_N029:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Input_N030:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
     - Port_Input_N032:
         typeIdx: 5
         value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
@@ -83,6 +86,9 @@
         typeIdx: 1
         value: 0.000000
     - Port_LODValue_N001:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LODValue_N029:
         typeIdx: 1
         value: 0.000000
     - Port_Mask_N011:
@@ -128,6 +134,9 @@
         typeIdx: 3
         value: {x: 0.000000, y: 0.000000}
     - Port_UVCoord_N001:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UVCoord_N029:
         typeIdx: 3
         value: {x: 0.000000, y: 0.000000}
     - Port_Value0_N031:
@@ -294,6 +303,33 @@
     numbers:
       typeIdx: 5
       value: {x: 0.392157, y: 0.392157, z: 0.392157, w: 1.000000}
+    numbersMap:
+      typeIdx: 9
+      value:
+        id: 23f20b0a-4e1e-4790-8371-d668e27bee60
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    numbersMapBorderColor:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    numbersMapDims:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    numbersMapTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    numbersMapUvMinMax:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     overrideTimeDelta:
       typeIdx: 1
       value: 0.000000
