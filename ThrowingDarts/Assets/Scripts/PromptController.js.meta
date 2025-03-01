@@ -30,6 +30,7 @@
     debugName: false
     debugText: false
     panel: false
+    playerTexts: false
     promptButtons: false
     promptRoots: false
   ScriptTypesHidden:
@@ -46,6 +47,7 @@
         []
       promptRoots: !<reference.SceneObject[]>
         []
+      playerTexts: !<reference.Text3D> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

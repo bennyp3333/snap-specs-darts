@@ -29,6 +29,7 @@ var objectHitTransform = null;
 var collissionCount = 0;
 var isDartBoardHit = false;
 var reportedHit = false;
+var selfDestroy = false;
 
 var isHolding = false;
 var isFlying = false;
@@ -45,6 +46,7 @@ var accBuffer = new Buffer(4);
 
 var physicsBody = null;
 var interactable = null;
+var collisionEventRegistration = null;
 
 const MAX_COLLIDES = 20;
 
@@ -69,7 +71,7 @@ function init(){
     
     physicsBody = self.getComponent("Physics.BodyComponent");
     physicsBody.mass = OBJECT_MASS;
-    physicsBody.onCollisionEnter.add(onCollisionEnter);
+    collisionEventRegistration = physicsBody.onCollisionEnter.add(onCollisionEnter);
 
     interactable = self.getComponent(Interactable.getTypeName());
     interactable.onTriggerStart(onGrab);
@@ -294,15 +296,22 @@ function onUpdate(){
     if(isFlying){
         physicsBody.angularVelocity = vec3.zero();
     }
-    /*
-    if(startedFlyingAt > 0 && getTime() - startedFlyingAt > 60){
-        self.destroy();
+    
+    if(startedFlyingAt > 0 && getTime() - startedFlyingAt > 60 && selfDestroy){
+        script.safeDestroy();
         return;
     }
-    */
+    
     if(selfTransform.getWorldPosition().y < GROUND_Y_OFFSET){
-        //self.destroy();
         reportHit();
+        
+        if(selfDestroy){
+            script.safeDestroy();
+        }else{
+            physicsBody.dynamic = false;
+            physicsBody.velocity = vec3.zero();  
+        }
+        
         return;
     }
 }
@@ -321,6 +330,16 @@ script.setColor = function(color){
         dartMaterial = global.utils.makeMatUnique(script.dartMesh)[0];
     }
     dartMaterial.mainPass.baseColor = color;
+}
+
+script.setSelfDestroy = function(bool){
+    selfDestroy = bool;
+}
+
+script.safeDestroy = function(){
+    debugPrint("Destroying!");
+    physicsBody.onCollisionEnter.remove(collisionEventRegistration);
+    self.destroy();
 }
 
 script.createEvent("OnStartEvent").bind(init);

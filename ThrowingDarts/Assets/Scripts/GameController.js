@@ -1,6 +1,7 @@
 //@input Component.ScriptComponent menuController
 //@input Component.ScriptComponent wallDetector
 //@input Component.ScriptComponent boardController
+//@input Component.ScriptComponent promptController
 //@input Component.ScriptComponent holsterController
 //@input SceneObject board
 //@ui {"widget":"separator"}
@@ -21,6 +22,8 @@ global.GameModes = Object.freeze({
     Practice: enumValue("GameModes.Practice"),
 });
 
+var started = false;
+
 global.roundsCount = 4;
 global.playersCount = null;
 global.gameMode = null;
@@ -28,6 +31,8 @@ global.gameMode = null;
 currentRound = 0;
 currentPlayer = 0;
 currentDart = 0;
+
+playersSeenInstructions = 0;
 
 var boardPlaced = false;
 
@@ -74,42 +79,93 @@ function onPlaced(position, rotation) {
 }
 
 function startGame(reset){
+    started = true;
+    
     if(reset){
         currentRound = 0;
         currentPlayer = 0;
         currentDart = 0;
+        playersSeenInstructions = 0;
         
         script.boardController.resetScore();
         script.boardController.resetRound();
         script.boardController.setPlayer(currentPlayer);
     }
+    
     script.holsterController.show(true);
-    script.holsterController.spawnDarts(currentPlayer);
+    showInstructions();
+    onNextPlayer();
 }
 
 function onDartHit(dartScript){
-    //switch game mode on 3 darts hit
+    debugPrint("Dart Hit!");
     currentDart += 1;
-    //add to score
+    
+    debugPrint("Adding to score");
     script.boardController.addScore(dartScript, currentPlayer);
     
     if(currentDart > 2){
-        nextPlayer();
+        if(global.gameMode == global.GameModes.Practice){
+            onNextPlayer();
+        }else{
+            nextPlayerDelay.reset(1);
+        }
     }
 }
 
+var nextPlayerDelay = script.createEvent("DelayedCallbackEvent");
+nextPlayerDelay.bind(nextPlayer);
+
 function nextPlayer(){
-    //show prompt
     currentPlayer += 1;
+    debugPrint("Queueing next player: " + currentPlayer);
+    
     if(currentPlayer >= global.playersCount){
         currentPlayer = 0;
         currentRound += 1;
         if(currentRound >= roundsCount){
-            //stop?
+            started = false;
         }
     }
+    
+    if(started){
+        script.boardController.setRound(currentRound);
+        script.promptController.setPlayerNumber(currentPlayer);
+        if(global.playersCount < 2){
+            onNextPlayer();
+            return;
+        }
+        script.promptController.showPrompt("next1", null, 3, false, true);
+        script.promptController.showPrompt("next3", () => {
+            onNextPlayer();
+        }, -1, false, true);
+        showInstructions();
+    }
+}
+
+function onNextPlayer(){
+    debugPrint("Starting player " + currentPlayer + " turn");
+    if(global.gameMode != global.GameModes.Practice){
+        script.holsterController.destroyDarts();
+    }
+    script.boardController.setPlayer(currentPlayer);
     script.holsterController.spawnDarts(currentPlayer);
     currentDart = 0;
+}
+
+function showInstructions(){
+    if(playersSeenInstructions < global.playersCount){
+        debugPrint("Showing instructions");
+        playersSeenInstructions += 1;
+        if(global.gameMode == global.GameModes.HighScore){
+            script.promptController.showPrompt("hisc1", null, 8, false, true);
+            script.promptController.showPrompt("hisc2", null, 8, false, true);
+        }else if(global.gameMode == global.GameModes.AroundTheClock){
+            script.promptController.showPrompt("atcl", null, 8, false, true);
+        }else{
+            script.promptController.showPrompt("pract", null, 8, false, true);
+        }
+    }
 }
 
 function checkForWin(){

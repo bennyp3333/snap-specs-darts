@@ -49,6 +49,13 @@ script.spawnDarts = function(playerIdx){
     }
 }
 
+script.destroyDarts = function(){
+    debugPrint("Destroying Darts");
+    while(global.darts.length > 0){
+        global.darts.pop().getComponents("Component.ScriptComponent")[3].safeDestroy();
+    }
+}
+
 function spawnAtIndex(idx, playerColor){
     var dartSpawnPoint = script.dartSpawnPoints[idx];
     var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition().add(SPAWN_OFFSET);
@@ -58,6 +65,7 @@ function spawnAtIndex(idx, playerColor){
     newDartScript.dartIdx = dartCounter++;
     var color = playerColors[playerColor];
     if(global.gameMode == global.GameModes.Practice){
+        newDartScript.setSelfDestroy(true);
         color = global.utils.randomColorHue(1, 0.5);
     }
     newDartScript.setColor(color);
@@ -66,20 +74,20 @@ function spawnAtIndex(idx, playerColor){
 }
 
 function onUpdate(){
-    //if practice game mode?
-    /*
     for(var i = 0; i < dartsInHolster.length; i++){
         var dartSpawnPoint = script.dartSpawnPoints[i];
         var dart = dartsInHolster[i];
         
-        var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition();
-        var dartPosition = dart.getTransform().getWorldPosition();
-        
-        if(dartPosition.distance(spawnPosition) > DISTANCE_OFFSET){
-            spawnAtIndex(i);
+        if(dart){
+            var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition();
+            var dartPosition = dart.getTransform().getWorldPosition();
+            
+            if(dartPosition.distance(spawnPosition) > DISTANCE_OFFSET){
+                dartsInHolster[i] = null;
+                global.events.trigger("dartPickedUp");
+            }
         }
     }
-    */
 }
 
 script.createEvent("OnStartEvent").bind(init);

@@ -6,6 +6,7 @@
     - !<own> f68f0438-2abc-4fe4-afd7-77fb2758a16d
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> 00000000-0000-0065-0000-000000000064
+    - !<own> 60a5df30-8524-42b7-88c2-2e8682bfcb11
     - !<own> 99c31f0b-090e-4fc2-a88f-feae21344e52
     - !<own> f245f369-3ce0-4fcd-b05a-8ffea015a2a7
     - !<own> 57b32161-25fe-4030-985f-63114ef488ad
@@ -15,7 +16,11 @@
     - !<own> efcf5428-d01c-4f91-9484-007748d1edd2
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
-      []
+      - |
+        id: 1
+        name: Scene Layer
+        color: 0
+
     HasOrtho: true
   RenderOutput: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
   RenderPreviewOutput: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
@@ -24,7 +29,7 @@
 - !<SceneObject/00000000-0000-0065-0000-000000000064>
   PrefabRemaps:
     []
-  Name: Camera Object
+  Name: Main Camera
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -33,7 +38,6 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
-    - !<own> 7f1e4192-9cb9-4159-ab37-c29e5f6c57e0
     - !<own> ea1d4e02-dae4-4269-aaab-abf9e69bde98
   Components:
     - !<own> 00000000-0000-0065-0000-000000000065
@@ -44,7 +48,7 @@
     []
   Name: Camera
   Enabled: true
-  renderLayer: 1
+  renderLayer: 2
   MipmapLevel: 0
   RenderOrder: 0
   Size: 20.000000
@@ -192,7 +196,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 2.137226, z: 0.000000}
+    position: {x: 4.000000, y: 5.197910, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 6.000000, y: 6.000000, z: 6.000000}
     hasSegmentScaleCompensation: false
@@ -288,6 +292,7 @@
         - !<reference> 059a849f-b140-4431-b869-a928da96144c
         - !<reference> ca9ff2c5-0be4-4600-a92e-367c57c13587
         - !<reference> 02ec258d-269e-42fe-a8d5-90f7c87e3673
+        - !<reference> f4e3e7bd-4ef6-4190-a35d-7b0f35d07343
         - !<reference> 78c4a32c-9678-4b2f-996c-cf0f72b2ee73
         - !<reference> d861ba0b-54ff-4fe4-ab44-38a1eded4d59
       promptButtons: !<reference.SceneObject[]>
@@ -297,8 +302,14 @@
         - !<reference> cdca57f3-4495-4fc5-a8ee-4b1dbc19c56d
         - !<reference> 00000000-0000-0000-0000-000000000000
         - !<reference> c7060900-8c74-4dec-aace-efe28ecd3376
+        - !<reference> 821a8204-b5cb-4ffb-8210-520bbd56df08
         - !<reference> be5e46c9-1a2f-4f89-ae5c-5df72a00e9fd
         - !<reference> 3498737e-d7ae-4b8b-ba21-0a7e5ddb5fa3
+      playerTexts: !<reference.Text3D[]>
+        - !<reference> 1182fe0d-d57b-4ade-b853-93cadbbf9efe
+        - !<reference> a19eab3c-e3c0-45c6-9626-fb76a3acafa7
+        - !<reference> 7a74bb66-42ba-4b5d-8995-4e64e6ea4442
+        - !<reference> 6836a6e4-988b-423f-9e53-ae4921de39d4
       debug: true
       debugName: PromptController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
@@ -400,7 +411,7 @@
   PrefabRemaps:
     []
   Name: Next Player 2
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -715,7 +726,7 @@
     []
   Name: Icon
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -729,7 +740,7 @@
   PrefabRemaps:
     []
   Name: Practice Instr
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -762,9 +773,9 @@
     []
   Name: Player 2
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: -2.466667, y: 0.000000, z: 0.000002}
+    position: {x: -2.300000, y: 0.000000, z: 0.000002}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -982,7 +993,7 @@
     []
   Name: Board
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -400.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -1628,6 +1639,22 @@
   Components:
     - !<own> dcc3ad96-997c-4e0a-94bc-1ae501eb02af
     - !<own> 6c866f4d-00db-4a17-bf53-3dc1708bcce9
+- !<SceneObject/0f208781-7249-4fe8-84d4-53c794ed853c>
+  PrefabRemaps:
+    []
+  Name: Continue
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 42072c89-d249-4fcd-9a33-64a88680d314
+    - !<own> d0b22d12-50ad-44fa-84a1-ece2daa2f79e
 - !<ScriptComponent/0f91f95e-866b-4c91-83c5-134d4892236a>
   PrefabRemaps:
     []
@@ -1779,7 +1806,9 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
-  Text: 15
+  Text: |
+    150
+
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -1989,7 +2018,7 @@
     []
   Name: Right Panel
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 75.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -2058,9 +2087,9 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: -1.000000, y: 0.000000, z: 0.000000}
+    position: {x: 2.000000, y: 1.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 35.000000, y: 35.000000, z: 35.000000}
+    scale: {x: 33.000000, y: 32.999996, z: 32.999996}
     hasSegmentScaleCompensation: false
   Children:
     []
@@ -2230,7 +2259,7 @@
     []
   Name: "Null"
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -2404,6 +2433,43 @@
   Components:
     - !<own> 0d5575e5-2f82-4700-8961-1ca8beaf5b47
     - !<own> 7860eae6-b691-41d5-97fe-0ccbb8fea01b
+- !<Text3D/17476dee-7dc9-4a51-b727-1619a1d5d186>
+  PrefabRemaps:
+    []
+  Name: Text3D
+  Enabled: true
+  RenderOrder: 13
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
+  Text: |-
+    Pinch the button 
+    to start your turn.
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 20
+  ExtrusionDepth: 0.300000
+  ExtrudeDirection: Both
+  Font: !<reference> 154031bf-5edc-4c0e-8799-12f7cf570b5d
+  LayoutRect:
+    left: -4.000000
+    bottom: -2.250000
+    right: 4.000000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
 - !<SceneObject/176ee445-955a-4c0f-8bd8-d0f488067e77>
   PrefabRemaps:
     []
@@ -2609,7 +2675,7 @@
     []
   Name: Darts Missed Copy
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -6.250000, y: 0.000000, z: -0.000004}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -2657,7 +2723,7 @@
     []
   Name: Placer
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -3144,9 +3210,9 @@
     []
   Name: Player 3
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: -2.466667, y: 0.000000, z: 0.000002}
+    position: {x: -2.300000, y: 0.000000, z: 0.000002}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -3389,7 +3455,7 @@
     []
   Name: Player 2
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -2.466667, y: -0.000000, z: 0.000002}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -3437,7 +3503,7 @@
   PrefabRemaps:
     []
   Name: Content Offset
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 6.000000}
@@ -3557,7 +3623,9 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
-  Text: • Inner ring triples the score.
+  Text: |-
+    • Inner ring triples 
+    the score.
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -3576,7 +3644,7 @@
   AdvancedLayout: !<TextAdvancedLayout>
     ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
     LetterSpacing: 0.000000
-    LineSpacing: 1.000000
+    LineSpacing: 0.750000
     CapitalizationOverride: None
 - !<ScriptComponent/21089adf-ca6a-4e65-943f-6b0535f687c4>
   PrefabRemaps:
@@ -3803,7 +3871,7 @@
     []
   Name: Content Offset
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 6.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -3941,7 +4009,7 @@
     []
   Name: Round
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 28.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -3989,7 +4057,7 @@
     []
   Name: Line
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -4.000000, y: 0.350000, z: 0.000006}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -3999,6 +4067,27 @@
     []
   Components:
     - !<own> 7b65bcf3-7ec1-4173-b7d8-2802b5928205
+- !<ScriptComponent/260aa1bd-88ee-4575-b803-5d9ceeaeb704>
+  PrefabRemaps:
+    []
+  Name: InteractableOutlineFeedback
+  Enabled: true
+  ScriptAsset: !<reference> c2e90e99-2305-4b10-a778-d72bf9b9adbd
+  ScriptInputsDefault:
+    activatingColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetOutlineMaterial: !<reference.Material> e9a54599-e28b-4cfe-b14c-2ec3256020aa
+      hoveringColor: !<Vec4> {x: 1.000000, y: 0.578103, z: 0.000000, w: 1.000000}
+      activatingColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      outlineWeight: 0.125000
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        - !<reference> ca8a27c6-3a4d-4b80-a7ab-c1a33385809f
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/26c3477b-ab5f-4212-b19b-3dc3273d0836>
   PrefabRemaps:
     []
@@ -4131,9 +4220,9 @@
     []
   Name: Player 1 Score
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: 59.000000, y: 8.000000, z: 0.000000}
+    position: {x: 56.000000, y: 8.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 15.000000, y: 15.000000, z: 15.000000}
     hasSegmentScaleCompensation: false
@@ -4329,7 +4418,7 @@
     []
   Name: Button Mesh
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -4385,7 +4474,7 @@
     - ccc5fe56-0205-4de4-a009-9d605646cc4b: 245974c3-e3a7-4800-b6d3-ac9510186e19
   Name: EZPanel
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: -45.000000, y: 0.000000, z: 0.000000}
@@ -4452,7 +4541,7 @@
     []
   Name: Board Back
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 12.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -5288,7 +5377,7 @@
     []
   Name: Dart Spawn 3
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 6.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
@@ -5303,9 +5392,9 @@
     []
   Name: Player 4 Score
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: 59.000000, y: -19.000000, z: 0.000000}
+    position: {x: 56.000000, y: -19.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 15.000000, y: 15.000000, z: 15.000000}
     hasSegmentScaleCompensation: false
@@ -5405,7 +5494,7 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
-  Text: "Round: 1 / 5"
+  Text: "Round: 1 / 4"
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -5470,9 +5559,9 @@
     []
   Name: Line
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: 10.000000, y: -5.000000, z: 0.000000}
+    position: {x: 8.000000, y: -5.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 0.500000, y: 35.000000, z: 2.000000}
     hasSegmentScaleCompensation: false
@@ -5541,7 +5630,7 @@
     []
   Name: Miss
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: -30.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -5791,7 +5880,7 @@
     []
   Name: Score
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -6027,7 +6116,7 @@
     []
   Name: Wall
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -17.100000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -6226,9 +6315,9 @@
     []
   Name: Line
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: -4.000000, y: 0.350000, z: 0.000006}
+    position: {x: -3.750000, y: 0.350000, z: 0.000006}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 3.000000, y: 0.030000, z: 0.100000}
     hasSegmentScaleCompensation: false
@@ -6304,6 +6393,39 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
+- !<ScreenTransform/42072c89-d249-4fcd-9a33-64a88680d314>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: false
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: true
+  Anchor:
+    left: -1.000000
+    bottom: -1.000000
+    right: 1.000000
+    top: 1.000000
+  Offset:
+    left: 0.000000
+    bottom: 0.000000
+    right: 0.000000
+    top: 0.000000
 - !<ScreenTransform/42157a2f-0b27-4a7f-bfbe-a7102b5d1773>
   PrefabRemaps:
     []
@@ -6736,7 +6858,7 @@
     []
   Name: Text
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 5.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -6771,7 +6893,7 @@
     []
   Name: Left Panel
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -75.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -6847,7 +6969,7 @@
     []
   Name: Dart Spawn 1
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -6.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 90.000000, y: -0.000000, z: 0.000000}
@@ -6929,6 +7051,22 @@
   FlipY: false
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/49dc508c-6de1-4fb4-b9b9-7ea65d44f1dd>
+  PrefabRemaps:
+    []
+  Name: Button Mesh
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ca8a27c6-3a4d-4b80-a7ab-c1a33385809f
+    - !<own> 6873f478-fb40-4278-8148-ae691403dfca
 - !<RenderMeshVisual/49e9d869-0661-415f-9cf2-4647959086e7>
   PrefabRemaps:
     []
@@ -6949,6 +7087,26 @@
   BlendNormals: false
   BlendShapes:
     X: 3.000000
+- !<ScriptComponent/4a429319-112c-4727-8ac7-95d65a074685>
+  PrefabRemaps:
+    []
+  Name: Interactable
+  Enabled: true
+  ScriptAsset: !<reference> c973d211-281b-4016-ae39-e12f3317bcae
+  ScriptInputsDefault:
+    targetingMode: true
+    enableInstantDrag: true
+    allowMultipleInteractors: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetingMode: !<float> 3.000000
+      enableInstantDrag: false
+      allowMultipleInteractors: true
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/4aa8664b-5e5a-4e3d-af91-6ac09bf1cea8>
   PrefabRemaps:
     []
@@ -7008,7 +7166,7 @@
     []
   Name: Holster
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -45.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -7413,7 +7571,9 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
-  Text: 15
+  Text: |
+    150
+
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -7507,7 +7667,7 @@
     []
   Name: Player 2 Wedge
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 59.000000, y: 3.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -7663,7 +7823,7 @@
     []
   Name: Tip
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -3.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -7776,7 +7936,7 @@
     []
   Name: Hit Copy
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: -20.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -7812,7 +7972,7 @@
     []
   Name: Total Score Copy
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -6.250000, y: 0.000000, z: -0.000004}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -7940,7 +8100,7 @@
     []
   Name: WallDetector
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -8033,7 +8193,7 @@
     - 61f9a0b2-99c1-423f-af6a-a54ebb7e0a89: a2226d8b-cc00-4028-b227-368d2048808e
   Name: EZPanel
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -8173,6 +8333,27 @@
   Components:
     - !<own> c73c04ca-7c3c-4e28-b9c0-d2c66644aef0
     - !<own> c79fd486-6a0a-47f5-9546-2725f694a92f
+- !<ScriptComponent/598d5ccf-4cc6-40e0-9873-f8e50449fa03>
+  PrefabRemaps:
+    []
+  Name: InteractableColorFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 2f5f1a79-ca6d-4d74-a865-d21c3820e03e
+  ScriptInputsDefault:
+    disabledColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      defaultColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      hoverColor: !<Vec4> {x: 0.921431, y: 0.921447, z: 0.921447, w: 1.000000}
+      pinchedColor: !<Vec4> {x: 0.570459, y: 0.570474, z: 0.570459, w: 1.000000}
+      disabledColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.000000}
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        - !<reference> ca8a27c6-3a4d-4b80-a7ab-c1a33385809f
+  ScriptTypes:
+    "":
+      {}
 - !<BodyComponent/5a4a6c9d-5f14-442c-a49a-8be3c0c22f83>
   PrefabRemaps:
     []
@@ -8351,7 +8532,7 @@
     []
   Name: Darts Hit Num
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 50.000000, y: 12.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -8366,7 +8547,7 @@
     []
   Name: Darts Hit Copy
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -6.250000, y: 0.000000, z: -0.000004}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -8490,7 +8671,7 @@
     []
   Name: Board Plane
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 9.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -8605,6 +8786,24 @@
     LetterSpacing: 0.000000
     LineSpacing: 1.000000
     CapitalizationOverride: None
+- !<ColliderComponent/5ef650ad-a929-4170-9ed2-d84d4c8621b6>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: false
+    Size: {x: 7.500000, y: 2.100000, z: 2.100000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
 - !<SceneObject/5f16b23c-e28f-4c50-8c1c-2c3f7dc7f172>
   PrefabRemaps:
     []
@@ -8672,12 +8871,28 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/60a5df30-8524-42b7-88c2-2e8682bfcb11>
+  PrefabRemaps:
+    []
+  Name: Overlay Camera
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 7f1e4192-9cb9-4159-ab37-c29e5f6c57e0
+  Components:
+    - !<own> d44e3991-0c80-4364-9407-15f885e777eb
+    - !<own> a5411331-af79-477e-8536-e23e59ce6dc2
 - !<SceneObject/60df9746-1731-45e1-84b5-b900c3ecfba3>
   PrefabRemaps:
     []
   Name: Numbers
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 28.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -8920,7 +9135,9 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
-  Text: 15
+  Text: |
+    150
+
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -9093,7 +9310,7 @@
     []
   Name: Player 1
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -2.466667, y: -0.000000, z: 0.000002}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -9496,9 +9713,9 @@
     []
   Name: Player 3 Score
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: 59.000000, y: -10.000000, z: 0.000000}
+    position: {x: 56.000000, y: -10.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 15.000000, y: 15.000000, z: 15.000000}
     hasSegmentScaleCompensation: false
@@ -9527,7 +9744,7 @@
     []
   Name: Hit
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: -30.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -9542,7 +9759,7 @@
     []
   Name: Practice Content
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -9865,6 +10082,39 @@
   BlendNormals: false
   BlendShapes:
     X: 3.000000
+- !<ScreenTransform/6873f478-fb40-4278-8148-ae691403dfca>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: false
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: true
+  Anchor:
+    left: -1.000000
+    bottom: -1.000000
+    right: 1.000000
+    top: 1.000000
+  Offset:
+    left: 0.000000
+    bottom: 0.000000
+    right: 0.000000
+    top: 0.000000
 - !<SceneObject/68ad7faa-9aea-44b5-b204-85da6adb9bc9>
   PrefabRemaps:
     []
@@ -9927,7 +10177,7 @@
     - af6c663f-ffc4-48b2-a937-fce4413862d7: a2226d8b-cc00-4028-b227-368d2048808e
   Name: EZPanel
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -9943,7 +10193,7 @@
     []
   Name: Root
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -10741,7 +10991,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: -10.862774, z: 0.000000}
+    position: {x: 4.000000, y: -9.935407, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 6.000000, y: 6.000000, z: 6.000000}
     hasSegmentScaleCompensation: false
@@ -10775,7 +11025,9 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
-  Text: "• Outer bullseye: 25 points."
+  Text: |-
+    • Outer bullseye: 
+    25 points.
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -10794,7 +11046,7 @@
   AdvancedLayout: !<TextAdvancedLayout>
     ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
     LetterSpacing: 0.000000
-    LineSpacing: 1.000000
+    LineSpacing: 0.750000
     CapitalizationOverride: None
 - !<SceneObject/711f9787-d880-4475-8f0a-0cf6b2492a6b>
   PrefabRemaps:
@@ -11244,7 +11496,7 @@
     - ee47fb41-b767-4e52-ae78-79d29db2ea31: 4db9f6d8-f08a-4c15-89b9-620af96452f2
   Name: Dart
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 15.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -11444,6 +11696,24 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
+- !<ScriptComponent/74e037cd-cc00-4181-a795-708cb8181264>
+  PrefabRemaps:
+    []
+  Name: InteractableSquishFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 3397d147-77b8-4570-ba3f-80c4d9229ef5
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      squishObject: !<reference.SceneObject> 821a8204-b5cb-4ffb-8210-520bbd56df08
+      verticalSquish: 0.900000
+      horizontalSquish: 0.900000
+  ScriptTypes:
+    "":
+      {}
 - !<Text3D/752fe496-7648-4f99-9e63-9e4a1279e311>
   PrefabRemaps:
     []
@@ -11643,7 +11913,7 @@
     []
   Name: HitSound
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -11687,7 +11957,7 @@
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
-    X: 4.250000
+    X: 4.000000
     Y: 3.000000
 - !<SceneObject/77f1a5d3-8594-40b5-8085-79f1d46ddd71>
   PrefabRemaps:
@@ -11850,7 +12120,7 @@
     []
   Name: Darts Total Num
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 50.000000, y: 20.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -11864,7 +12134,7 @@
   PrefabRemaps:
     []
   Name: Win 1
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -11955,8 +12225,8 @@
   PrefabRemaps:
     []
   Name: HighScore Content
-  Enabled: false
-  Layers: 1
+  Enabled: true
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -12048,7 +12318,7 @@
     []
   Name: Line
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 10.000000, y: -1.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -12215,7 +12485,7 @@
     []
   Name: dart1
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -0.000000}
     rotation: {x: -169.224060, y: -89.980217, z: 169.224060}
@@ -12501,6 +12771,7 @@
     - !<own> 059a849f-b140-4431-b869-a928da96144c
     - !<own> ca9ff2c5-0be4-4600-a92e-367c57c13587
     - !<own> 02ec258d-269e-42fe-a8d5-90f7c87e3673
+    - !<own> f4e3e7bd-4ef6-4190-a35d-7b0f35d07343
     - !<own> 78c4a32c-9678-4b2f-996c-cf0f72b2ee73
     - !<own> d861ba0b-54ff-4fe4-ab44-38a1eded4d59
   Components:
@@ -12798,6 +13069,28 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/821a8204-b5cb-4ffb-8210-520bbd56df08>
+  PrefabRemaps:
+    []
+  Name: PinchButtonContinue
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: -13.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 3.500000, y: 3.500000, z: 3.500000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 49dc508c-6de1-4fb4-b9b9-7ea65d44f1dd
+    - !<own> 0f208781-7249-4fe8-84d4-53c794ed853c
+  Components:
+    - !<own> 5ef650ad-a929-4170-9ed2-d84d4c8621b6
+    - !<own> 4a429319-112c-4727-8ac7-95d65a074685
+    - !<own> 84fc94cb-e4b4-4bca-9ca4-86c409285b9f
+    - !<own> 74e037cd-cc00-4181-a795-708cb8181264
+    - !<own> 260aa1bd-88ee-4575-b803-5d9ceeaeb704
+    - !<own> eb7c7f4f-686c-4779-ae36-b783ea57f964
+    - !<own> 598d5ccf-4cc6-40e0-9873-f8e50449fa03
 - !<SceneObject/821f1d70-8d79-44db-bc8b-fabf613822c0>
   PrefabRemaps:
     []
@@ -12869,6 +13162,7 @@
       menuController: !<reference.ScriptComponent> 50dd76b3-8777-4600-89d4-e82323c25135
       wallDetector: !<reference.ScriptComponent> c837e420-c319-4718-a362-ef48846eb755
       boardController: !<reference.ScriptComponent> b6ad8bc8-e5fc-4dd0-9108-a661f5fd3a03
+      promptController: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       holsterController: !<reference.ScriptComponent> e5bb2eb9-70be-4d95-bf72-70e25779749c
       board: !<reference.SceneObject> 0987377d-de8a-4e97-a126-f6a38dae9d90
       debug: true
@@ -12891,7 +13185,9 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
-  Text: • Outer ring doubles the score.
+  Text: |-
+    • Outer ring doubles 
+    the score.
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -12910,16 +13206,16 @@
   AdvancedLayout: !<TextAdvancedLayout>
     ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
     LetterSpacing: 0.000000
-    LineSpacing: 1.000000
+    LineSpacing: 0.750000
     CapitalizationOverride: None
 - !<SceneObject/8384a7bf-3cde-498c-a901-521f190dd54e>
   PrefabRemaps:
     []
   Name: Line
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: -4.000000, y: 0.350000, z: 0.000004}
+    position: {x: -3.750000, y: 0.350000, z: 0.000004}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 3.000000, y: 0.030000, z: 0.100000}
     hasSegmentScaleCompensation: false
@@ -13106,7 +13402,7 @@
     []
   Name: Player 1 Wedge
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 59.000000, y: 12.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -13116,6 +13412,24 @@
     - !<own> 6406b75f-0c90-4f86-aa5c-86396a96ae19
   Components:
     - !<own> 90a7c3b6-951e-4b2e-941f-f3c75e50091a
+- !<ScriptComponent/84fc94cb-e4b4-4bca-9ca4-86c409285b9f>
+  PrefabRemaps:
+    []
+  Name: InteractableAudioFeedback
+  Enabled: true
+  ScriptAsset: !<reference> c57fd4b4-b5d5-4eae-b45c-2f62c57e2bc3
+  ScriptInputsDefault:
+    hoverAudioTrack: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      hoverAudioTrack: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      triggerStartAudioTrack: !<reference.AudioTrackAsset> d531ff43-b8df-4401-839c-645878c5bd2e
+      triggerEndAudioTrack: !<reference.AudioTrackAsset> 7b58983a-a4ca-417f-8171-2a074e30c6d1
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/850751ef-604a-41bc-a846-0701b76493b1>
   PrefabRemaps:
     []
@@ -13483,7 +13797,7 @@
     []
   Name: Dart Container
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 1.000000, z: 1.000000}
     rotation: {x: -90.000000, y: 0.000000, z: 0.000000}
@@ -13542,7 +13856,9 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
-  Text: "• Inner bullseye: 50 points."
+  Text: |-
+    • Inner bullseye: 
+    50 points.
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -13561,7 +13877,7 @@
   AdvancedLayout: !<TextAdvancedLayout>
     ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
     LetterSpacing: 0.000000
-    LineSpacing: 1.000000
+    LineSpacing: 0.750000
     CapitalizationOverride: None
 - !<ScriptComponent/89f336af-a54a-4771-9123-43c3e0d36098>
   PrefabRemaps:
@@ -13960,7 +14276,7 @@
     []
   Name: Player 4
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -2.466667, y: 0.000000, z: 0.000002}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -14043,7 +14359,7 @@
     []
   Name: Content Offset
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 6.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -14126,7 +14442,7 @@
     []
   Name: DartBoard
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -8.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -14458,7 +14774,7 @@
   PrefabRemaps:
     []
   Name: HighScore Instr 1
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -14860,7 +15176,7 @@
     []
   Name: Player 3
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -2.466667, y: 0.000000, z: 0.000002}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -14916,7 +15232,7 @@
     []
   Name: Total Score Num
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 50.000000, y: -4.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -14931,9 +15247,9 @@
     []
   Name: Line
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: -4.000001, y: 0.350000, z: 0.000008}
+    position: {x: -3.750000, y: 0.350000, z: 0.000008}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 3.000000, y: 0.030000, z: 0.100000}
     hasSegmentScaleCompensation: false
@@ -15093,7 +15409,7 @@
     []
   Name: Game Controller
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -15153,7 +15469,7 @@
     []
   Name: Darts Total Copy
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -6.250000, y: 0.000000, z: -0.000004}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -15170,7 +15486,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: -4.862774, z: 0.000000}
+    position: {x: 4.000000, y: -2.221221, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 6.000000, y: 6.000000, z: 6.000000}
     hasSegmentScaleCompensation: false
@@ -15239,12 +15555,27 @@
     - !<own> 9f9bcf5b-6b30-496e-b734-5aa240e969c5
   Components:
     []
+- !<SceneObject/9bf06998-bf6e-46e4-84bc-3c3cb978cad7>
+  PrefabRemaps:
+    []
+  Name: Player
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 12.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 12.000000, y: 12.000000, z: 12.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a19eab3c-e3c0-45c6-9626-fb76a3acafa7
 - !<SceneObject/9c165fb6-a4bf-41b6-87ad-24f0e322d483>
   PrefabRemaps:
     []
   Name: Darts Missed Num
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 50.000000, y: 4.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -15725,7 +16056,9 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
-  Text: 15
+  Text: |
+    150
+
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -15761,6 +16094,41 @@
     []
   Components:
     []
+- !<Text3D/a19eab3c-e3c0-45c6-9626-fb76a3acafa7>
+  PrefabRemaps:
+    []
+  Name: Text3D
+  Enabled: true
+  RenderOrder: 13
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> b048380c-f115-45b3-b3c4-a93bee444aa6
+  Text: Player X
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 20
+  ExtrusionDepth: 0.300000
+  ExtrudeDirection: Both
+  Font: !<reference> 154031bf-5edc-4c0e-8799-12f7cf570b5d
+  LayoutRect:
+    left: -4.000000
+    bottom: -2.250000
+    right: 4.000000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
 - !<ScriptComponent/a1b06eaa-4ccd-49e2-91f2-a8cfece5254b>
   PrefabRemaps:
     []
@@ -15907,7 +16275,7 @@
     []
   Name: Scores
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 18.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -15940,7 +16308,7 @@
     []
   Name: Dart Spawn 2
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
@@ -16010,7 +16378,7 @@
     []
   Name: Light
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -5.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -16347,6 +16715,16 @@
     - !<own> f3c8087e-8414-4601-833d-96cf682f94d3
   Components:
     []
+- !<DeviceTracking/a5411331-af79-477e-8536-e23e59ce6dc2>
+  PrefabRemaps:
+    []
+  Name: Device Tracking
+  Enabled: true
+  DeviceTrackingMode: World
+  RotationOptions: !<RotationOptions>
+    InvertRotation: false
+  SurfaceOptions: !<SurfaceOptions>
+    EnhanceWithNativeAR: false
 - !<SceneObject/a55011e8-bedd-4653-8c08-84ca4e360b8b>
   PrefabRemaps:
     []
@@ -16369,7 +16747,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 11.137226, z: 0.000000}
+    position: {x: 4.000000, y: 12.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 6.000000, y: 6.000000, z: 6.000000}
     hasSegmentScaleCompensation: false
@@ -16607,7 +16985,7 @@
     []
   Name: Line
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -4.000001, y: 0.350000, z: 0.000010}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -16699,7 +17077,7 @@
     []
   Name: Miss
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: -30.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -16993,7 +17371,7 @@
     []
   Name: Miss Copy
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: -20.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -17426,9 +17804,9 @@
     []
   Name: Player 2 Score
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: 59.000000, y: -1.000000, z: 0.000000}
+    position: {x: 56.000000, y: -1.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 15.000000, y: 15.000000, z: 15.000000}
     hasSegmentScaleCompensation: false
@@ -18011,9 +18389,9 @@
     []
   Name: Player 1
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: -2.466667, y: 0.000000, z: 0.000002}
+    position: {x: -2.300000, y: 0.000000, z: 0.000002}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -18444,7 +18822,7 @@
   PrefabRemaps:
     []
   Name: AroundTheClock Instr
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -18950,7 +19328,7 @@
     []
   Name: PinchButtonSphereMenu
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 20.000000, y: -32.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -19284,7 +19662,7 @@
     []
   Name: PinchButtonSphereReplace
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -20.000000, y: -32.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -19420,7 +19798,7 @@
     []
   Name: Line
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: -4.000001, y: 0.350000, z: 0.000008}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -19430,11 +19808,31 @@
     []
   Components:
     - !<own> a828c6f9-2619-4ad0-b9dc-7323efe0a458
+- !<RenderMeshVisual/ca8a27c6-3a4d-4b80-a7ab-c1a33385809f>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 14
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 6db53844-1652-4e5f-a68c-876d32e8b71e
+  Mesh: !<reference> 47063837-94c0-4fc3-9837-ff876c47bffa
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    X: 3.000000
 - !<SceneObject/ca9ff2c5-0be4-4600-a92e-367c57c13587>
   PrefabRemaps:
     []
   Name: Next Player 1
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -19710,7 +20108,7 @@
     []
   Name: BounceSound
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -19844,7 +20242,7 @@
     []
   Name: Player 3 Wedge
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 59.000000, y: -6.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -19897,7 +20295,7 @@
     []
   Name: VisualAnchor
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -20146,6 +20544,83 @@
   BlendNormals: false
   BlendShapes:
     X: 3.000000
+- !<Text/d0b22d12-50ad-44fa-84a1-ece2daa2f79e>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 15
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Continue
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 34
+  Font: !<reference> 154031bf-5edc-4c0e-8799-12f7cf570b5d
+  LayoutRect:
+    left: -7.500000
+    bottom: -2.250000
+    right: 7.500000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Overflow
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+    CapitilizationOverride: None
+  DepthTest: false
+  TwoSided: false
 - !<SceneObject/d0b648c0-f031-49e7-ac1c-c9072a903317>
   PrefabRemaps:
     []
@@ -20172,7 +20647,7 @@
     []
   Name: Root
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -20299,7 +20774,7 @@
     []
   Name: Player 4 Wedge
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 59.000000, y: -15.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -20310,6 +20785,36 @@
     - !<own> a7a81d00-d08f-424c-9a0e-efc5c3291dde
   Components:
     - !<own> 83a2a3ef-0770-4a15-b7a5-f25a6e4abf85
+- !<Camera/d44e3991-0c80-4364-9407-15f885e777eb>
+  PrefabRemaps:
+    []
+  Name: Camera
+  Enabled: true
+  renderLayer: 1
+  MipmapLevel: 0
+  RenderOrder: 0
+  Size: 20.000000
+  Near: 1.000000
+  Far: 10000.000000
+  Fov: 63.541019
+  ClearColor: !<CameraClearColor>
+    Mode: None
+    Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+    InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  ClearDepth: !<CameraClearDepth>
+    Mode: Value
+    Value: 1.000000
+    InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  Aspect: 1.000000
+  CameraType: Perspective
+  DepthMode: Regular
+  DeviceProperty: All
+  AspectPreset: Custom
+  OitLayers: NoOit
+  RenderTarget: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
+  DepthStencilRenderTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  MaskTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  RayTracing: !<reference> 00000000-0000-0000-0000-000000000000
 - !<ScriptComponent/d5a80bb3-8f28-467d-86d5-1b899f89466d>
   PrefabRemaps:
     []
@@ -20493,7 +20998,7 @@
   PrefabRemaps:
     []
   Name: Win 2
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -20617,9 +21122,9 @@
     []
   Name: Player 4
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
-    position: {x: -2.466667, y: 0.000000, z: 0.000002}
+    position: {x: -2.300000, y: 0.000000, z: 0.000002}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -21398,7 +21903,7 @@
   PrefabRemaps:
     []
   Name: HighScore Instr 2
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -21677,7 +22182,7 @@
     []
   Name: Hit
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: -30.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -22112,6 +22617,25 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ScriptComponent/eb7c7f4f-686c-4779-ae36-b783ea57f964>
+  PrefabRemaps:
+    []
+  Name: PinchButton
+  Enabled: true
+  ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      editEventCallbacks: true
+      customFunctionForOnButtonPinched: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
+      onButtonPinchedFunctionNames: !<string[]>
+        - onPinchButton
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/ebf022e3-0fd7-4f48-b695-a86d4509dbfb>
   PrefabRemaps:
     []
@@ -22313,7 +22837,7 @@
     []
   Name: AroundTheClock Content
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -22530,7 +23054,7 @@
     - 6d9f4f89-7013-4700-9796-28356f72d6a8: 245974c3-e3a7-4800-b6d3-ac9510186e19
     - ef3055ce-419c-4cec-801e-1b706331a83c: cfcfba77-df9e-4339-b5c4-acb98439b8bc
   Name: EZPanel
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -22652,7 +23176,7 @@
     []
   Name: Floor
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: -175.000000, z: 0.000000}
     rotation: {x: -90.000000, y: 0.000000, z: 0.000000}
@@ -23112,6 +23636,23 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/f4e3e7bd-4ef6-4190-a35d-7b0f35d07343>
+  PrefabRemaps:
+    []
+  Name: Next Player 3
+  Enabled: false
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 9bf06998-bf6e-46e4-84bc-3c3cb978cad7
+    - !<own> f63210b1-e536-47b4-a548-e6dbef8dce5c
+    - !<own> 821a8204-b5cb-4ffb-8210-520bbd56df08
+  Components:
+    []
 - !<ScriptComponent/f54065c6-b90a-42b4-afca-9b3acabaf6c2>
   PrefabRemaps:
     []
@@ -23164,6 +23705,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/f63210b1-e536-47b4-a548-e6dbef8dce5c>
+  PrefabRemaps:
+    []
+  Name: Copy
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 17476dee-7dc9-4a51-b727-1619a1d5d186
 - !<RenderMeshVisual/f6490bde-080e-4365-b78c-72954ee76228>
   PrefabRemaps:
     []
@@ -23791,7 +24347,7 @@
     []
   Name: CalibrationWheel
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -24115,7 +24671,7 @@
     []
   Name: Icon
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -24130,7 +24686,7 @@
     []
   Name: Button Mesh
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}

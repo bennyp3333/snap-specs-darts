@@ -2,9 +2,18 @@
 //@input SceneObject[] promptRoots
 //@input SceneObject[] promptButtons
 //@ui {"widget":"separator"}
+//@input Component.Text3D[] playerTexts
+//@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "PromptController" {"showIf":"debug"}
 //@input Component.Text debugText {"showIf":"debug"}
+
+/*
+USAGE
+script.showPrompt("hisc1", () => {
+    print("callback 1");
+}, 5, false, true);
+*/
 
 var self = script.getSceneObject();
 var selfTransform = self.getTransform();
@@ -19,13 +28,20 @@ var panelTweens = [];
 
 var counter = 0;
 
+var playerTextCopy = [
+["Pass the Spectacles\nto Player ", "."],
+["Player ", ""],
+["Player ", " Wins!"],
+["Player ", " Wins!"],
+]
+
 function prompt(promptName, object){
     this.name = promptName;
     this.object = null;
     this.button = null;
     this.panelSize = new vec2(1, 1);
     this.callback = null;
-    this.timeOut = 0;
+    this.timeout = 0;
     this.hasNext = false;
     this.override = false;
     this.canBeOverridden = true;
@@ -70,8 +86,10 @@ function prompt(promptName, object){
             if(callback){ callback(); }
             
             if(inOut){
-                this.timer.enabled = true;
-                this.timer.reset(this.timeout);  
+                if(this.timeout > 0){
+                    this.timer.enabled = true;
+                    this.timer.reset(this.timeout);
+                }
             }else{
                 this.completed = true;
                 this.object.enabled = false;
@@ -95,6 +113,7 @@ function prompt(promptName, object){
         if(this.started && !this.stopped){
             if(promptQueue.length > 0){
                 this.hide(false, () => {
+                    if(this.callback){ this.callback(); }
                     checkQueue();
                 });
             }else{
@@ -111,17 +130,19 @@ var promptTypes = {
     pract: 3,
     next1: 4,
     next2: 5,
-    win1: 6,
-    win2: 7,
+    next3: 6,
+    win1: 7,
+    win2: 8,
 }
 
 var panelSizes = [
     new vec2(4.25, 3),
-    new vec2(4.25, 3),
+    new vec2(4, 3),
     new vec2(4.25, 3),
     new vec2(4, 1.75),
     new vec2(3, 1),
     new vec2(3, 1.25),
+    new vec2(3, 2),
     new vec2(2.5, 1),
     new vec2(2.5, 1.25),
 ]
@@ -138,26 +159,16 @@ function init(){
     global.utils.setAlphaObject(script.panel, 0);
     script.panel.enabled = false;
     
+    global.events.add("dartPickedUp", script.skipPrompt);
+    
     debugPrint("Initilized!");
-    
-    script.showPrompt("hisc1", () => {
-        print("callback 1");
-    }, 5, false, true);
-    
-    script.showPrompt("win1", () => {
-        print("callback 2");
-    }, 5, false, true);
-    
-    
-    testDelay1.reset(3);
 }
 
-var testDelay1 = script.createEvent("DelayedCallbackEvent");
-testDelay1.bind(function(eventData){
-    script.showPrompt("win2", () => {
-        print("callback 3");
-    }, 5, true, true);
-});
+script.setPlayerNumber = function(idx){
+    for(var i = 0; i < script.playerTexts.length; i++){
+        script.playerTexts[i].text = playerTextCopy[i][0] + (idx + 1) + playerTextCopy[i][1];
+    }
+}
 
 script.showPrompt = function(promptName, callback, timeout, override, canBeOverridden){
     debugPrint("Queuing prompt: " + promptName);
@@ -179,6 +190,16 @@ script.onPinchButton = function(interactorEvent){
     debugPrint("Button for prompt " + button.getParent().name + " was pinched");
     if(button.getParent().isSame(currentPrompt.object)){
         currentPrompt.onButtonPinched();
+    }
+}
+
+script.skipPrompt = function(){
+    debugPrint("Skipping current prompt");
+    if(currentPrompt && !currentPrompt.stopped){
+        currentPrompt.hide(true, null);
+    }
+    while(promptQueue.length > 0){
+        promptQueue.pop();
     }
 }
 
@@ -241,13 +262,7 @@ function fade(objRoot, inOut, callback){
     });
 }
 
-function onUpdate(){
-
-    //debugPrint("Updated!");
-}
-
 script.createEvent("OnStartEvent").bind(init);
-script.createEvent("UpdateEvent").bind(onUpdate);
 
 // Debug
 function debugPrint(text){

@@ -33,6 +33,7 @@
     debugText: false
     holsterController: false
     menuController: false
+    promptController: false
     wallDetector: false
   ScriptTypesHidden:
     {}
@@ -45,6 +46,7 @@
       boardController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       board: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       holsterController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      promptController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

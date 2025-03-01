@@ -79,15 +79,19 @@ script.pressStartButton = function(){
 script.pressButtonUp = function(){
     debugPrint("Up button pressed");
     playersCount = Math.min(global.maxPlayers, playersCount + 1);
-    script.playersCountText.text = playersBeginCopy + playersCount;
+    updatePlayerCountUI()
     debugPrint("Incrementing playerCount to: " + playersCount);
 }
 
 script.pressButtonDown = function(){
     debugPrint("Down button pressed");
     playersCount = Math.max(global.minPlayers, playersCount - 1);
-    script.playersCountText.text = playersBeginCopy + playersCount;
+    updatePlayerCountUI()
     debugPrint("Decrementing playerCount to: " + playersCount);
+}
+
+function updatePlayerCountUI(){
+    script.playersCountText.text = playersBeginCopy + playersCount;
 }
 
 script.setGameMode = function(mode){
@@ -95,6 +99,7 @@ script.setGameMode = function(mode){
     switch(mode){
         case 0:
             gameMode = global.GameModes.HighScore;
+            playersCount = 2;
             break;
         case 1:
             gameMode = global.GameModes.AroundTheClock;
@@ -104,6 +109,7 @@ script.setGameMode = function(mode){
             playersCount = 1;
             break;
     }
+    updatePlayerCountUI()
     debugPrint("Set game mode to: " + gameMode);
     setMenuUI(gameMode);
 }

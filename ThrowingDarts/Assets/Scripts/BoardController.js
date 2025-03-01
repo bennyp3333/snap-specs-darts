@@ -118,11 +118,11 @@ script.setPanel = function(mode, players){
 
 script.setRound = function(roundNum){
     var roundText = script.highScoreContent.getChild(global.maxPlayers + 3).getComponent("Component.Text3D");
-    roundText.text = roundCopy[0] + roundNum + roundCopy[1];
+    roundText.text = roundCopy[0] + (roundNum + 1) + roundCopy[1];
 }
 
 script.resetRound = function(){
-    script.setRound(1);
+    script.setRound(0);
 }
 
 script.setPlayer = function(playerIdx){
