@@ -4,9 +4,7 @@
     - !<own> cad45007-cfaa-4108-866e-72fcba826bb9
 - !<PassInfo/cad45007-cfaa-4108-866e-72fcba826bb9>
   CachedProperties:
-    - Port_Default_N369:
-        typeIdx: 5
-        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    []
   DepthWrite: false
   DepthTest: false
   DepthFunction: LessEqual
@@ -18,16 +16,9 @@
   FrustumCullPad: 0.000000
   InstanceCount: 1
   Defines:
-    - NODE_13_DROPLIST_ITEM 0
-    - NODE_27_DROPLIST_ITEM 0
-    - NODE_49_DROPLIST_ITEM 0
-    - NODE_69_DROPLIST_ITEM 0
-    - ENABLE_BASE_TEX
-  BlendMode: PremultipliedAlphaAuto
+    []
+  BlendMode: Screen
   Properties:
-    Port_Default_N204:
-      typeIdx: 1
-      value: 0.000000
     PreviewEnabled:
       typeIdx: 0
       value: 0
@@ -37,7 +28,7 @@
     baseTex:
       typeIdx: 9
       value:
-        id: 919ebe17-d82b-4214-9c3f-52365488f43d
+        id: cae9ad15-a502-4b57-888d-00ef50a11c97
         sampler:
           filteringMode: Trilinear
           wrapModeU: ClampToEdge
@@ -61,13 +52,4 @@
     baseTexUvMinMax:
       typeIdx: 5
       value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    overrideTimeDelta:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeElapsed:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeEnabled:
-      typeIdx: 0
-      value: 0
-  Pass: !<reference> 0b9d9afd-d7c2-4ea3-a774-da6d1f67204a
+  Pass: !<reference> 1b23f936-e1b0-4f76-99c8-2eef0b2cff3a
