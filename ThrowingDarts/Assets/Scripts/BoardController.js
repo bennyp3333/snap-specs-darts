@@ -30,6 +30,7 @@ gameModeToContent[global.GameModes.AroundTheClock] = script.aroundTheClockConten
 gameModeToContent[global.GameModes.Practice] = script.practiceContent;
 
 var segmentScores = [6, 13, 4, 18, 1, 20, 5, 12, 9, 14, 11, 8, 16, 7, 19, 3, 17, 2, 15, 10];
+var segmentScoresAlt = [6, 5, 4, 3, 2, 1, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7];
 
 var bullseyeInnerRadius = 1.71;
 var bullseyeOuterRadius = 3.29;
@@ -175,15 +176,12 @@ function notifyHit(score){
     }
     var hitTitle = panelContent.getChild(5).getComponent("Component.Text3D");
     hitTitle.text = hitCopy + score;
-    //hideHitResultDelay.reset(5);
-    //TODO: hide this on player switch
 }
 
-var hideHitResultDelay = script.createEvent("DelayedCallbackEvent");
-hideHitResultDelay.bind(function(eventData){
+script.hideHitResults = function(){
     panelContent.getChild(5).enabled = false;
     panelContent.getChild(6).enabled = false;
-});
+}
 
 function refreshPanelText(){
     if(gameMode == global.GameModes.HighScore || gameMode == global.GameModes.AroundTheClock){   
@@ -224,7 +222,11 @@ function getDartScore(pos, onlyBaseScore){
     var adjustedThetaDeg = (thetaDeg + 9 + 360) % 360;
     
     var segmentIndex = Math.floor(adjustedThetaDeg / 18);
+    
     var baseScore = segmentScores[segmentIndex];
+    if(onlyBaseScore){
+        baseScore = segmentScoresAlt[segmentIndex];
+    }
 
     if(onlyBaseScore){
         if (r <= doubleRingOuter) return baseScore; 

@@ -19,7 +19,7 @@
     []
   Name: dart1
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -0.000000}
     rotation: {x: -169.224060, y: -89.980217, z: 169.224060}
@@ -54,7 +54,7 @@
     []
   Name: Tip
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -3.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -168,7 +168,7 @@
     []
   Name: HitSound
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -278,7 +278,7 @@
     []
   Name: Light
   Enabled: false
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -5.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -294,7 +294,7 @@
     []
   Name: Dart2
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -30.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -317,7 +317,7 @@
     []
   Name: BounceSound
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}

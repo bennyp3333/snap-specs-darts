@@ -28,6 +28,7 @@
   ScriptInputsHidden:
     board: false
     boardController: false
+    dartboardController: false
     debug: false
     debugName: false
     debugText: false
@@ -47,6 +48,7 @@
       board: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       holsterController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       promptController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      dartboardController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

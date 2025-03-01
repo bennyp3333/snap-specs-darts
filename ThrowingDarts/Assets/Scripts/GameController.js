@@ -1,6 +1,7 @@
 //@input Component.ScriptComponent menuController
 //@input Component.ScriptComponent wallDetector
 //@input Component.ScriptComponent boardController
+//@input Component.ScriptComponent dartboardController
 //@input Component.ScriptComponent promptController
 //@input Component.ScriptComponent holsterController
 //@input SceneObject board
@@ -52,6 +53,12 @@ function init(){
 function onMenuClosed(gameParams){
     global.playersCount = gameParams.playersCount;
     global.gameMode = gameParams.gameMode;
+    if(global.gameMode == global.GameModes.AroundTheClock){
+        script.dartboardController.setNumbers(1);
+    }else{
+        script.dartboardController.setNumbers(0);
+    }
+    
     if(!boardPlaced){
         runPlacement();
     }else{
@@ -59,7 +66,7 @@ function onMenuClosed(gameParams){
     }
 }
 
-function runPlacement(){
+function runPlacement(){//TODO: add callback?
     debugPrint("Starting placement");
     script.wallDetector.startWallCalibration(onPlaced);
 }
@@ -147,6 +154,7 @@ function onNextPlayer(){
     debugPrint("Starting player " + currentPlayer + " turn");
     if(global.gameMode != global.GameModes.Practice){
         script.holsterController.destroyDarts();
+        script.boardController.hideHitResults();
     }
     script.boardController.setPlayer(currentPlayer);
     script.holsterController.spawnDarts(currentPlayer);

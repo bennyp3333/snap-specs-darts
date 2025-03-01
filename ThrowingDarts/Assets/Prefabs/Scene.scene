@@ -31,7 +31,7 @@
     []
   Name: Main Camera
   Enabled: true
-  Layers: 1
+  Layers: 2
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -4539,7 +4539,7 @@
 - !<SceneObject/2b65f388-b112-44bc-8bd2-318c16a4a57e>
   PrefabRemaps:
     []
-  Name: Board Back
+  Name: Dartboard Back
   Enabled: true
   Layers: 2
   LocalTransform:
@@ -8669,7 +8669,7 @@
 - !<SceneObject/5dccda45-8dce-4bef-9b73-13afd2958542>
   PrefabRemaps:
     []
-  Name: Board Plane
+  Name: Dartboard Plane
   Enabled: true
   Layers: 2
   LocalTransform:
@@ -8925,7 +8925,7 @@
   Enabled: true
   renderLayer: 1048576
   MipmapLevel: 0
-  RenderOrder: 1
+  RenderOrder: 2
   Size: 20.000000
   Near: -1.000000
   Far: 200.000000
@@ -11784,6 +11784,29 @@
     LetterSpacing: 0.000000
     LineSpacing: 1.000000
     CapitalizationOverride: None
+- !<ScriptComponent/7562f024-1ef4-4fc0-b967-2d5f2fc67dce>
+  PrefabRemaps:
+    []
+  Name: DartboardController
+  Enabled: true
+  ScriptAsset: !<reference> bbb29a4b-226c-4723-b7ba-d5991dadb2fc
+  ScriptInputsDefault:
+    debugName: true
+    debugText: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      dartboardMaterial: !<reference.Material> 16ec5364-01d0-4c2c-b479-d7673a01a595
+      numbersTex: !<reference.Texture[]>
+        - !<reference> 23f20b0a-4e1e-4790-8371-d668e27bee60
+        - !<reference> 4879d1dd-f260-45e6-90ad-b1cf6656e1c5
+      debug: true
+      debugName: Dartboard Controller
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
 - !<ScreenTransform/75a95bf1-07a7-4dac-b2e5-ef8509904b6f>
   PrefabRemaps:
     []
@@ -13162,6 +13185,7 @@
       menuController: !<reference.ScriptComponent> 50dd76b3-8777-4600-89d4-e82323c25135
       wallDetector: !<reference.ScriptComponent> c837e420-c319-4718-a362-ef48846eb755
       boardController: !<reference.ScriptComponent> b6ad8bc8-e5fc-4dd0-9108-a661f5fd3a03
+      dartboardController: !<reference.ScriptComponent> 7562f024-1ef4-4fc0-b967-2d5f2fc67dce
       promptController: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       holsterController: !<reference.ScriptComponent> e5bb2eb9-70be-4d95-bf72-70e25779749c
       board: !<reference.SceneObject> 0987377d-de8a-4e97-a126-f6a38dae9d90
@@ -14453,6 +14477,7 @@
     - !<own> 5dccda45-8dce-4bef-9b73-13afd2958542
   Components:
     - !<own> 4837f704-4a5a-47c4-b5de-926129334e13
+    - !<own> 7562f024-1ef4-4fc0-b967-2d5f2fc67dce
 - !<Text3D/8f83a0d0-5650-4897-9ee7-7a5c189cdc9b>
   PrefabRemaps:
     []
@@ -16732,7 +16757,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -170.000000}
+    position: {x: 0.000000, y: 0.000000, z: -200.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -20792,7 +20817,7 @@
   Enabled: true
   renderLayer: 1
   MipmapLevel: 0
-  RenderOrder: 0
+  RenderOrder: 1
   Size: 20.000000
   Near: 1.000000
   Far: 10000.000000
