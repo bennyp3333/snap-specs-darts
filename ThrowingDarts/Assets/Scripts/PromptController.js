@@ -3,6 +3,7 @@
 //@input SceneObject[] promptButtons
 //@ui {"widget":"separator"}
 //@input Component.Text3D[] playerTexts
+//@input Component.Text3D[] scoreTexts
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "PromptController" {"showIf":"debug"}
@@ -33,6 +34,10 @@ var playerTextCopy = [
 ["Player ", ""],
 ["Player ", " Wins!"],
 ["Player ", " Wins!"],
+]
+
+var scoreTextCopy = [
+["Score:  ", ""],
 ]
 
 function prompt(promptName, object){
@@ -167,6 +172,12 @@ function init(){
 script.setPlayerNumber = function(idx){
     for(var i = 0; i < script.playerTexts.length; i++){
         script.playerTexts[i].text = playerTextCopy[i][0] + (idx + 1) + playerTextCopy[i][1];
+    }
+}
+
+script.setScoreNumber = function(idx){
+    for(var i = 0; i < script.scoreTexts.length; i++){
+        script.scoreTexts[i].text = scoreTextCopy[i][0] + idx + scoreTextCopy[i][1];
     }
 }
 

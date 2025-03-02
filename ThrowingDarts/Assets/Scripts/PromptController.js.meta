@@ -33,6 +33,7 @@
     playerTexts: false
     promptButtons: false
     promptRoots: false
+    scoreTexts: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -48,6 +49,8 @@
       promptRoots: !<reference.SceneObject[]>
         []
       playerTexts: !<reference.Text3D> 00000000-0000-0000-0000-000000000000
+      scoreTexts: !<reference.Text3D[]>
+        []
   ScriptTypes:
     -
       {}

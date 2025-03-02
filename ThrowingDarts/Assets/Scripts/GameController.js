@@ -111,6 +111,10 @@ function onDartHit(dartScript){
     debugPrint("Adding to score");
     script.boardController.addScore(dartScript, currentPlayer);
     
+    if(global.gameMode == global.GameModes.AroundTheClock){
+        checkWinATC();
+    }
+    
     if(currentDart > 2){
         if(global.gameMode == global.GameModes.Practice){
             onNextPlayer();
@@ -130,8 +134,9 @@ function nextPlayer(){
     if(currentPlayer >= global.playersCount){
         currentPlayer = 0;
         currentRound += 1;
-        if(currentRound >= roundsCount){
+        if(currentRound >= roundsCount && global.gameMode == global.GameModes.HighScore){
             started = false;
+            checkWinHighScore();
         }
     }
     
@@ -176,15 +181,32 @@ function showInstructions(){
     }
 }
 
-function checkForWin(){
-    //if high score
-    //chacek after all rounds
-    //get player with most points
-    //show prompt
-    //if aroundtheclock
-    //check after each throw
-    //check if any players are at 21
-    //show prompt
+function checkWinHighScore(){
+    var winner = global.utils.indexOfMax(global.playerScores);
+    var winnerScore = global.playerScores[winner];
+    
+    script.promptController.setPlayerNumber(winner);
+    script.promptController.setScoreNumber(winnerScore);
+    
+    script.promptController.showPrompt("win2", () => {
+        //send back to menu
+    }, -1, false, true);
+}
+
+function checkWinATC(){
+    var winner = -1
+    for(var i = 0; i < global.playerScores.length; i++){
+        if(global.playerScores[i] >= 21){
+            winner = i;
+        }
+    }
+    if(winner >= 0){
+        started = false;
+        script.promptController.setPlayerNumber(winner);
+        script.promptController.showPrompt("win1", () => {
+            //send back to menu
+        }, -1, false, true);
+    }
 }
 
 function onUpdate(){
