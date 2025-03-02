@@ -33,6 +33,7 @@
     playerTexts: false
     promptButtons: false
     promptRoots: false
+    root: false
     scoreTexts: false
   ScriptTypesHidden:
     {}

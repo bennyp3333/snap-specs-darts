@@ -1,3 +1,4 @@
+//@input SceneObject root
 //@input SceneObject panel
 //@input SceneObject[] promptRoots
 //@input SceneObject[] promptButtons
@@ -71,11 +72,17 @@ function prompt(promptName, object){
             this.tweens.pop().enabled = false;
         }
         
-        if(withPanel){
-            panelScript.setSize(this.panelSize, 0);
-            fadePanel(inOut);
+        if(inOut){
+            fadePanel(true);
+            if(withPanel){
+                panelScript.setSize(this.panelSize, 0); 
+            }else{
+                panelScript.setSize(this.panelSize, FADE_TIME);
+            }
         }else{
-            panelScript.setSize(this.panelSize, FADE_TIME);
+            if(withPanel){
+                fadePanel(false); 
+            }
         }
         
         if(inOut){
@@ -164,9 +171,15 @@ function init(){
     global.utils.setAlphaObject(script.panel, 0);
     script.panel.enabled = false;
     
+    script.root.enabled = false;
+    
     global.events.add("dartPickedUp", script.skipPrompt);
     
     debugPrint("Initilized!");
+}
+
+script.show = function(bool){
+    script.root.enabled = bool;
 }
 
 script.setPlayerNumber = function(idx){

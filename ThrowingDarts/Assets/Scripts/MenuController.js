@@ -34,7 +34,6 @@ var tweens = [];
 function init(){
     global.utils.recursiveAlpha(script.root, 0, true);
     script.root.enabled = false;
-    global.events.add("openMenu", openMenu);
     debugPrint("Initilized!");
 }
 
@@ -49,8 +48,9 @@ function fade(inOut, callback){
     }));
 }
 
-function openMenu(){
+script.openMenu = function(mode){
     debugPrint("Menu Opening");
+    setStartUI(mode);
     script.smoothFollow.start(true);
     script.root.enabled = true;
     fade(true, null);
@@ -59,21 +59,36 @@ function openMenu(){
 function closeMenu(callback){
     debugPrint("Menu Closing");
     fade(false, () => {
+        debugPrint("Menu Closed");
         script.root.enabled = false;
         script.smoothFollow.stop();
         if(callback){ callback(); }
     });
 }
 
-script.pressStartButton = function(){
-    debugPrint("Start button pressed");
+function reportMenuClosed(doesReset){
     closeMenu(() => {
-        debugPrint("Menu Closed");
         global.events.trigger("menuClosed", {
             playersCount: playersCount,
-            gameMode: gameMode
+            gameMode: gameMode,
+            reset: doesReset
         });
     });
+}
+
+script.pressStartButton = function(){
+    debugPrint("Start button pressed");
+    reportMenuClosed(true);
+}
+
+script.pressRestartButton = function(){
+    debugPrint("Restart button pressed");
+    reportMenuClosed(true);
+}
+
+script.pressContinueButton = function(){
+    debugPrint("Continue button pressed");
+    reportMenuClosed(false);
 }
 
 script.pressButtonUp = function(){
@@ -138,13 +153,13 @@ function setMenuUI(mode){
 
 function setStartUI(mode){
     if(mode){
-        script.startButton.enabled = true;
-        script.restartButton.enabled = false;
-        script.continueButton.enabled = false;
-    }else{
         script.startButton.enabled = false;
         script.restartButton.enabled = true;
         script.continueButton.enabled = true; 
+    }else{
+        script.startButton.enabled = true;
+        script.restartButton.enabled = false;
+        script.continueButton.enabled = false; 
     }
 }
 

@@ -40,68 +40,97 @@ var boardPlaced = false;
 function init(){
     var openMenuDelay = script.createEvent("DelayedCallbackEvent");
     openMenuDelay.bind(() => {
-        global.events.trigger("openMenu");
+        script.menuController.openMenu(0);
     })
     openMenuDelay.reset(0.1);
     
     global.events.add("menuClosed", onMenuClosed);
     global.events.add("dartHit", onDartHit);
     
+    global.events.add("menuButton", onMenuButton);
+    global.events.add("rePlaceButton", onRePlaceButton);
+    
     debugPrint("Initilized!");
+}
+
+script.show = function(bool){
+    script.holsterController.show(bool);
+    script.boardController.show(bool);
+    script.promptController.show(bool);
+}
+
+function onMenuButton(){
+    debugPrint("Opening Menu");
+    script.show(false);
+    script.menuController.openMenu(1);
+}
+
+function onRePlaceButton(){
+    debugPrint("Queueing placement flow");
+    runPlacement(() => {
+        startGame(false);
+    });
 }
 
 function onMenuClosed(gameParams){
     global.playersCount = gameParams.playersCount;
     global.gameMode = gameParams.gameMode;
-    if(global.gameMode == global.GameModes.AroundTheClock){
-        script.dartboardController.setNumbers(1);
-    }else{
-        script.dartboardController.setNumbers(0);
-    }
     
     if(!boardPlaced){
-        runPlacement();
+        runPlacement(() => {
+            startGame(gameParams.reset);
+        });
     }else{
-        startGame();
+        startGame(gameParams.reset);
     }
 }
 
-function runPlacement(){//TODO: add callback?
+function runPlacement(callback){
     debugPrint("Starting placement");
-    script.wallDetector.startWallCalibration(onPlaced);
-}
-
-function onPlaced(position, rotation) {
-    boardTransform.setWorldPosition(position);
-    boardTransform.setWorldRotation(rotation);
-    boardPlaced = true;
-    
-    script.boardController.setPanel(global.gameMode, global.playersCount);
-    script.boardController.show(true);
-    
-    debugPrint("Board placed");
-    
-    //TODO: move this to control resetting on start
-    startGame(true);
+    script.show(false);
+    script.wallDetector.startWallCalibration((pos, rot) => {
+        boardTransform.setWorldPosition(pos);
+        boardTransform.setWorldRotation(rot);
+        boardPlaced = true;
+        script.boardController.show(true);
+        debugPrint("Board placed");
+        if(callback){ callback(); }
+    });
 }
 
 function startGame(reset){
+    debugPrint("Starting Game");
     started = true;
     
     if(reset){
+        debugPrint("Resetting Game");
         currentRound = 0;
         currentPlayer = 0;
         currentDart = 0;
         playersSeenInstructions = 0;
         
+        script.promptController.skipPrompt();
+        
+        if(global.gameMode == global.GameModes.AroundTheClock){
+            script.dartboardController.setNumbers(1);
+        }else{
+            script.dartboardController.setNumbers(0);
+        }
+        
+        script.holsterController.destroyDarts();
+        
+        script.boardController.setPanel(global.gameMode, global.playersCount);
         script.boardController.resetScore();
         script.boardController.resetRound();
         script.boardController.setPlayer(currentPlayer);
     }
     
-    script.holsterController.show(true);
-    showInstructions();
-    onNextPlayer();
+    script.show(true);
+    
+    if(reset){
+        showInstructions();
+        onNextPlayer();
+    }
 }
 
 function onDartHit(dartScript){
@@ -135,6 +164,7 @@ function nextPlayer(){
         currentPlayer = 0;
         currentRound += 1;
         if(currentRound >= roundsCount && global.gameMode == global.GameModes.HighScore){
+            debugPrint("Rounds Finished!");
             started = false;
             checkWinHighScore();
         }
@@ -185,11 +215,15 @@ function checkWinHighScore(){
     var winner = global.utils.indexOfMax(global.playerScores);
     var winnerScore = global.playerScores[winner];
     
+    debugPrint("Winner! Player " + winner + " with score: " + winnerScore);
+    
     script.promptController.setPlayerNumber(winner);
     script.promptController.setScoreNumber(winnerScore);
     
     script.promptController.showPrompt("win2", () => {
-        //send back to menu
+        debugPrint("Returning to Menu");
+        script.show(false);
+        script.menuController.openMenu(0);
     }, -1, false, true);
 }
 
@@ -201,21 +235,18 @@ function checkWinATC(){
         }
     }
     if(winner >= 0){
+        debugPrint("Winner! Player " + winner);
         started = false;
         script.promptController.setPlayerNumber(winner);
         script.promptController.showPrompt("win1", () => {
-            //send back to menu
+            debugPrint("Returning to Menu");
+            script.show(false);
+            script.menuController.openMenu(0);
         }, -1, false, true);
     }
 }
 
-function onUpdate(){
-
-    //debugPrint("Updated!");
-}
-
 script.createEvent("OnStartEvent").bind(init);
-script.createEvent("UpdateEvent").bind(onUpdate);
 
 // Debug
 function debugPrint(text){

@@ -284,6 +284,7 @@
     {}
   ScriptInputs:
     "":
+      root: !<reference.SceneObject> 6ed0038e-76e3-44cc-8ad2-a420eab338a5
       panel: !<reference.SceneObject> e2a8523a-c2ec-4872-95a1-58da925aaa9b
       promptRoots: !<reference.SceneObject[]>
         - !<reference> 93956028-e8a8-491d-9ef1-eab0d92a82fe
@@ -413,7 +414,7 @@
   PrefabRemaps:
     []
   Name: Next Player 2
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -742,7 +743,7 @@
   PrefabRemaps:
     []
   Name: Practice Instr
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -1080,7 +1081,7 @@
     LineSpacing: 1.000000
     CapitalizationOverride: None
     CapitilizationOverride: None
-  DepthTest: false
+  DepthTest: true
   TwoSided: false
 - !<SceneObject/0a117d26-a13f-40bd-96c9-e45a05897288>
   PrefabRemaps:
@@ -4159,7 +4160,7 @@
       editEventCallbacks: true
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 50dd76b3-8777-4600-89d4-e82323c25135
       onButtonPinchedFunctionNames: !<string[]>
-        - pressStartButton
+        - pressRestartButton
   ScriptTypes:
     "":
       {}
@@ -6862,7 +6863,7 @@
   Enabled: true
   Layers: 2
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 5.000000}
+    position: {x: 0.000000, y: -3.000000, z: 5.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     scale: {x: 8.000000, y: 8.000000, z: 8.000000}
     hasSegmentScaleCompensation: false
@@ -9659,7 +9660,7 @@
     LineSpacing: 1.000000
     CapitalizationOverride: None
     CapitilizationOverride: None
-  DepthTest: false
+  DepthTest: true
   TwoSided: false
 - !<ScreenTransform/66474512-1120-4925-a98a-4e953df411be>
   PrefabRemaps:
@@ -10722,16 +10723,15 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    customFunctionForOnButtonPinched: true
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       editEventCallbacks: true
-      customFunctionForOnButtonPinched: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      customFunctionForOnButtonPinched: !<reference.ScriptComponent> b6ad8bc8-e5fc-4dd0-9108-a661f5fd3a03
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - pressRePlaceButton
   ScriptTypes:
     "":
       {}
@@ -10969,7 +10969,7 @@
     LineSpacing: 1.000000
     CapitalizationOverride: None
     CapitilizationOverride: None
-  DepthTest: false
+  DepthTest: true
   TwoSided: false
 - !<SceneObject/70267976-2504-4ab6-a026-24d69ff17481>
   PrefabRemaps:
@@ -12159,7 +12159,7 @@
   PrefabRemaps:
     []
   Name: Win 1
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -14443,7 +14443,7 @@
       editEventCallbacks: true
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 50dd76b3-8777-4600-89d4-e82323c25135
       onButtonPinchedFunctionNames: !<string[]>
-        - pressStartButton
+        - pressContinueButton
   ScriptTypes:
     "":
       {}
@@ -15840,7 +15840,7 @@
     LineSpacing: 1.000000
     CapitalizationOverride: None
     CapitilizationOverride: None
-  DepthTest: false
+  DepthTest: true
   TwoSided: false
 - !<SceneObject/9ee0722b-8f29-4246-9a71-2a4b02882ddb>
   PrefabRemaps:
@@ -17310,7 +17310,7 @@
     LineSpacing: 1.000000
     CapitalizationOverride: None
     CapitilizationOverride: None
-  DepthTest: false
+  DepthTest: true
   TwoSided: false
 - !<ScriptComponent/aa50a910-ba30-43db-b7f3-3ea10dae85e0>
   PrefabRemaps:
@@ -17641,7 +17641,7 @@
     LineSpacing: 1.000000
     CapitalizationOverride: None
     CapitilizationOverride: None
-  DepthTest: false
+  DepthTest: true
   TwoSided: false
 - !<Text3D/aeaabe94-2695-4c69-b256-374aa603a7e8>
   PrefabRemaps:
@@ -18665,7 +18665,7 @@
   PrefabRemaps:
     []
   Name: TextLogger
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -18849,7 +18849,7 @@
   PrefabRemaps:
     []
   Name: AroundTheClock Instr
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -19859,7 +19859,7 @@
   PrefabRemaps:
     []
   Name: Next Player 1
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -20646,7 +20646,7 @@
     LineSpacing: 1.000000
     CapitalizationOverride: None
     CapitilizationOverride: None
-  DepthTest: false
+  DepthTest: true
   TwoSided: false
 - !<SceneObject/d0b648c0-f031-49e7-ac1c-c9072a903317>
   PrefabRemaps:
@@ -20849,16 +20849,15 @@
   Enabled: true
   ScriptAsset: !<reference> e66e07b4-5f11-478e-be75-73f3c76bdd61
   ScriptInputsDefault:
-    customFunctionForOnButtonPinched: true
-    onButtonPinchedFunctionNames: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       editEventCallbacks: true
-      customFunctionForOnButtonPinched: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      customFunctionForOnButtonPinched: !<reference.ScriptComponent> b6ad8bc8-e5fc-4dd0-9108-a661f5fd3a03
       onButtonPinchedFunctionNames: !<string[]>
-        []
+        - pressMenuButton
   ScriptTypes:
     "":
       {}
@@ -21025,7 +21024,7 @@
   PrefabRemaps:
     []
   Name: Win 2
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -21461,13 +21460,12 @@
   ScriptAsset: !<reference> 6fba5e91-bbc6-4fb1-bffe-c40cb65bc5c5
   ScriptInputsDefault:
     loggingEnabled: true
-    logLimit: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       loggingEnabled: true
-      logLimit: 20
+      logLimit: 8
       logTopToBottom: true
       textComponent: !<reference.Text> 39f5eec9-affd-457b-95cc-fb7fe843a09f
       useUniqueLayer: true
@@ -21930,7 +21928,7 @@
   PrefabRemaps:
     []
   Name: HighScore Instr 2
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -22595,7 +22593,7 @@
     LineSpacing: 1.000000
     CapitalizationOverride: None
     CapitilizationOverride: None
-  DepthTest: false
+  DepthTest: true
   TwoSided: false
 - !<Canvas/eb1e4612-0df6-4ade-a76e-06418f7ea742>
   PrefabRemaps:
@@ -23667,7 +23665,7 @@
   PrefabRemaps:
     []
   Name: Next Player 3
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}

@@ -35,7 +35,6 @@ function init(){
         script.smoothFollow.rotSmoothing = 10;
         script.smoothFollow.attachTo.getTransform().setLocalPosition(new vec3(0, -20, -45));
     }
-    //script.spawnDarts();
     debugPrint("Initilized!");
 }
 
@@ -44,6 +43,7 @@ script.show = function(bool){
 }
 
 script.spawnDarts = function(playerIdx){
+    debugPrint("Spawning new Darts");
     for(var i = 0; i < script.dartSpawnPoints.length; i++){
         spawnAtIndex(i, playerIdx);
     }
@@ -57,6 +57,7 @@ script.destroyDarts = function(){
 }
 
 function spawnAtIndex(idx, playerColor){
+    debugPrint("Spawning Dart at index " + idx + " for player " + playerColor);
     var dartSpawnPoint = script.dartSpawnPoints[idx];
     var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition().add(SPAWN_OFFSET);
     var newDart = script.dartPrefab.instantiate(script.dartContainer);
@@ -84,6 +85,7 @@ function onUpdate(){
             
             if(dartPosition.distance(spawnPosition) > DISTANCE_OFFSET){
                 dartsInHolster[i] = null;
+                debugPrint("Dart " + i + " picked up");
                 global.events.trigger("dartPickedUp");
             }
         }

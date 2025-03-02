@@ -107,6 +107,8 @@ script.setPanel = function(mode, players){
             scoreTitlePositionsY[playerCountOverride - 1][i] + yOffset, 0));
         if(i > playerCountOverride - 1){
             scoreTitle.enabled = false;
+        }else{
+            scoreTitle.enabled = true;
         }
     }
     
@@ -115,6 +117,8 @@ script.setPanel = function(mode, players){
     var lineScale = lineTransform.getLocalScale();
     lineTransform.setLocalScale(new vec3(lineScale.x, 
         scoreTitlePositionsY[playersCount - 1][global.maxPlayers], lineScale.z));
+    
+    debugPrint("Panel set to " + mode + " for " + players + " players");
 }
 
 script.setRound = function(roundNum){
@@ -148,7 +152,7 @@ script.addScore = function(dart, playerIdx){
     var dartTipPosition = dart.tipTransform.getWorldPosition();
     var dart2DPosition = getDartboard2DPosition(dartTipPosition);
     var dartScore = getDartScore(dart2DPosition, gameMode == global.GameModes.AroundTheClock);
-    debugPrint("Hit: " + dartScore);
+    debugPrint("Hit score: " + dartScore);
     
     if(gameMode == global.GameModes.AroundTheClock){
         if(global.playerScores[playerIdx] == dartScore){
@@ -157,7 +161,7 @@ script.addScore = function(dart, playerIdx){
     }else{
         global.playerScores[playerIdx] += dartScore;
     }
-    debugPrint("Player " + playerIdx + " score set to " + global.playerScores[playerIdx]);
+    debugPrint("Player " + (playerIdx + 1) + " score set to " + global.playerScores[playerIdx]);
     
     notifyHit(dartScore);
     refreshPanelText();
@@ -203,6 +207,7 @@ function refreshPanelText(){
 } 
 
 script.resetScore = function(){
+    debugPrint("Resetting score");
     var defaultNumber = 0;
     if(gameMode == global.GameModes.AroundTheClock){ defaultNumber = 1; }
 
@@ -212,6 +217,16 @@ script.resetScore = function(){
     missedDarts = 0;
     
     refreshPanelText();
+}
+
+script.pressMenuButton = function(){
+    debugPrint("Menu button pressed");
+    global.events.trigger("menuButton");
+}
+
+script.pressRePlaceButton = function(){
+    debugPrint("Re-Place button pressed");
+    global.events.trigger("rePlaceButton");
 }
 
 function getDartScore(pos, onlyBaseScore){
