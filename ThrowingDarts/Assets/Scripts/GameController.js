@@ -218,7 +218,7 @@ function checkWinHighScore(){
     debugPrint("Winner! Player " + winner + " with score: " + winnerScore);
     
     script.promptController.setPlayerNumber(winner);
-    script.promptController.setScoreNumber(winnerScore);
+    script.promptController.setNumber(winnerScore);
     
     script.promptController.showPrompt("win2", () => {
         debugPrint("Returning to Menu");
@@ -238,7 +238,8 @@ function checkWinATC(){
         debugPrint("Winner! Player " + winner);
         started = false;
         script.promptController.setPlayerNumber(winner);
-        script.promptController.showPrompt("win1", () => {
+        script.promptController.setNumber(currentRound);
+        script.promptController.showPrompt("win3", () => {
             debugPrint("Returning to Menu");
             script.show(false);
             script.menuController.openMenu(0);

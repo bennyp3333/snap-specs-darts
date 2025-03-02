@@ -4,7 +4,7 @@
 //@input SceneObject[] promptButtons
 //@ui {"widget":"separator"}
 //@input Component.Text3D[] playerTexts
-//@input Component.Text3D[] scoreTexts
+//@input Component.Text3D[] numberTexts
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "PromptController" {"showIf":"debug"}
@@ -35,10 +35,12 @@ var playerTextCopy = [
 ["Player ", ""],
 ["Player ", " Wins!"],
 ["Player ", " Wins!"],
+["Player ", " Wins!"],
 ]
 
-var scoreTextCopy = [
-["Score:  ", ""],
+var numberTextCopy = [
+["Score: ", ""],
+["Rounds: ", ""],
 ]
 
 function prompt(promptName, object){
@@ -145,6 +147,7 @@ var promptTypes = {
     next3: 6,
     win1: 7,
     win2: 8,
+    win3: 9,
 }
 
 var panelSizes = [
@@ -156,6 +159,7 @@ var panelSizes = [
     new vec2(3, 1.25),
     new vec2(3, 2),
     new vec2(2.5, 1),
+    new vec2(2.5, 1.25),
     new vec2(2.5, 1.25),
 ]
 
@@ -188,9 +192,9 @@ script.setPlayerNumber = function(idx){
     }
 }
 
-script.setScoreNumber = function(idx){
-    for(var i = 0; i < script.scoreTexts.length; i++){
-        script.scoreTexts[i].text = scoreTextCopy[i][0] + idx + scoreTextCopy[i][1];
+script.setNumber = function(idx){
+    for(var i = 0; i < script.numberTexts.length; i++){
+        script.numberTexts[i].text = numberTextCopy[i][0] + idx + numberTextCopy[i][1];
     }
 }
 

@@ -29,12 +29,12 @@
     debug: false
     debugName: false
     debugText: false
+    numberTexts: false
     panel: false
     playerTexts: false
     promptButtons: false
     promptRoots: false
     root: false
-    scoreTexts: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -51,6 +51,8 @@
         []
       playerTexts: !<reference.Text3D> 00000000-0000-0000-0000-000000000000
       scoreTexts: !<reference.Text3D[]>
+        []
+      numberTexts: !<reference.Text3D[]>
         []
   ScriptTypes:
     -
