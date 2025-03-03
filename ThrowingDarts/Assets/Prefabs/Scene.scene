@@ -19679,7 +19679,7 @@
     {}
   ScriptInputs:
     "":
-      {}
+      forwardObj: !<reference.SceneObject> 60a5df30-8524-42b7-88c2-2e8682bfcb11
   ScriptTypes:
     "":
       {}

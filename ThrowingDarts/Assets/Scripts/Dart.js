@@ -303,7 +303,7 @@ function onUpdate(){
         physicsBody.angularVelocity = vec3.zero();
     }
     
-    if(startedFlyingAt > 0 && getTime() - startedFlyingAt > 60 && selfDestroy){
+    if(startedFlyingAt > 0 && getTime() - startedFlyingAt > 30 && selfDestroy){
         script.safeDestroy();
         return;
     }
