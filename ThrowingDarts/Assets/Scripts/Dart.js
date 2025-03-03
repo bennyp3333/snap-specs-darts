@@ -179,6 +179,12 @@ function onCollisionEnter(event){
     }
     
     var collision = event.collision;
+    
+    if(collision.collider.getSceneObject().name == "Floor"){
+        debugPrint("Hit floor");
+        reportHit();
+        return;
+    }
 
     if(collision.collider.getSceneObject().name == self.name){
         //debugPrint("Collided with another dart");
