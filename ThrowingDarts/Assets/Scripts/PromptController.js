@@ -155,7 +155,7 @@ var panelSizes = [
     new vec2(4, 3),
     new vec2(4.25, 3),
     new vec2(4, 1.75),
-    new vec2(3, 1),
+    new vec2(3, 1.75),
     new vec2(3, 1.25),
     new vec2(3, 2),
     new vec2(2.5, 1),

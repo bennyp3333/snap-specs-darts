@@ -36,8 +36,10 @@
     playersCountText: false
     restartButton: false
     root: false
+    secondPanel: false
     smoothFollow: false
     startButton: false
+    subtitles: false
     upButton: false
   ScriptTypesHidden:
     {}
@@ -56,6 +58,8 @@
       restartButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       continueButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       players3DText: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      secondPanel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      subtitles: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
