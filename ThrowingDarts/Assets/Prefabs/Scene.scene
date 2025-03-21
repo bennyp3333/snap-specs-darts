@@ -182,6 +182,7 @@
       numberTexts: !<reference.Text3D[]>
         - !<reference> 96817aa4-e924-445d-9edf-f49942288255
         - !<reference> bb6d941b-f22b-4001-8453-f81d3865277c
+      particles: !<reference.SceneObject> b95f3313-6d6b-41ad-876d-56456376770a
       debug: true
       debugName: PromptController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
@@ -4735,6 +4736,19 @@
   ScriptTypes:
     "":
       {}
+- !<VFXComponent/59f96e45-f7fb-4b61-a983-dba4c5fa9c91>
+  PrefabRemaps:
+    []
+  Name: VFX Component
+  Enabled: true
+  RenderOrder: 15
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  VFXAsset: !<reference> d3278fa0-9f65-42af-b99a-39838db98351
 - !<SceneObject/5bd739b3-039d-4f2e-bc80-61fd158ce1aa>
   PrefabRemaps:
     []
@@ -5936,6 +5950,7 @@
   Children:
     - !<own> e2a8523a-c2ec-4872-95a1-58da925aaa9b
     - !<own> 7eabfa1a-f022-4bfd-a049-b88566742efc
+    - !<own> b95f3313-6d6b-41ad-876d-56456376770a
   Components:
     []
 - !<ScriptComponent/6f101de0-2d2d-4baf-a362-141866bd3fee>
@@ -10522,6 +10537,21 @@
     []
   Components:
     - !<own> fea6750b-92ab-4af8-827c-c41dc01844eb
+- !<SceneObject/b95f3313-6d6b-41ad-876d-56456376770a>
+  PrefabRemaps:
+    []
+  Name: Fireworks
+  Enabled: false
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 59f96e45-f7fb-4b61-a983-dba4c5fa9c91
 - !<RenderMeshVisual/b9665508-8983-43ca-b1d7-40eedd2f547f>
   PrefabRemaps:
     []

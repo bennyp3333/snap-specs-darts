@@ -6,6 +6,8 @@
 //@input Component.Text3D[] playerTexts
 //@input Component.Text3D[] numberTexts
 //@ui {"widget":"separator"}
+//@input SceneObject particles
+//@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "PromptController" {"showIf":"debug"}
 //@input Component.Text debugText {"showIf":"debug"}
@@ -54,6 +56,8 @@ function prompt(promptName, object){
     this.override = false;
     this.canBeOverridden = true;
     
+    this.withParticles = false;
+    
     this.started = false;
     this.stopped = false;
     this.completed = false;
@@ -62,10 +66,16 @@ function prompt(promptName, object){
     
     this.show = function(withPanel, callback){
         this.fade(true, withPanel, callback);
+        if(this.withParticles){
+            script.particles.enabled = true;
+        }
     }
     
     this.hide = function(withPanel, callback){
         this.fade(false, withPanel, callback);
+        if(this.withParticles){
+            script.particles.enabled = false;
+        }
     }
     
     this.fade = function(inOut, withPanel, callback){
@@ -211,6 +221,8 @@ script.showPrompt = function(promptName, callback, timeout, override, canBeOverr
     promptQueue.push(newPrompt);
     
     checkQueue();
+    
+    return newPrompt;
 }
 
 script.onPinchButton = function(interactorEvent){

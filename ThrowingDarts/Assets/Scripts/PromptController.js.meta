@@ -31,6 +31,7 @@
     debugText: false
     numberTexts: false
     panel: false
+    particles: false
     playerTexts: false
     promptButtons: false
     promptRoots: false
@@ -54,6 +55,8 @@
         []
       numberTexts: !<reference.Text3D[]>
         []
+      fireworks: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      particles: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

@@ -178,9 +178,10 @@ function nextPlayer(){
             return;
         }
         script.promptController.showPrompt("next1", null, 3, false, true);
-        script.promptController.showPrompt("next3", () => {
+        var nextPrompt = script.promptController.showPrompt("next3", () => {
             onNextPlayer();
         }, -1, false, true);
+        //nextPrompt.withParticles = true;
         showInstructions();
     }
 }
@@ -239,11 +240,12 @@ function checkWinATC(){
         started = false;
         script.promptController.setPlayerNumber(winner);
         script.promptController.setNumber(currentRound);
-        script.promptController.showPrompt("win3", () => {
+        var winPrompt = script.promptController.showPrompt("win3", () => {
             debugPrint("Returning to Menu");
             script.show(false);
             script.menuController.openMenu(0);
         }, -1, false, true);
+        winPrompt.withParticles = true;
     }
 }
 
