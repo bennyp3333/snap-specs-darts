@@ -1,7 +1,7 @@
 //@input Component.ScriptComponent menuController
 //@input Component.ScriptComponent wallDetector
 //@input Component.ScriptComponent boardController
-//@input Component.ScriptComponent dartboardController
+//@input Component.ScriptComponent dartboardAnimator
 //@input Component.ScriptComponent promptController
 //@input Component.ScriptComponent holsterController
 //@input SceneObject board
@@ -112,9 +112,9 @@ function startGame(reset){
         script.promptController.skipPrompt();
         
         if(global.gameMode == global.GameModes.AroundTheClock){
-            script.dartboardController.setNumbers(1);
+            script.dartboardAnimator.setNumbers(1);
         }else{
-            script.dartboardController.setNumbers(0);
+            script.dartboardAnimator.setNumbers(0);
         }
         
         script.holsterController.destroyDarts();

@@ -67,13 +67,39 @@ function randomColorHue(brightness, saturation) {
     return hsvToRgb(hue, saturation, brightness);
 }
 
+function hexToColorVec4(hex, alpha) {
+    // Remove the leading '#' if present
+    if (hex.startsWith('#')) {
+        hex = hex.slice(1);
+    }
+
+    // Default alpha if not specified
+    if (hex.length === 6) {
+        hex += 'FF'; // Add full opacity
+    }
+
+    if (hex.length !== 8) {
+        print('Invalid hex color format');
+        return new vec4(1, 1, 1, 1);
+    }
+
+    // Parse the hex string into normalized values
+    const r = parseInt(hex.slice(0, 2), 16) / 255;
+    const g = parseInt(hex.slice(2, 4), 16) / 255;
+    const b = parseInt(hex.slice(4, 6), 16) / 255;
+    const a = parseInt(hex.slice(6, 8), 16) / 255;
+
+    return new vec4(r, g, b, a);
+}
+
 
 // Exporting the functions
 var exports = {
     rgbToHsv,
     hsvToRgb,
     colorRandom,
-    randomColorHue
+    randomColorHue,
+    hexToColorVec4
 };
 
 if(script){

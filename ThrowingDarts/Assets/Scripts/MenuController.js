@@ -127,7 +127,7 @@ function setSubtitle(idx){
         firstSubtitleSet = false;
         return;
     }
-    print("weiner");
+
     if(idx != null){ subtitleIdx = idx; }
     for(var i = 0; i < script.subtitles.length; i++){
         if(i == subtitleIdx){

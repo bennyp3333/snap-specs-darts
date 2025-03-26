@@ -1,0 +1,576 @@
+- !<Material/f728fe9d-53ae-4192-be12-f3b4d2829bac>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> a4a9e1e7-260c-4f25-afe6-38666b28f0c9
+- !<PassInfo/a4a9e1e7-260c-4f25-afe6-38666b28f0c9>
+  CachedProperties:
+    - Port_Depth_N004:
+        typeIdx: 1
+        value: 1.000000
+    - Port_FinalColor1_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor2_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor3_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_GSplatPointSize_N004:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LODValue_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LODValue_N001:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LODValue_N029:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Mask_N006:
+        typeIdx: 1
+        value: 1.000000
+    - Port_Mask_N011:
+        typeIdx: 1
+        value: 1.000000
+    - Port_Mask_N013:
+        typeIdx: 1
+        value: 1.000000
+    - Port_Mask_N062:
+        typeIdx: 1
+        value: 1.000000
+    - Port_Mask_N106:
+        typeIdx: 1
+        value: 1.000000
+    - Port_RayDirection_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 1.000000, z: 0.000000}
+    - Port_RayOrigin_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_UVCoord_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UVCoord_N001:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UVCoord_N029:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_Value3_N021:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Value4_N021:
+        typeIdx: 1
+        value: 0.000000
+    - Port_WorldNormal_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 1.000000, z: 0.000000}
+    - Port_WorldTangent_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+  DepthWrite: false
+  DepthTest: false
+  DepthFunction: LessEqual
+  TwoSided: false
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 5
+  Defines:
+    []
+  BlendMode: Add
+  Properties:
+    Port_Default_N017:
+      typeIdx: 1
+      value: 0.000000
+    Port_Default_N031:
+      typeIdx: 5
+      value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    Port_Default_N078:
+      typeIdx: 5
+      value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    Port_Default_N112:
+      typeIdx: 1
+      value: 0.000000
+    Port_Import_N033:
+      typeIdx: 3
+      value: {x: 0.500000, y: 0.500000}
+    Port_Import_N035:
+      typeIdx: 1
+      value: -81.000000
+    Port_Import_N036:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    Port_Input0_N048:
+      typeIdx: 1
+      value: 1.000000
+    Port_Input1_N018:
+      typeIdx: 3
+      value: {x: 0.500000, y: 0.500000}
+    Port_Input1_N020:
+      typeIdx: 1
+      value: 0.500000
+    Port_Input1_N042:
+      typeIdx: 1
+      value: 19.000000
+    Port_Input1_N048:
+      typeIdx: 1
+      value: 20.000000
+    Port_Input1_N049:
+      typeIdx: 1
+      value: 20.000000
+    Port_Input1_N052:
+      typeIdx: 1
+      value: 20.000000
+    Port_Input1_N054:
+      typeIdx: 1
+      value: 2.000000
+    Port_Input1_N055:
+      typeIdx: 1
+      value: 0.000000
+    Port_Input1_N087:
+      typeIdx: 1
+      value: 20.000000
+    Port_Mask_N073:
+      typeIdx: 1
+      value: 1.000000
+    Port_Value0_N017:
+      typeIdx: 1
+      value: 0.010000
+    Port_Value1_N002:
+      typeIdx: 1
+      value: 0.000000
+    Port_Value1_N005:
+      typeIdx: 1
+      value: 0.000000
+    Port_Value1_N017:
+      typeIdx: 1
+      value: 0.020000
+    Port_Value1_N077:
+      typeIdx: 5
+      value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    Port_Value2_N017:
+      typeIdx: 1
+      value: 0.030000
+    Port_Value3_N017:
+      typeIdx: 1
+      value: 0.040000
+    Port_Value4_N017:
+      typeIdx: 1
+      value: 0.060000
+    Port_Value_N061:
+      typeIdx: 1
+      value: 0.450000
+    Port_Value_N070:
+      typeIdx: 1
+      value: 0.550000
+    Port_Value_N075:
+      typeIdx: 1
+      value: 0.100000
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    center1Color:
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.501961, z: 1.000000, w: 1.000000}
+    center2Color:
+      typeIdx: 5
+      value: {x: 0.501961, y: 1.000000, z: 1.000000, w: 1.000000}
+    "doublesColors[0]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "doublesColors[10]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "doublesColors[11]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "doublesColors[12]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "doublesColors[13]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "doublesColors[14]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "doublesColors[15]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "doublesColors[16]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "doublesColors[17]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "doublesColors[18]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "doublesColors[19]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "doublesColors[1]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "doublesColors[2]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "doublesColors[3]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "doublesColors[4]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "doublesColors[5]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "doublesColors[6]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "doublesColors[7]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "doublesColors[8]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "doublesColors[9]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    doublesMap:
+      typeIdx: 9
+      value:
+        id: 274faf95-5c04-49a0-b879-717b05f38850
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: true
+        type: Texture2D
+    doublesMapBorderColor:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    doublesMapDims:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    doublesMapTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    doublesMapUvMinMax:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    linesColor:
+      typeIdx: 5
+      value: {x: 0.498039, y: 0.498039, z: 0.498039, w: 1.000000}
+    "numbersColors[0]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "numbersColors[10]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "numbersColors[11]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "numbersColors[12]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "numbersColors[13]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "numbersColors[14]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "numbersColors[15]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "numbersColors[16]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "numbersColors[17]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "numbersColors[18]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "numbersColors[19]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "numbersColors[1]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "numbersColors[2]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "numbersColors[3]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "numbersColors[4]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "numbersColors[5]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "numbersColors[6]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "numbersColors[7]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "numbersColors[8]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "numbersColors[9]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    numbersMap:
+      typeIdx: 9
+      value:
+        id: 23f20b0a-4e1e-4790-8371-d668e27bee60
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: true
+        type: Texture2D
+    numbersMapBorderColor:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    numbersMapDims:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    numbersMapTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    numbersMapUvMinMax:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    overrideTimeDelta:
+      typeIdx: 1
+      value: 0.000000
+    overrideTimeElapsed:
+      typeIdx: 1
+      value: 0.000000
+    overrideTimeEnabled:
+      typeIdx: 0
+      value: 0
+    "singles1Colors[0]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles1Colors[10]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles1Colors[11]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles1Colors[12]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles1Colors[13]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles1Colors[14]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles1Colors[15]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles1Colors[16]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles1Colors[17]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles1Colors[18]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles1Colors[19]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles1Colors[1]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles1Colors[2]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles1Colors[3]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles1Colors[4]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles1Colors[5]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles1Colors[6]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles1Colors[7]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles1Colors[8]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles1Colors[9]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles2Colors[0]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles2Colors[10]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles2Colors[11]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles2Colors[12]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles2Colors[13]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles2Colors[14]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles2Colors[15]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles2Colors[16]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles2Colors[17]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles2Colors[18]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles2Colors[19]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles2Colors[1]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles2Colors[2]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles2Colors[3]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles2Colors[4]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles2Colors[5]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles2Colors[6]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "singles2Colors[7]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "singles2Colors[8]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "singles2Colors[9]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    singlesMap:
+      typeIdx: 9
+      value:
+        id: 6a337e72-bce8-433a-bb87-766b26009f2e
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: true
+        type: Texture2D
+    singlesMapBorderColor:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    singlesMapDims:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    singlesMapTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    singlesMapUvMinMax:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "tripplesColors[0]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "tripplesColors[10]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "tripplesColors[11]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "tripplesColors[12]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "tripplesColors[13]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "tripplesColors[14]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "tripplesColors[15]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "tripplesColors[16]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "tripplesColors[17]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "tripplesColors[18]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "tripplesColors[19]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "tripplesColors[1]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "tripplesColors[2]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "tripplesColors[3]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "tripplesColors[4]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "tripplesColors[5]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "tripplesColors[6]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+    "tripplesColors[7]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 0.500000, w: 1.000000}
+    "tripplesColors[8]":
+      typeIdx: 5
+      value: {x: 0.500000, y: 1.000000, z: 1.000000, w: 1.000000}
+    "tripplesColors[9]":
+      typeIdx: 5
+      value: {x: 1.000000, y: 0.500000, z: 1.000000, w: 1.000000}
+  Pass: !<reference> 6c27999f-4ea6-4998-96a3-4f1bfb084c4e

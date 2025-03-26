@@ -1,0 +1,45 @@
+- !<AssetImportMetadata/bb558020-173c-4b8e-a479-e836de76721d>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 270484d7-942c-44d8-a214-c68bed55b38b
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 270484d7-942c-44d8-a214-c68bed55b38b
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 973f706a-6d71-4a2a-9b71-79c0cd21a2a1
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings/bb0874eb-fd81-46f5-8b1b-1c1fb2dec7e8>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/973f706a-6d71-4a2a-9b71-79c0cd21a2a1>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    dartboardMat: false
+    debug: false
+    debugName: false
+    debugText: false
+    numbersTex: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - dartboardMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      numbersTex: !<reference.Texture[]>
+        []
+      debug: false
+      debugName: Dartboard Animator
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
