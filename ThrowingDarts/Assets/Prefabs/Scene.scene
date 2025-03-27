@@ -1142,25 +1142,6 @@
     LetterSpacing: 0.000000
     LineSpacing: 1.000000
     CapitalizationOverride: None
-- !<ColliderComponent/109c7c86-e3ed-4135-8e68-19cd198d40f6>
-  PrefabRemaps:
-    []
-  Name: Physics Collider
-  Enabled: true
-  Shape: !<Cylinder>
-    Axis: Z
-    Length: 34.200000
-    Radius: 42.000000
-  Matter: !<reference> 00000000-0000-0000-0000-000000000000
-  Filter: !<reference> 00000000-0000-0000-0000-000000000000
-  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
-  EnableSmoothing: false
-  PositionTension: 30.000000
-  RotationTension: 30.000000
-  ForceCompound: false
-  Intangible: false
-  ShowCollider: false
 - !<Text3D/1103d971-ef7d-40ce-9556-26726dd5f0c3>
   PrefabRemaps:
     []
@@ -1354,21 +1335,6 @@
     []
   Components:
     - !<own> 126b7a66-62dd-46f1-bd8f-7048e1fa9bf3
-- !<SceneObject/1241c484-5f0b-4b06-908f-94a15edf9a25>
-  PrefabRemaps:
-    []
-  Name: Dartboard Back
-  Enabled: true
-  Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 12.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 85.000000, y: 85.000000, z: 85.000000}
-    hasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 5ac5d2de-fcf8-43f1-a5e5-5d4de6c54b72
 - !<ScreenTransform/12438efb-f0c8-44f0-addf-39d31a2f6a4b>
   PrefabRemaps:
     []
@@ -4783,24 +4749,6 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   VFXAsset: !<reference> d3278fa0-9f65-42af-b99a-39838db98351
-- !<Image/5ac5d2de-fcf8-43f1-a5e5-5d4de6c54b72>
-  PrefabRemaps:
-    []
-  Name: Image
-  Enabled: true
-  RenderOrder: 20
-  StretchMode: Fit
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> f624c62c-0e3e-4fe9-bc4f-cb1b8d40904e
-  FlipX: false
-  FlipY: false
-  Pivot: {x: 0.000000, y: 0.000000}
-  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/5bd739b3-039d-4f2e-bc80-61fd158ce1aa>
   PrefabRemaps:
     []
@@ -5048,7 +4996,6 @@
     hasSegmentScaleCompensation: false
   Children:
     - !<own> 7f1e4192-9cb9-4159-ab37-c29e5f6c57e0
-    - !<own> 8af70bb5-367a-4c91-97fc-a16d644deda2
   Components:
     - !<own> d44e3991-0c80-4364-9407-15f885e777eb
     - !<own> a5411331-af79-477e-8536-e23e59ce6dc2
@@ -5908,7 +5855,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> f728fe9d-53ae-4192-be12-f3b4d2829bac
+    - !<reference> f8009959-fbd7-4053-ac2d-f45569ec3767
   FlipX: false
   FlipY: false
   Pivot: {x: 0.000000, y: 0.000000}
@@ -7660,7 +7607,6 @@
       menuController: !<reference.ScriptComponent> 50dd76b3-8777-4600-89d4-e82323c25135
       wallDetector: !<reference.ScriptComponent> c837e420-c319-4718-a362-ef48846eb755
       boardController: !<reference.ScriptComponent> b6ad8bc8-e5fc-4dd0-9108-a661f5fd3a03
-      dartboardAnimator: !<reference.ScriptComponent> 945c522f-c5b2-43ec-bacb-2c52dc9e18e8
       promptController: !<reference.ScriptComponent> 0164b70b-7681-41d4-8146-ed020e94314d
       holsterController: !<reference.ScriptComponent> e5bb2eb9-70be-4d95-bf72-70e25779749c
       board: !<reference.SceneObject> 0987377d-de8a-4e97-a126-f6a38dae9d90
@@ -7670,21 +7616,6 @@
   ScriptTypes:
     "":
       {}
-- !<SceneObject/83294a69-fe4d-45bf-b116-9b6eec54e794>
-  PrefabRemaps:
-    []
-  Name: Dartboard Plane
-  Enabled: true
-  Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 9.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 85.000000, y: 85.000000, z: 85.000000}
-    hasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> a7cc733a-43a4-4862-b90e-e4c85131a776
 - !<Text3D/83630a07-04b5-4991-936e-cf1e90f4fcc7>
   PrefabRemaps:
     []
@@ -8091,23 +8022,6 @@
   Components:
     - !<own> dbfd7718-aa1c-4371-94b3-f5607b4a34fa
     - !<own> 7ffa8167-8be4-498f-b6eb-457f8064bd31
-- !<SceneObject/8af70bb5-367a-4c91-97fc-a16d644deda2>
-  PrefabRemaps:
-    []
-  Name: DartBoard Copy
-  Enabled: false
-  Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -75.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
-  Children:
-    - !<own> 1241c484-5f0b-4b06-908f-94a15edf9a25
-    - !<own> 83294a69-fe4d-45bf-b116-9b6eec54e794
-  Components:
-    - !<own> 109c7c86-e3ed-4135-8e68-19cd198d40f6
-    - !<own> e8ce51c3-d27d-4f97-972e-f73659a59283
 - !<SceneObject/8b47f21f-2d27-4f40-8a07-99b95f650505>
   PrefabRemaps:
     []
@@ -8560,7 +8474,7 @@
     {}
   ScriptInputs:
     "":
-      dartboardMat: !<reference.Material> f728fe9d-53ae-4192-be12-f3b4d2829bac
+      dartboardMat: !<reference.Material> f8009959-fbd7-4053-ac2d-f45569ec3767
       numbersTex: !<reference.Texture[]>
         - !<reference> 23f20b0a-4e1e-4790-8371-d668e27bee60
         - !<reference> 4879d1dd-f260-45e6-90ad-b1cf6656e1c5
@@ -9734,24 +9648,6 @@
     []
   Components:
     - !<own> 1c7bd1a6-5571-4185-92aa-55a0927e95cc
-- !<Image/a7cc733a-43a4-4862-b90e-e4c85131a776>
-  PrefabRemaps:
-    []
-  Name: Image
-  Enabled: true
-  RenderOrder: 21
-  StretchMode: Fit
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> f728fe9d-53ae-4192-be12-f3b4d2829bac
-  FlipX: false
-  FlipY: false
-  Pivot: {x: 0.000000, y: 0.000000}
-  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/a813a7a6-1822-4279-8348-2c314e6ab150>
   PrefabRemaps:
     []
@@ -10503,6 +10399,7 @@
     "":
       root: !<reference.SceneObject> d0b7949f-00eb-496b-ba1a-4ccce6a4bfa8
       boardPlane: !<reference.SceneObject> 2b65f388-b112-44bc-8bd2-318c16a4a57e
+      dartboardAnimator: !<reference.ScriptComponent> 945c522f-c5b2-43ec-bacb-2c52dc9e18e8
       highScoreContent: !<reference.SceneObject> 7a23b4ea-bf6c-4182-bd19-8662992dbec9
       aroundTheClockContent: !<reference.SceneObject> ecef43c2-9476-4a7f-9602-1fcf1bf42732
       practiceContent: !<reference.SceneObject> 67169dfe-8619-44e4-910a-617cdf90fd0c
@@ -12983,30 +12880,6 @@
     - !<own> 6b078b1c-99b5-4d40-81a0-46d9ea3bb1e3
   Components:
     []
-- !<ScriptComponent/e8ce51c3-d27d-4f97-972e-f73659a59283>
-  PrefabRemaps:
-    []
-  Name: DartboardAnimator
-  Enabled: true
-  ScriptAsset: !<reference> 270484d7-942c-44d8-a214-c68bed55b38b
-  ScriptInputsDefault:
-    numbersTex: true
-    debug: true
-    debugName: true
-    debugText: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      dartboardMat: !<reference.Material> f728fe9d-53ae-4192-be12-f3b4d2829bac
-      numbersTex: !<reference.Texture[]>
-        []
-      debug: false
-      debugName: Dartboard Animator
-      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/e9344e0a-57f1-4226-9a18-a84052078b1b>
   PrefabRemaps:
     []

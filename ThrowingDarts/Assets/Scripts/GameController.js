@@ -1,7 +1,6 @@
 //@input Component.ScriptComponent menuController
 //@input Component.ScriptComponent wallDetector
 //@input Component.ScriptComponent boardController
-//@input Component.ScriptComponent dartboardAnimator
 //@input Component.ScriptComponent promptController
 //@input Component.ScriptComponent holsterController
 //@input SceneObject board
@@ -111,12 +110,6 @@ function startGame(reset){
         
         script.promptController.skipPrompt();
         
-        if(global.gameMode == global.GameModes.AroundTheClock){
-            script.dartboardAnimator.setNumbers(1);
-        }else{
-            script.dartboardAnimator.setNumbers(0);
-        }
-        
         script.holsterController.destroyDarts();
         
         script.boardController.setPanel(global.gameMode, global.playersCount);
@@ -221,11 +214,12 @@ function checkWinHighScore(){
     script.promptController.setPlayerNumber(winner);
     script.promptController.setNumber(winnerScore);
     
-    script.promptController.showPrompt("win2", () => {
+    var winPrompt = script.promptController.showPrompt("win2", () => {
         debugPrint("Returning to Menu");
         script.show(false);
         script.menuController.openMenu(0);
     }, -1, false, true);
+    winPrompt.withParticles = true;
 }
 
 function checkWinATC(){

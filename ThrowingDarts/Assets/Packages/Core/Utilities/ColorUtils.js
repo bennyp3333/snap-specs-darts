@@ -62,9 +62,10 @@ function colorRandom(randomAlpha) {
     return new vec4(Math.random(), Math.random(), Math.random(), alpha);
 }
 
-function randomColorHue(brightness, saturation) {
+function randomColorHue(brightness, saturation, alpha) {
     var hue = Math.random();
-    return hsvToRgb(hue, saturation, brightness);
+    if(alpha == null){ alpha = 1.0 }
+    return hsvToRgb(new vec4(hue, saturation, brightness, alpha));
 }
 
 function hexToColorVec4(hex, alpha) {

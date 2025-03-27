@@ -17,7 +17,9 @@ var effectMultiplier = 0;
 var maxBrightness = 1;
 
 var totalLayers = 7;
-var totalSections = 20;
+var totalSegments = 20;
+
+var tweens = [];
 
 var layerNames = [
     "center1Color",
@@ -47,11 +49,11 @@ function init(){
 }
 
 function make2DArray(){
-    var newArray = Array(totalSections);
+    var newArray = Array(totalSegments);
     for(var i = 0; i < newArray.length; i++){
-        var sectionsCount = totalSections;
-        if(i < 2){ sectionsCount = 1 }
-        newArray[i] = Array(sectionsCount);
+        var segmentsCount = totalSegments;
+        if(i < 2){ segmentsCount = 1 }
+        newArray[i] = Array(segmentsCount);
         for(var j = 0; j < newArray[i].length; j++){
             newArray[i][j] = new vec4(0, 0, 0, 1);
         }
@@ -60,26 +62,26 @@ function make2DArray(){
 }
 
 script.setBaseColors = function(
-    lineColor, numbersColor, section1Color, section2Color, section3Color, section4Color){
+    lineColor, numbersColor, segment1Color, segment2Color, segment3Color, segment4Color){
     
     debugPrint("Setting base colors");
     for(var i = 0; i < baseColors.length; i++){
         for(var j = 0; j < baseColors[i].length; j++){
             if(i == 0){
-                baseColors[i][j] = section3Color;
+                baseColors[i][j] = segment3Color;
             }else if(i == 1){
-                baseColors[i][j] = section4Color;
+                baseColors[i][j] = segment4Color;
             }else if(i == 2 || i == 4){
                 if(j % 2 == 0){
-                    baseColors[i][j] = section1Color;
+                    baseColors[i][j] = segment1Color;
                 }else{
-                    baseColors[i][j] = section2Color;
+                    baseColors[i][j] = segment2Color;
                 }
             }else if(i == 3 || i == 5){
                 if(j % 2 == 0){
-                    baseColors[i][j] = section3Color;
+                    baseColors[i][j] = segment3Color;
                 }else{
-                    baseColors[i][j] = section4Color;
+                    baseColors[i][j] = segment4Color;
                 }
             }else{
                 baseColors[i][j] = numbersColor;
@@ -104,13 +106,15 @@ script.fan = function(loops, duration, callback){
     
     debugPrint("Starting fan animation");
     
-    var fadeInTween = new global.simpleTween(
+    stopTweens();
+    
+    tweens.push(new global.simpleTween(
         0, 1, 0.25, 0, (val) => {
             effectMultiplier = val;
         }, null
-    );
+    ));
 
-    var fanTween = new global.simpleTween(
+    tweens.push(new global.simpleTween(
         0, 20 * loops, duration, 0, (val) => {
             var wrappedVal = val % 20;
 
@@ -140,13 +144,13 @@ script.fan = function(loops, duration, callback){
             }
             updateColors();
         }, callback
-    );
+    ));
     
-    var fadeOutTween = new global.simpleTween(
+    tweens.push(new global.simpleTween(
         1, 0, 0.5, duration - 0.5, (val) => {
             effectMultiplier = val;
         }, null
-    );
+    ));
 }
 
 script.wave = function(loops, duration, color, callback){
@@ -158,13 +162,15 @@ script.wave = function(loops, duration, color, callback){
     
     debugPrint("Starting wave animation");
     
-    var fadeInTween = new global.simpleTween(
+    stopTweens();
+    
+    tweens.push(new global.simpleTween(
         0, 1, 0.25, 0, (val) => {
             effectMultiplier = val;
         }, null
-    );
+    ));
 
-    var fanTween = new global.simpleTween(
+    tweens.push(new global.simpleTween(
         0, 7 * loops, duration, 0, (val) => {
             var wrappedVal = val % 7;
 
@@ -192,57 +198,78 @@ script.wave = function(loops, duration, color, callback){
             }
             updateColors();
         }, callback
-    );
+    ));
     
-    var fadeOutTween = new global.simpleTween(
+    tweens.push(new global.simpleTween(
         1, 0, 0.5, duration - 0.5, (val) => {
             effectMultiplier = val;
         }, null
-    );
+    ));
 }
 
-script.hit = function(ring, section, callback){
-    var blinkCount = 6;
-    var blinkDuration = 2;
+script.hit = function(ring, segment, callback){
+    var blinkCount = 4;
+    var blinkDuration = 1;
     
-    maxBrightness = 3;
+    maxBrightness = 1.5;
+    
+    if(ring < 2){
+        segment = 0;
+    }
     
     debugPrint("Starting hit animation");
     
-    var fadeInTween = new global.simpleTween(
+    if(ring > 6){
+        if(callback){
+            callback();
+        }
+        return;
+    }
+    
+    stopTweens();
+    
+    tweens.push(new global.simpleTween(
         0, 1, 0.25, 0, (val) => {
             effectMultiplier = val;
         }, null
-    );
+    ));
     
-    var blinkTween = new global.simpleTween(
+    tweens.push(new global.simpleTween(
         0, blinkCount, blinkDuration, 0, (val) => {
             var intensity = 0.5 + 0.5 * Math.sin(val * Math.PI * 2);
-            addColors[ring][section] = new vec4(intensity, intensity, intensity, 1);
+            addColors[ring][segment] = new vec4(intensity, intensity, intensity, 1);
+            if(ring > 1){
+                addColors[6][segment] = new vec4(intensity, intensity, intensity, 1);
+            }
             updateColors();
         }, callback
-    );
+    ));
     
-    var fadeOutTween = new global.simpleTween(
+    tweens.push(new global.simpleTween(
         1, 0, 0.25, blinkDuration - 0.25, (val) => {
             effectMultiplier = val;
-        }, null
-    );
+        }, () => {
+             clearAddColors();
+        }
+    ));
 }
 
-script.target = function(section, callback){
-    var leadFadeDistance = 20 - section;       // Fade distance ahead of val
+script.target = function(segment, callback){
+    var leadFadeDistance = 20 - segment;       // Fade distance ahead of val
     var trailFadeDistance = 1;     // Fade distance behind val
     var intensityPower = 0.5;
-    
-    effectMultiplier = 1;
-    maxBrightness = 1;
-    var wrappedVal = section % 20;
+
+    var wrappedVal = segment % 20;
     
     var blinkCount = 3;
     var blinkDuration = 1;
-    
+
     debugPrint("Starting target animation");
+    
+    stopTweens();
+    
+    effectMultiplier = 1;
+    maxBrightness = 1;
     
     for (var i = 0; i < addColors.length; i++) {
         for (var j = 0; j < addColors[i].length; j++) {
@@ -272,12 +299,12 @@ script.target = function(section, callback){
             }
         }
     }
-
-    var blinkTween = new global.simpleTween(
+    
+    tweens.push(new global.simpleTween(
         0, blinkCount, blinkDuration, 0, (val) => {
             var intensity = 0.5 + 0.5 * Math.sin(val * Math.PI * 2);
             for (var i = 0; i < addColors.length; i++) {
-                addColors[i][section] = new vec4(intensity, intensity, intensity, 1);
+                addColors[i][segment] = new vec4(intensity, intensity, intensity, 1);
             }
             updateColors();
         }, () => {
@@ -314,7 +341,7 @@ script.target = function(section, callback){
                 callback();
             }
         }
-    );
+    ));
 }
 
 function updateColors(){
@@ -336,6 +363,14 @@ function updateColors(){
     mainPass.linesColor = linesColor;
 }
 
+function clearAddColors(){
+    for (var i = 0; i < addColors.length; i++) {
+        for (var j = 0; j < addColors[i].length; j++) {
+            addColors[i][j] = new vec4(0, 0, 0, 1);
+        }
+    }
+}
+
 function clampVec4(v, minVal, maxVal) {
   return new vec4(
     Math.max(minVal, Math.min(maxVal, v.x)),
@@ -351,7 +386,14 @@ function setColorBrightness(color, targetBrightness) {
     return global.utils.hsvToRgb(hsl, color.w);
 }
 
-script.createEvent("OnStartEvent").bind(init);
+function stopTweens(){
+    while(tweens.length > 0){
+        tweens.pop().enabled = false;
+    }
+    effectMultiplier = 0;
+}
+
+init();
 
 // Debug
 function debugPrint(text){

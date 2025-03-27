@@ -28,6 +28,7 @@
   ScriptInputsHidden:
     aroundTheClockContent: false
     boardPlane: false
+    dartboardAnimator: false
     debug: false
     debugName: false
     debugText: false
@@ -45,6 +46,7 @@
       highScoreContent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       aroundTheClockContent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       practiceContent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      dartboardAnimator: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

@@ -1,5 +1,6 @@
 //@input SceneObject root
 //@input SceneObject boardPlane
+//@input Component.ScriptComponent dartboardAnimator
 //@ui {"widget":"separator"}
 //@input SceneObject highScoreContent
 //@input SceneObject aroundTheClockContent
@@ -29,8 +30,10 @@ gameModeToContent[global.GameModes.HighScore] = script.highScoreContent;
 gameModeToContent[global.GameModes.AroundTheClock] = script.aroundTheClockContent;
 gameModeToContent[global.GameModes.Practice] = script.practiceContent;
 
-var segmentScores = [6, 13, 4, 18, 1, 20, 5, 12, 9, 14, 11, 8, 16, 7, 19, 3, 17, 2, 15, 10];
-var segmentScoresAlt = [6, 5, 4, 3, 2, 1, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7];
+//var segmentScores = [6, 13, 4, 18, 1, 20, 5, 12, 9, 14, 11, 8, 16, 7, 19, 3, 17, 2, 15, 10];
+//var segmentScoresAlt = [6, 5, 4, 3, 2, 1, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7];
+var segmentScores = [20, 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5]
+var segmentScoresAlt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
 var bullseyeInnerRadius = 1.71;
 var bullseyeOuterRadius = 3.29;
@@ -77,6 +80,35 @@ script.setPanel = function(mode, players){
     playersCount = players;
     gameMode = mode;
     panelContent = gameModeToContent[mode];
+    
+    if(gameMode == global.GameModes.HighScore){
+        script.dartboardAnimator.setNumbers(0);
+        script.dartboardAnimator.script.setBaseColors(
+            global.utils.hexToColorVec4("#7f7f7f"),
+            global.utils.hexToColorVec4("#646464"),
+            global.utils.hexToColorVec4("#967100"),
+            global.utils.hexToColorVec4("#000000"),
+            global.utils.hexToColorVec4("#ff0004"),
+            global.utils.hexToColorVec4("#008c09"));
+    }else if(gameMode == global.GameModes.AroundTheClock){
+        script.dartboardAnimator.setNumbers(1);
+        script.dartboardAnimator.script.setBaseColors(
+            global.utils.hexToColorVec4("#7f7f7f"),
+            global.utils.hexToColorVec4("#646464"),
+            global.utils.hexToColorVec4("#005493"),
+            global.utils.hexToColorVec4("#ff4043"),
+            global.utils.hexToColorVec4("#005493"),
+            global.utils.hexToColorVec4("#ff4043"));
+    }else if(gameMode == global.GameModes.Practice){
+        script.dartboardAnimator.setNumbers(0);
+        script.dartboardAnimator.script.setBaseColors(
+            global.utils.hexToColorVec4("#7f7f7f"),
+            global.utils.hexToColorVec4("#646464"),
+            global.utils.hexToColorVec4("#000000"),
+            global.utils.hexToColorVec4("#BF945F"),
+            global.utils.hexToColorVec4("#00448c"),
+            global.utils.hexToColorVec4("#ff0004"));
+    }
     
     script.highScoreContent.enabled = false;
     script.aroundTheClockContent.enabled = false;
@@ -146,24 +178,29 @@ script.setPlayer = function(playerIdx){
             }
         }
     }
+    if(gameMode == global.GameModes.AroundTheClock){
+        script.dartboardAnimator.target(global.playerScores[playerIdx] - 1, null);
+    }
 }
 
 script.addScore = function(dart, playerIdx){
     var dartTipPosition = dart.tipTransform.getWorldPosition();
     var dart2DPosition = getDartboard2DPosition(dartTipPosition);
-    var dartScore = getDartScore(dart2DPosition, gameMode == global.GameModes.AroundTheClock);
-    debugPrint("Hit score: " + dartScore);
+    var [ring, segment, score] = getDartScore(dart2DPosition, gameMode == global.GameModes.AroundTheClock);
+    debugPrint("Hit score: " + score);
     
     if(gameMode == global.GameModes.AroundTheClock){
-        if(global.playerScores[playerIdx] == dartScore){
+        if(global.playerScores[playerIdx] == score){
             global.playerScores[playerIdx] += 1;
+            script.dartboardAnimator.target(global.playerScores[playerIdx] - 1, null);
         }
     }else{
-        global.playerScores[playerIdx] += dartScore;
+        global.playerScores[playerIdx] += score;
+        script.dartboardAnimator.hit(ring, segment, null);
     }
     debugPrint("Player " + (playerIdx + 1) + " score set to " + global.playerScores[playerIdx]);
     
-    notifyHit(dartScore);
+    notifyHit(score);
     refreshPanelText();
 }
 
@@ -234,26 +271,45 @@ function getDartScore(pos, onlyBaseScore){
     var theta = Math.atan2(pos.y, pos.x);
     var thetaDeg = (theta * 180 / Math.PI + 360) % 360;
     
-    var adjustedThetaDeg = (thetaDeg + 9 + 360) % 360;
+    var adjustedThetaDeg = (-thetaDeg + 90 + 360 + 9) % 360;
     
-    var segmentIndex = Math.floor(adjustedThetaDeg / 18);
+    var segment = Math.floor(adjustedThetaDeg / 18);
     
-    var baseScore = segmentScores[segmentIndex];
+    var baseScore = segmentScores[segment];
     if(onlyBaseScore){
-        baseScore = segmentScoresAlt[segmentIndex];
-    }
-
-    if(onlyBaseScore){
-        if (r <= doubleRingOuter) return baseScore; 
-    }else{
-        if (r <= bullseyeInnerRadius) return 50; // Inner bullseye
-        if (r <= bullseyeOuterRadius) return 25; // Outer bullseye
-        if (r >= tripleRingInner && r <= tripleRingOuter) return baseScore * 3; // Triple ring
-        if (r >= doubleRingInner && r <= doubleRingOuter) return baseScore * 2; // Double ring
-        if (r <= doubleRingOuter) return baseScore; // Single
+        baseScore = segmentScoresAlt[segment];
     }
     
-    return 0; // Out of bounds
+    var score = 0;
+    var ring = 7;
+    
+    if (r <= bullseyeInnerRadius){ // Inner bullseye
+        score = 50;
+        ring = 0;
+    }else if (r <= bullseyeOuterRadius){ // Outer bullseye
+        score = 25;
+        ring = 1;
+    }else if(r <= tripleRingInner){
+        score = baseScore;
+        ring = 2;
+    }else if(r <= tripleRingOuter){
+        score = baseScore * 3;
+        ring = 3;
+    }else if(r <= doubleRingInner){
+        score = baseScore;
+        ring = 4;
+    }else if(r <= doubleRingOuter){
+        score = baseScore * 2; 
+        ring = 5;
+    }
+    
+    if(onlyBaseScore){
+        if (r <= doubleRingOuter){
+            score = baseScore;
+        }
+    }
+    
+    return [ring, segment, score];
 }
 
 function getDartboard2DPosition(dartPos){

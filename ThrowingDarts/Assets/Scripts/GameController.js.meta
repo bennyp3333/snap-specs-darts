@@ -28,7 +28,6 @@
   ScriptInputsHidden:
     board: false
     boardController: false
-    dartboardAnimator: false
     debug: false
     debugName: false
     debugText: false
