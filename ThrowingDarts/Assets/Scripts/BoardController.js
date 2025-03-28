@@ -30,8 +30,6 @@ gameModeToContent[global.GameModes.HighScore] = script.highScoreContent;
 gameModeToContent[global.GameModes.AroundTheClock] = script.aroundTheClockContent;
 gameModeToContent[global.GameModes.Practice] = script.practiceContent;
 
-//var segmentScores = [6, 13, 4, 18, 1, 20, 5, 12, 9, 14, 11, 8, 16, 7, 19, 3, 17, 2, 15, 10];
-//var segmentScoresAlt = [6, 5, 4, 3, 2, 1, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7];
 var segmentScores = [20, 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5]
 var segmentScoresAlt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
@@ -177,9 +175,13 @@ script.setPlayer = function(playerIdx){
                 playerTitleText.mainPass.baseColor = playerTitleInactiveColor;
             }
         }
-    }
-    if(gameMode == global.GameModes.AroundTheClock){
-        script.dartboardAnimator.target(global.playerScores[playerIdx] - 1, null);
+        
+        script.dartboardAnimator.fan(2, 1.5, () => {
+            script.dartboardAnimator.clearAddColors();
+            if(gameMode == global.GameModes.AroundTheClock){
+                script.dartboardAnimator.target(global.playerScores[playerIdx] - 1, null);
+            }
+        });
     }
 }
 
@@ -189,14 +191,24 @@ script.addScore = function(dart, playerIdx){
     var [ring, segment, score] = getDartScore(dart2DPosition, gameMode == global.GameModes.AroundTheClock);
     debugPrint("Hit score: " + score);
     
+    var bullseye = false;
+    if(ring < 2){
+        bullseye = true;
+        script.dartboardAnimator.wave(2, 1.5, null);
+    }
+    
     if(gameMode == global.GameModes.AroundTheClock){
         if(global.playerScores[playerIdx] == score){
             global.playerScores[playerIdx] += 1;
-            script.dartboardAnimator.target(global.playerScores[playerIdx] - 1, null);
+            if(!bullseye){
+                script.dartboardAnimator.target(global.playerScores[playerIdx] - 1, null);
+            }
         }
     }else{
         global.playerScores[playerIdx] += score;
-        script.dartboardAnimator.hit(ring, segment, null);
+        if(!bullseye){
+            script.dartboardAnimator.hit(ring, segment, null);
+        }
     }
     debugPrint("Player " + (playerIdx + 1) + " score set to " + global.playerScores[playerIdx]);
     

@@ -89,6 +89,8 @@ script.setBaseColors = function(
         }
     }
     linesColor = lineColor;
+    
+    script.clearAddColors();
     updateColors();
 }
 
@@ -153,7 +155,7 @@ script.fan = function(loops, duration, callback){
     ));
 }
 
-script.wave = function(loops, duration, color, callback){
+script.wave = function(loops, duration, callback){
     var leadFadeDistance = 0.5;       // Fade distance ahead of val
     var trailFadeDistance = 2;     // Fade distance behind val
     var intensityMultiplier = 1;
@@ -249,7 +251,7 @@ script.hit = function(ring, segment, callback){
         1, 0, 0.25, blinkDuration - 0.25, (val) => {
             effectMultiplier = val;
         }, () => {
-             clearAddColors();
+             script.clearAddColors();
         }
     ));
 }
@@ -363,7 +365,7 @@ function updateColors(){
     mainPass.linesColor = linesColor;
 }
 
-function clearAddColors(){
+script.clearAddColors = function(){
     for (var i = 0; i < addColors.length; i++) {
         for (var j = 0; j < addColors[i].length; j++) {
             addColors[i][j] = new vec4(0, 0, 0, 1);
