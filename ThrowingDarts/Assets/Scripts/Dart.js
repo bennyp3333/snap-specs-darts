@@ -1,5 +1,6 @@
 //@input Component.RenderMeshVisual dartMesh
 //@input SceneObject tip
+//@input Component.AudioComponent pickupAudioComp
 //@input Component.AudioComponent hitAudioComp
 //@input Component.AudioComponent bounceAudioComp
 //@input SceneObject light
@@ -33,6 +34,7 @@ var selfDestroy = false;
 
 var isHolding = false;
 var isFlying = false;
+var isStuck = false;
 var startedFlyingAt = -1;
 var accumulatedForce = vec3.zero();
 var prevHandVelocity = vec3.zero();
@@ -66,6 +68,7 @@ const WEIGHTS_LIFT_ASSIST = 0.125;
 var dartMaterial = null;
 
 function init(){
+    script.pickupAudioComp.playbackMode = Audio.PlaybackMode.LowLatency;
     script.hitAudioComp.playbackMode = Audio.PlaybackMode.LowLatency;
     script.bounceAudioComp.playbackMode = Audio.PlaybackMode.LowLatency;
     
@@ -101,6 +104,8 @@ function onGrab(event){
     
     self.setParent(null);
     script.light.enabled = false;
+    
+    script.pickupAudioComp.play(1);
     
     if(global.deviceInfoSystem.isEditor()){
         selfTransform.setWorldPosition(WorldCameraFinderProvider.getInstance().getWorldPosition());
@@ -173,6 +178,8 @@ function getHandVelocity(){
 function onCollisionEnter(event){
     debugPrint("Collission!");
     
+    if(isStuck){ return; }
+    
     collissionCount += 1;
     if(collissionCount > MAX_COLLIDES){
         reportHit();
@@ -218,6 +225,8 @@ function onCollisionEnter(event){
         script.light.enabled = true;
         
         script.hitAudioComp.play(1);
+        
+        isStuck = true;
         
         reportHit();
     }else{

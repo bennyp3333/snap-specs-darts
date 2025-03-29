@@ -32,7 +32,9 @@
     debugName: false
     debugText: false
     holsterController: false
+    mainAudioComp: false
     menuController: false
+    nextPlayerAudioComp: false
     promptController: false
     wallDetector: false
   ScriptTypesHidden:
@@ -49,6 +51,9 @@
       promptController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       dartboardController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       dartboardAnimator: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      mainAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      nextPlayerAudioTrack: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      nextPlayerAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

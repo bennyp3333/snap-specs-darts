@@ -28,10 +28,12 @@
   ScriptInputsHidden:
     aroundTheClockContent: false
     boardPlane: false
+    bullseyeAudioComp: false
     dartboardAnimator: false
     debug: false
     debugName: false
     debugText: false
+    dingAudioComp: false
     highScoreContent: false
     practiceContent: false
     root: false
@@ -47,6 +49,9 @@
       aroundTheClockContent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       practiceContent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       dartboardAnimator: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      dingAudioTrack: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      dingAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      bullseyeAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

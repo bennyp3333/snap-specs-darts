@@ -81,6 +81,23 @@
   MaxDistance: 100.000000
   EnableDirectivityEffect: true
   EnablePositionEffect: true
+- !<AudioComponent/6e580618-4515-4c88-b40f-0668a4c0a20d>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 845d52f8-aacc-4574-8e59-44107e63cd3f
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: true
+  EnablePositionEffect: true
 - !<Image/86f5172d-3688-4ea8-b6c0-335d951e2ea1>
   PrefabRemaps:
     []
@@ -183,7 +200,7 @@
     []
   Name: Audio
   Enabled: true
-  AudioTrack: !<reference> ca6b4a78-4a58-4784-9883-4aab156525c5
+  AudioTrack: !<reference> 28af61fc-ff4d-4660-b7ee-c34547ab2309
   EnableAutoplayLoop: false
   Volume: 1.000000
   EnableMixToSnap: false
@@ -264,6 +281,7 @@
     "":
       dartMesh: !<reference.RenderMeshVisual> 31d45e29-e7a6-4573-9915-31be436e1166
       tip: !<reference.SceneObject> 33ae9d42-ed0e-467d-ba15-99a7aadc7310
+      pickupAudioComp: !<reference.AudioComponent> 6e580618-4515-4c88-b40f-0668a4c0a20d
       hitAudioComp: !<reference.AudioComponent> b84b93d3-9b29-46ea-8627-19250ed01ae8
       bounceAudioComp: !<reference.AudioComponent> 4db9f6d8-f08a-4c15-89b9-620af96452f2
       light: !<reference.SceneObject> e257ecbd-20b3-472e-bba9-fc2f28b065b2
@@ -273,6 +291,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/c8eb8453-46ab-4f58-a263-ccda1108fbcd>
+  PrefabRemaps:
+    []
+  Name: PickupSound
+  Enabled: true
+  Layers: 2
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 6e580618-4515-4c88-b40f-0668a4c0a20d
 - !<SceneObject/e257ecbd-20b3-472e-bba9-fc2f28b065b2>
   PrefabRemaps:
     []
@@ -303,6 +336,7 @@
   Children:
     - !<own> 2b192f0c-3750-4929-b63a-82c17636d5d5
     - !<own> 33ae9d42-ed0e-467d-ba15-99a7aadc7310
+    - !<own> c8eb8453-46ab-4f58-a263-ccda1108fbcd
     - !<own> 8e81a2f9-ed6f-4f6c-82f0-e16a4bd99a53
     - !<own> f8faf500-7992-4292-9988-efdd94c98782
     - !<own> e257ecbd-20b3-472e-bba9-fc2f28b065b2

@@ -5,6 +5,9 @@
 //@input Component.ScriptComponent holsterController
 //@input SceneObject board
 //@ui {"widget":"separator"}
+//@input Component.AudioComponent mainAudioComp
+//@input Component.AudioComponent nextPlayerAudioComp
+//@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "GameController" {"showIf":"debug"}
 //@input Component.Text debugText {"showIf":"debug"}
@@ -36,6 +39,8 @@ playersSeenInstructions = 0;
 
 var boardPlaced = false;
 
+var volumeTweens = [];
+
 function init(){
     var openMenuDelay = script.createEvent("DelayedCallbackEvent");
     openMenuDelay.bind(() => {
@@ -62,6 +67,7 @@ function onMenuButton(){
     debugPrint("Opening Menu");
     script.show(false);
     script.menuController.openMenu(1);
+    fadeMainAudio(0.1);
 }
 
 function onRePlaceButton(){
@@ -84,6 +90,18 @@ function onMenuClosed(gameParams){
     }
 }
 
+function fadeMainAudio(volume){
+    while(volumeTweens.length > 0){
+        volumeTweens.pop().enabled = false;
+    }
+    var currentVolume = script.mainAudioComp.volume;
+    volumeTweens.push(new global.simpleTween(
+        currentVolume, volume, 0.5, 0, (val) => {
+            script.mainAudioComp.volume = val;
+        }, null
+    ));
+}
+
 function runPlacement(callback){
     debugPrint("Starting placement");
     script.show(false);
@@ -100,6 +118,8 @@ function runPlacement(callback){
 function startGame(reset){
     debugPrint("Starting Game");
     started = true;
+    
+    fadeMainAudio(0.25);
     
     if(reset){
         debugPrint("Resetting Game");
@@ -176,6 +196,7 @@ function nextPlayer(){
         }, -1, false, true);
         //nextPrompt.withParticles = true;
         showInstructions();
+        script.nextPlayerAudioComp.play(1);
     }
 }
 

@@ -6,6 +6,9 @@
 //@input SceneObject aroundTheClockContent
 //@input SceneObject practiceContent
 //@ui {"widget":"separator"}
+//@input Component.AudioComponent dingAudioComp
+//@input Component.AudioComponent bullseyeAudioComp
+//@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "BoardController" {"showIf":"debug"}
 //@input Component.Text debugText {"showIf":"debug"}
@@ -192,8 +195,9 @@ script.addScore = function(dart, playerIdx){
     debugPrint("Hit score: " + score);
     
     var bullseye = false;
-    if(ring < 2){
+    if(ring < 1){
         bullseye = true;
+        script.bullseyeAudioComp.play(1);
         script.dartboardAnimator.wave(2, 1.5, null);
     }
     
@@ -201,6 +205,7 @@ script.addScore = function(dart, playerIdx){
         if(global.playerScores[playerIdx] == score){
             global.playerScores[playerIdx] += 1;
             if(!bullseye){
+                script.dingAudioComp.play(1);
                 script.dartboardAnimator.target(global.playerScores[playerIdx] - 1, null);
             }
         }
