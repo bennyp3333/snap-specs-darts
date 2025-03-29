@@ -37,6 +37,7 @@
     nextPlayerAudioComp: false
     promptController: false
     wallDetector: false
+    winAudioComp: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -54,6 +55,7 @@
       mainAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       nextPlayerAudioTrack: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
       nextPlayerAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      winAudioComp: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

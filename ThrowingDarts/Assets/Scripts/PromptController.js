@@ -208,7 +208,7 @@ script.setNumber = function(idx){
     }
 }
 
-script.showPrompt = function(promptName, callback, timeout, override, canBeOverridden){
+script.showPrompt = function(promptName, callback, timeout, override, canBeOverridden, withParticles){
     debugPrint("Queuing prompt: " + promptName);
     
     var newPrompt = new prompt(promptName);
@@ -218,6 +218,7 @@ script.showPrompt = function(promptName, callback, timeout, override, canBeOverr
     newPrompt.timeout = timeout;
     newPrompt.override = override;
     newPrompt.canBeOverridden = canBeOverridden;
+    newPrompt.withParticles = withParticles;
     promptQueue.push(newPrompt);
     
     checkQueue();

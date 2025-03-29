@@ -7,6 +7,7 @@
 //@ui {"widget":"separator"}
 //@input Component.AudioComponent mainAudioComp
 //@input Component.AudioComponent nextPlayerAudioComp
+//@input Component.AudioComponent winAudioComp
 //@ui {"widget":"separator"}
 //@input bool debug
 //@input string debugName = "GameController" {"showIf":"debug"}
@@ -190,11 +191,11 @@ function nextPlayer(){
             onNextPlayer();
             return;
         }
-        script.promptController.showPrompt("next1", null, 3, false, true);
-        var nextPrompt = script.promptController.showPrompt("next3", () => {
+
+        script.promptController.showPrompt("next1", null, 3, false, true, false);
+        script.promptController.showPrompt("next3", () => {
             onNextPlayer();
-        }, -1, false, true);
-        //nextPrompt.withParticles = true;
+        }, -1, false, true, false);
         showInstructions();
         script.nextPlayerAudioComp.play(1);
     }
@@ -216,12 +217,12 @@ function showInstructions(){
         debugPrint("Showing instructions");
         playersSeenInstructions += 1;
         if(global.gameMode == global.GameModes.HighScore){
-            script.promptController.showPrompt("hisc1", null, 8, false, true);
-            script.promptController.showPrompt("hisc2", null, 8, false, true);
+            script.promptController.showPrompt("hisc1", null, 8, false, true, false);
+            script.promptController.showPrompt("hisc2", null, 8, false, true, false);
         }else if(global.gameMode == global.GameModes.AroundTheClock){
-            script.promptController.showPrompt("atcl", null, 8, false, true);
+            script.promptController.showPrompt("atcl", null, 8, false, true, false);
         }else{
-            script.promptController.showPrompt("pract", null, 8, false, true);
+            script.promptController.showPrompt("pract", null, 8, false, true, false);
         }
     }
 }
@@ -234,13 +235,12 @@ function checkWinHighScore(){
     
     script.promptController.setPlayerNumber(winner);
     script.promptController.setNumber(winnerScore);
-    
-    var winPrompt = script.promptController.showPrompt("win2", () => {
+    script.winAudioComp.play(1);
+    script.promptController.showPrompt("win2", () => {
         debugPrint("Returning to Menu");
         script.show(false);
         script.menuController.openMenu(0);
-    }, -1, false, true);
-    winPrompt.withParticles = true;
+    }, -1, false, true, true);
 }
 
 function checkWinATC(){
@@ -255,12 +255,12 @@ function checkWinATC(){
         started = false;
         script.promptController.setPlayerNumber(winner);
         script.promptController.setNumber(currentRound);
-        var winPrompt = script.promptController.showPrompt("win3", () => {
+        script.winAudioComp.play(1);
+        script.promptController.showPrompt("win3", () => {
             debugPrint("Returning to Menu");
             script.show(false);
             script.menuController.openMenu(0);
-        }, -1, false, true);
-        winPrompt.withParticles = true;
+        }, -1, false, true, true);
     }
 }
 

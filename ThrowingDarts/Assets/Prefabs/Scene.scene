@@ -7759,6 +7759,7 @@
       board: !<reference.SceneObject> 0987377d-de8a-4e97-a126-f6a38dae9d90
       mainAudioComp: !<reference.AudioComponent> 9678c9f5-3501-45be-866b-d233efb15764
       nextPlayerAudioComp: !<reference.AudioComponent> 384480d8-ccca-4b83-ac1c-30f150616c63
+      winAudioComp: !<reference.AudioComponent> cecdef4b-a76e-49e4-9510-35f899e8931d
       debug: true
       debugName: GameController
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
@@ -10720,6 +10721,7 @@
     []
   Components:
     - !<own> 59f96e45-f7fb-4b61-a983-dba4c5fa9c91
+    - !<own> e8510883-0b14-4885-80ec-c0cd80457585
 - !<RenderMeshVisual/b9665508-8983-43ca-b1d7-40eedd2f547f>
   PrefabRemaps:
     []
@@ -11643,6 +11645,7 @@
   Children:
     - !<own> 14310dcd-3402-41f9-86e8-cff5dab8248b
     - !<own> 52630308-d525-417e-9c69-2e5d77898af0
+    - !<own> e2c5482d-6b90-4b38-b425-33f3d6ad0ba6
   Components:
     []
 - !<SceneObject/cb7e51f8-5125-46b8-8830-03a89d03ecd7>
@@ -11926,6 +11929,23 @@
     - !<own> b2d002f5-2b50-4f66-8c0d-93d5dba56556
   Components:
     []
+- !<AudioComponent/cecdef4b-a76e-49e4-9510-35f899e8931d>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> cebe4929-ce4e-45a2-85d5-301c3f252934
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/ced68186-314e-4d25-a9ee-8952ff310e82>
   PrefabRemaps:
     []
@@ -12852,6 +12872,21 @@
   Components:
     - !<own> 773ce7bb-55b2-49c2-a369-2c610fab4111
     - !<own> 0725c004-b576-44f8-a022-18dd022c0d2f
+- !<SceneObject/e2c5482d-6b90-4b38-b425-33f3d6ad0ba6>
+  PrefabRemaps:
+    []
+  Name: Win Audio
+  Enabled: true
+  Layers: 2
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> cecdef4b-a76e-49e4-9510-35f899e8931d
 - !<Text3D/e32b09ad-203b-4e29-8d47-22a1adc79967>
   PrefabRemaps:
     []
@@ -13081,6 +13116,22 @@
     - !<own> 6b078b1c-99b5-4d40-81a0-46d9ea3bb1e3
   Components:
     []
+- !<ScriptComponent/e8510883-0b14-4885-80ec-c0cd80457585>
+  PrefabRemaps:
+    []
+  Name: LockWorldRot
+  Enabled: true
+  ScriptAsset: !<reference> c2a6eb46-7f74-434e-b635-84fea302ea0a
+  ScriptInputsDefault:
+    worldRot: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      worldRot: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/e9344e0a-57f1-4226-9a18-a84052078b1b>
   PrefabRemaps:
     []
