@@ -52,7 +52,10 @@ script.spawnDarts = function(playerIdx){
 script.destroyDarts = function(){
     debugPrint("Destroying Darts");
     while(global.darts.length > 0){
-        global.darts.pop().getComponents("Component.ScriptComponent")[3].safeDestroy();
+        var dartToDestroy = global.darts.pop();
+        if(!isNull(dartToDestroy)){
+            dartToDestroy.getComponents("Component.ScriptComponent")[3].safeDestroy();
+        }
     }
 }
 
@@ -79,7 +82,7 @@ function onUpdate(){
         var dartSpawnPoint = script.dartSpawnPoints[i];
         var dart = dartsInHolster[i];
         
-        if(dart){
+        if(!isNull(dart)){
             var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition();
             var dartPosition = dart.getTransform().getWorldPosition();
             
@@ -88,6 +91,8 @@ function onUpdate(){
                 debugPrint("Dart " + i + " picked up");
                 global.events.trigger("dartPickedUp");
             }
+        }else{
+            dartsInHolster[i] = null;
         }
     }
 }

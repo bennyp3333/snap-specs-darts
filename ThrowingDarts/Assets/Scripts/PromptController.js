@@ -137,8 +137,12 @@ function prompt(promptName, object){
         if(this.started && !this.stopped){
             if(promptQueue.length > 0){
                 this.hide(false, () => {
-                    if(this.callback){ this.callback(); }
-                    checkQueue();
+                    if(promptQueue.length > 0){
+                        if(this.callback){ this.callback(); }
+                        checkQueue();
+                    }else{
+                        this.hide(true, this.callback);
+                    }
                 });
             }else{
                 this.hide(true, this.callback);

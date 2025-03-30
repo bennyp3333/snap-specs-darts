@@ -347,7 +347,7 @@ script.target = function(segment, callback){
 }
 
 function updateColors(){
-    debugPrint("Updating colors");
+    //debugPrint("Updating colors");
     for(var i = 0; i < baseColors.length; i++){
         for(var j = 0; j < baseColors[i].length; j++){
             var baseBrightness = global.utils.rgbToHsv(baseColors[i][j]).z;
