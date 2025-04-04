@@ -18,7 +18,7 @@ const DISTANCE_OFFSET = 15;
 var dartsInHolster = [];
 var dartCounter = 0;
 
-global.darts = [];
+global.darts = Array(global.maxPlayers);
 
 var playerColors = [
     new vec4(0.502, 0.710, 1.000, 1.000),
@@ -30,6 +30,9 @@ var playerColors = [
 
 function init(){
     script.root.enabled = false;
+    for(var i = 0; i < global.darts.length; i++){
+        global.darts[i] = [];
+    }
     if(global.deviceInfoSystem.isEditor()){
         script.smoothFollow.posSmoothing = 10;
         script.smoothFollow.rotSmoothing = 10;
@@ -49,32 +52,39 @@ script.spawnDarts = function(playerIdx){
     }
 }
 
-script.destroyDarts = function(){
-    debugPrint("Destroying Darts");
-    while(global.darts.length > 0){
-        var dartToDestroy = global.darts.pop();
+script.destroyPlayerDarts = function(playerIdx){
+    debugPrint("Destroying player " + playerIdx + "'s darts");
+    while(global.darts[playerIdx].length > 0){
+        var dartToDestroy = global.darts[playerIdx].pop();
         if(!isNull(dartToDestroy)){
             dartToDestroy.getComponents("Component.ScriptComponent")[3].safeDestroy();
         }
     }
 }
 
-function spawnAtIndex(idx, playerColor){
-    debugPrint("Spawning Dart at index " + idx + " for player " + playerColor);
+script.destroyAllDarts = function(){
+    debugPrint("Destroying all darts");
+    for(var i = 0; i < global.darts.length; i++){
+        script.destroyPlayerDarts(i);
+    }
+}
+
+function spawnAtIndex(idx, playerIdx){
+    debugPrint("Spawning Dart at index " + idx + " for player " + playerIdx);
     var dartSpawnPoint = script.dartSpawnPoints[idx];
     var spawnPosition = dartSpawnPoint.getTransform().getWorldPosition().add(SPAWN_OFFSET);
     var newDart = script.dartPrefab.instantiate(script.dartContainer);
     newDart.getTransform().setWorldPosition(spawnPosition);
     var newDartScript = newDart.getComponents("Component.ScriptComponent")[3];
     newDartScript.dartIdx = dartCounter++;
-    var color = playerColors[playerColor];
+    var color = playerColors[playerIdx];
     if(global.gameMode == global.GameModes.Practice){
         newDartScript.setSelfDestroy(true);
         color = global.utils.randomColorHue(1, 0.5);
     }
     newDartScript.setColor(color);
     dartsInHolster[idx] = newDart;
-    global.darts.push(newDart);
+    global.darts[playerIdx].push(newDart);
 }
 
 function onUpdate(){

@@ -131,7 +131,7 @@ function startGame(reset){
         
         script.promptController.skipPrompt();
         
-        script.holsterController.destroyDarts();
+        script.holsterController.destroyAllDarts();
         
         script.boardController.setPanel(global.gameMode, global.playersCount);
         script.boardController.resetScore();
@@ -204,7 +204,8 @@ function nextPlayer(){
 function onNextPlayer(){
     debugPrint("Starting player " + currentPlayer + " turn");
     if(global.gameMode != global.GameModes.Practice){
-        script.holsterController.destroyDarts();
+        script.holsterController.destroyPlayerDarts(
+            (currentPlayer - 2 + global.playersCount) % global.playersCount);
         script.boardController.hideHitResults();
     }
     script.boardController.setPlayer(currentPlayer);
