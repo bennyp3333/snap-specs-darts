@@ -1,0 +1,63 @@
+- !<AssetImportMetadata/3e4661dc-763f-4011-88a1-33dc98f37c51>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 5edd84c5-956a-491d-aae3-2526a0a5fada
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 5edd84c5-956a-491d-aae3-2526a0a5fada
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  AssetDataMap:
+    JavaScriptAsset: !<own> d5256c27-2a3b-4a92-ba79-5af922585991
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    AssetLibraryId: 1xLhSGK09srQx3oaPY17jh
+- !<ScriptAssetData/d5256c27-2a3b-4a92-ba79-5af922585991>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 46b708aa-ac1d-4926-963f-69dfa853eb61
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    arrowAlpha: false
+    arrowMaterial: false
+    arrowSize: false
+    arrowTexture: false
+    debug: false
+    debugName: false
+    debugText: false
+    nClosest: false
+    pointerCamera: false
+    screenRegion: false
+    worldCamera: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - toObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      testObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      testImage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      directSprite: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      debug: false
+      debugName: Director
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      nClosest: 0
+      camera: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      arrowSprite: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      screenRegion: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      arrowTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      arrowAlpha: 0.500000
+      arrowSize: !<float> 2.000000
+      arrowMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      worldCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      pointerCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

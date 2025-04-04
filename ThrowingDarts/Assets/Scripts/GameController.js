@@ -40,6 +40,8 @@ playersSeenInstructions = 0;
 
 var boardPlaced = false;
 
+var holsterArrow = null;
+
 var volumeTweens = [];
 
 function init(){
@@ -50,6 +52,7 @@ function init(){
     openMenuDelay.reset(0.1);
     
     global.events.add("menuClosed", onMenuClosed);
+    global.events.add("dartPickedUp", onDartPickedUp);
     global.events.add("dartHit", onDartHit);
     
     global.events.add("menuButton", onMenuButton);
@@ -62,6 +65,7 @@ script.show = function(bool){
     script.holsterController.show(bool);
     script.boardController.show(bool);
     script.promptController.show(bool);
+    pointToHolster(bool);
 }
 
 function onMenuButton(){
@@ -116,6 +120,20 @@ function runPlacement(callback){
     });
 }
 
+function pointToHolster(onOff){
+    if(onOff){
+        if(!holsterArrow){
+            holsterArrow = global.Pointer.addArrow(
+            script.holsterController.getSceneObject().getChild(0).getChild(2));
+        }
+    }else{
+        if(holsterArrow){
+            global.Pointer.removeArrow(holsterArrow);
+            holsterArrow = null;
+        }
+    }
+}
+
 function startGame(reset){
     debugPrint("Starting Game");
     started = true;
@@ -147,6 +165,10 @@ function startGame(reset){
     }
 }
 
+function onDartPickedUp(){
+    pointToHolster(false);
+}
+
 function onDartHit(dartScript){
     debugPrint("Dart Hit!");
     currentDart += 1;
@@ -164,6 +186,8 @@ function onDartHit(dartScript){
         }else{
             nextPlayerDelay.reset(1);
         }
+    }else{
+        pointToHolster(true);
     }
 }
 
@@ -211,6 +235,7 @@ function onNextPlayer(){
     script.boardController.setPlayer(currentPlayer);
     script.holsterController.spawnDarts(currentPlayer);
     currentDart = 0;
+    pointToHolster(true);
 }
 
 function showInstructions(){
