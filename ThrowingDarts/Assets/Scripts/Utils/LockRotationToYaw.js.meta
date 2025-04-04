@@ -11,7 +11,7 @@
     JavaScriptAsset: !<own> 07decbef-76d8-43e3-a789-82dce8c6aeec
   DependentFiles:
     []
-  ImporterSettings: !<AssetImporterSettings/56074d7a-f888-4439-bf0e-722715a5e425>
+  ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<ScriptAssetData/07decbef-76d8-43e3-a789-82dce8c6aeec>
@@ -21,7 +21,7 @@
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: c718dd2b-a7c6-4767-8004-d20cc98e6082
   ExportUid: 00000000-0000-0000-0000-000000000000
   CurrentVisibility: Editable
   MaxVisibility: Editable
@@ -34,3 +34,4 @@
   ScriptTypes:
     -
       {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

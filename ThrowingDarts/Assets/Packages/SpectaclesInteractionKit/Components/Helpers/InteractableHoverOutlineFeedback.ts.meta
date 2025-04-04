@@ -1,5 +1,5 @@
 - !<AssetImportMetadata/17521185-8594-42ac-9484-e2ba173d24e0>
-  ImporterSettings: !<AssetImporterSettings/2fe15c02-b38b-4eee-8567-97120c01dfe1>
+  ImporterSettings: !<AssetImporterSettings>
     {}
   ImportedAssetIds:
     TypeScriptAsset: !<reference> 0c3ba454-e592-4d94-9a9a-0f911a5425a4
@@ -21,7 +21,7 @@
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: 0a0c76d2-7b4e-46b2-a451-76ccf77eecbf
   ExportUid: 00000000-0000-0000-0000-000000000000
   CurrentVisibility: Editable
   MaxVisibility: Editable
@@ -48,5 +48,6 @@
     - '// @input vec4 hoveringColor = "{1, 1, 0.04, 1}" {"hint":"This is the colour of the outline when hovered", "widget":"color"}'
     - '// @input vec4 activatingColor = "{1, 1, 1, 1}" {"hint":"This is the colour of the outline when pinched", "widget":"color"}'
     - '// @input float outlineWeight = 0.25 {"hint":"This is the thickness of the outline"}'
-    - '// @input Component.RenderMeshVisual[] meshVisuals {"hint":"These are the meshes that will be outlined on pinch/hover"}'
+    - '// @input Component.RenderMeshVisual[] meshVisuals = {} {"hint":"These are the meshes that will be outlined on pinch/hover"}'
   SvgIcon: ""
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

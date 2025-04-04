@@ -9,7 +9,7 @@
     TypeScriptAsset: !<own> 7b8260ab-3c6a-4b1c-aeba-f14114350b00
   DependentFiles:
     []
-  ImporterSettings: !<AssetImporterSettings/34a737f2-de3e-41af-911f-91d64539e537>
+  ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
   ExtraData:
@@ -25,7 +25,7 @@
   VersionMajor: 1
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: acafe51e-feb7-466e-ac1c-f86d71eaed99
   ExportUid: 00000000-0000-0000-0000-000000000000
   CurrentVisibility: Editable
   MaxVisibility: Editable
@@ -53,3 +53,4 @@
     - // @input SceneObject visualObj
     - // @input CircleAnimation animation
     - "// @input SceneObject[] altVisuals"
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

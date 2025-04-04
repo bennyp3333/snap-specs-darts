@@ -1385,6 +1385,7 @@
     - !<reference> 48db6b07-a795-434f-97de-f3751c9d39bf
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 1.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/1353e5b8-fa96-4236-9812-7fd080b04697>
@@ -2441,6 +2442,7 @@
     - !<reference> 8510350a-2a0c-49ab-a69f-b5ec8fb8f7dc
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<ColliderComponent/251e931a-6f0a-4d19-a00c-c3aeb2007974>
@@ -3387,6 +3389,7 @@
     - !<reference> 440ab7dd-b155-4a0e-9788-0fcdd1adb2b8
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 1.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<Text/37bc514a-04c2-4f76-a021-984c2d1b6fd9>
@@ -4174,6 +4177,7 @@
     - !<reference> f624c62c-0e3e-4fe9-bc4f-cb1b8d40904e
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/49dc508c-6de1-4fb4-b9b9-7ea65d44f1dd>
@@ -5971,6 +5975,7 @@
     - !<reference> f8009959-fbd7-4053-ac2d-f45569ec3767
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<ScriptComponent/6d9f4f89-7013-4700-9796-28356f72d6a8>
@@ -7114,6 +7119,7 @@
     - !<reference> 7e367a49-5b0f-49fe-be5c-32165d749dce
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<RenderMeshVisual/7b65bcf3-7ec1-4173-b7d8-2802b5928205>
@@ -8856,6 +8862,7 @@
     - !<reference> 95c194a1-e640-44a9-8725-c5936beead1d
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/9780c78b-dc93-45d7-b7b8-d725601b49e5>
@@ -10594,6 +10601,7 @@
     - !<reference> fe983577-1ebe-4fca-9afe-39332777f02b
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<RenderMeshVisual/b735394e-f889-4744-a330-2929e6a09252>
