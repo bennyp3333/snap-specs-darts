@@ -353,7 +353,9 @@ script.setSelfDestroy = function(bool){
 
 script.safeDestroy = function(){
     debugPrint("Destroying!");
-    physicsBody.onCollisionEnter.remove(collisionEventRegistration);
+    if(collisionEventRegistration){
+        physicsBody.onCollisionEnter.remove(collisionEventRegistration);
+    }
     self.destroy();
 }
 
