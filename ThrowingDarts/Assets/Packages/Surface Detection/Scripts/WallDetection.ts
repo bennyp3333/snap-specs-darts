@@ -35,7 +35,7 @@ export class WallDetection extends BaseScriptComponent {
     private readonly MOVE_DISTANCE_THRESHOLD = 5;
 
     // Distance in cm from camera to visual when no wall is hit
-    private readonly DEFAULT_SCREEN_DISTANCE = 200;
+    private readonly DEFAULT_SCREEN_DISTANCE = 250;
 
     private readonly SPEED = 10;
 
@@ -103,7 +103,8 @@ export class WallDetection extends BaseScriptComponent {
     }
 
     private setDefaultPosition() {
-        this.desiredPosition = this.camTrans.getWorldPosition().add(this.camTrans.forward.uniformScale(-this.DEFAULT_SCREEN_DISTANCE));
+        const cameraForward = new vec3(this.camTrans.forward.x, 0, this.camTrans.forward.z).normalize();
+        this.desiredPosition = this.camTrans.getWorldPosition().add(cameraForward.uniformScale(-this.DEFAULT_SCREEN_DISTANCE));
         this.desiredRotation = this.camTrans.getWorldRotation();
         this.visualTrans.setWorldPosition(this.desiredPosition);
         this.visualTrans.setWorldRotation(this.desiredRotation);
@@ -124,8 +125,9 @@ export class WallDetection extends BaseScriptComponent {
     }
 
     private onHitTestResult(hitTestResult) {
-        let foundPosition = vec3.zero();
-        let foundNormal = vec3.zero();
+        const cameraForward = new vec3(this.camTrans.forward.x, 0, this.camTrans.forward.z).normalize();
+        let foundPosition = this.camTrans.getWorldPosition().add(cameraForward.uniformScale(-this.DEFAULT_SCREEN_DISTANCE));
+        let foundNormal = cameraForward;
         if (hitTestResult != null) {
             foundPosition = hitTestResult.position;
             foundNormal = hitTestResult.normal;
@@ -137,9 +139,10 @@ export class WallDetection extends BaseScriptComponent {
         const currPosition = this.visualTrans.getWorldPosition();
         const currRotation = this.visualTrans.getWorldRotation();
 
-        this.desiredPosition = this.camTrans.getWorldPosition().add(this.camTrans.forward.uniformScale(-this.DEFAULT_SCREEN_DISTANCE));
+        const cameraForward = new vec3(this.camTrans.forward.x, 0, this.camTrans.forward.z).normalize();
+        this.desiredPosition = this.camTrans.getWorldPosition().add(cameraForward.uniformScale(-this.DEFAULT_SCREEN_DISTANCE));
         this.desiredRotation = this.camTrans.getWorldRotation();
-
+        
         //check if vertical plane is being tracked
         if (Math.abs(foundNormal.dot(vec3.up())) < 0.1) {
             //make calibration face camera
