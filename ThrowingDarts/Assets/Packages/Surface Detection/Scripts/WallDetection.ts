@@ -173,12 +173,11 @@ export class WallDetection extends BaseScriptComponent {
 
         this.animation.setLoadAmount(calibrationAmount);
 
-        if (calibrationAmount == 1) {
+        if (calibrationAmount > 0.999) {
             this.calibrationPosition = this.desiredPosition;
             //const rotOffset = quat.fromEulerVec(new vec3(Math.PI / 2, 0, 0));
             //this.calibrationRotation = this.desiredRotation.multiply(rotOffset);
             this.calibrationRotation = this.desiredRotation;
-            this.removeEvent(this.updateEvent);
         }
 
         //interpolate
@@ -190,6 +189,7 @@ export class WallDetection extends BaseScriptComponent {
         for(var i = 0; i < this.altVisuals.length; i++){
             this.altVisuals[i].enabled = false;
         }
+        this.removeEvent(this.updateEvent);
         this.hitTestSession?.stop();
         this.onWallFoundCallback?.(this.calibrationPosition, this.calibrationRotation);
     }
